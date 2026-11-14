@@ -29,8 +29,8 @@ window.EXHIBITS_DATA = {
    "last_contact": "Jul 21, 1969 (crew departed)",
    "location": "Tranquility Base, Mare Tranquillitatis",
    "creators": "Grumman Aircraft Engineering Corporation",
-   "summary": "The descent stages of the Lunar Modules were left on the Moon as launch pads: the upper stage flew back to the orbiting ship, while the lower stage stayed at the landing site for good.",
-   "fact": "Apollo descent stages remain at all six crewed landing sites.",
+   "summary": "The Apollo 11 Lunar Module Eagle had two stages. The ascent stage carried the astronauts back to orbit, while the descent stage stayed at the landing site for good, together with the EASEP science instruments.",
+   "fact": "The descent stage stayed at Tranquility Base. The ascent stage's final location is unknown; it is assumed to have crashed onto the Moon within one to four months.",
    "model": "models/apollo-lm.glb",
    "markers": [
     {
@@ -48,110 +48,159 @@ window.EXHIBITS_DATA = {
     "note": "The Moon is about 384,400 km away on average."
    },
    "story": [
-    "On July 20, 1969, the Lunar Module Eagle set down in the Sea of Tranquility, and Neil Armstrong and Buzz Aldrin became the first people to walk on the Moon. Michael Collins waited for them in orbit aboard the command ship.",
-    "The Lunar Module was built in two parts. The lower part, the descent stage, carried the landing engine, the legs and much of the supplies. When the astronauts were ready to leave, they fired the upper part, the ascent stage, from the top of the descent stage, which worked as a launch pad.",
-    "The ascent stage flew back to meet Collins and was later discarded. The descent stage was never meant to come home. It stayed at Tranquility Base, with its legs still standing, a plaque still attached and the astronauts' bootprints around it.",
-    "Descent stages like this one remain at all six crewed Apollo landing sites. Half a century later, cameras on the orbiting Lunar Reconnaissance Orbiter can still photograph them from above."
+    "The Apollo 11 Lunar Module, named \"Eagle\" (LM-5), was the spacecraft that carried the first two astronauts to the surface of the Moon. Apollo 11 launched on July 16, 1969, from Cape Canaveral, Florida, aboard a Saturn V rocket. After reaching the Moon, Eagle separated from the Command and Service Module. Michael Collins stayed aboard it in lunar orbit, while Neil Armstrong and Buzz Aldrin prepared to land.",
+    "On July 20, 1969, at 20:17:40 UT, Eagle landed in Mare Tranquillitatis, the Sea of Tranquility. Armstrong reported to mission control: \"Houston, Tranquility Base here — the Eagle has landed.\" On July 21, 1969, at 02:56:15 UT, he stepped onto the surface and said his famous words, \"That's one small step for man, one giant leap for mankind.\" In the United States it was still the evening of July 20 because of the time difference. Aldrin followed about 19 minutes later.",
+    "Outside, the astronauts collected about 21.55 kilograms of lunar rocks and soil, took photographs, set up scientific experiments, placed an American flag, unveiled a plaque commemorating the first human landing and spoke with President Richard Nixon by radio telephone. They travelled about 250 meters in total, and moved as far as about 100 meters from the Lunar Module. Their time outside lasted about 2 hours and 15 minutes.",
+    "The Lunar Module was built in two parts. The lower part, the Descent Stage, helped the spacecraft land and served as the launching platform. The upper part, the Ascent Stage, held the crew compartment and carried the astronauts back to orbit. After about 21 hours and 36 minutes on the surface, Eagle lifted off on July 21, 1969, and the Ascent Stage docked with Collins aboard the Command and Service Module at 21:34:00 UT.",
+    "The two stages had different endings. The Descent Stage stayed at the Apollo 11 landing site after the astronauts left, and it did not return to Earth. The Ascent Stage was separated from the Command and Service Module at 00:01:01 UT on July 22. Its exact final location is unknown, and NASA's source states that it is assumed to have crashed onto the lunar surface sometime within the following one to four months.",
+    "The astronauts also left the EASEP scientific instruments on the Moon. Today the landing site is an important historical location, and the Descent Stage and other equipment left there are physical reminders of the first human landing on the Moon."
    ],
    "details": [
     {
-     "title": "Two stages, two destinies",
-     "text": [
-      "The Lunar Module was designed to be used once. Everything needed for the descent and the stay on the surface was in the lower stage. Everything needed to get back into orbit was in the upper stage.",
-      "Leaving the lower stage behind kept the weight of the ascent small, which was essential: the engine only had to lift the crew cabin and the samples."
-     ]
-    },
-    {
-     "title": "The landing",
-     "text": [
-      "Landing was tense. Near the end of the descent the crew had to take manual control to avoid rough terrain, and they set the module down in the Sea of Tranquility.",
-      "The site is now called Tranquility Base."
-     ]
-    },
-    {
-     "title": "Seen from orbit",
-     "text": [
-      "Images from the Lunar Reconnaissance Orbiter show the descent stage as a small bright shape, with the paths of the astronauts' footsteps visible around it.",
-      "Nothing there changes quickly: the Moon has almost no weather to erase the marks."
-     ]
-    },
-    {
-     "title": "Why it matters",
-     "text": [
-      "The Apollo 11 descent stage is a monument on another world. It is also a reminder of how many pieces of equipment humanity has left behind on the Moon, and how carefully each of them was designed to do its single job."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "lro",
-   "name": "Lunar Reconnaissance Orbiter (LRO)",
-   "short": "Lunar Reconnaissance Orbiter",
-   "hall": "moon",
-   "agency": "NASA",
-   "years": "2009–present",
-   "status": "STILL ORBITING THE MOON",
-   "last_contact": "Ongoing",
-   "location": "Polar orbit around the Moon",
-   "creators": "NASA Goddard Space Flight Center (GSFC)",
-   "summary": "A NASA robotic spacecraft that has orbited the Moon since 2009 and maps its surface. Its data help plan future human and robotic missions.",
-   "fact": "Launched on June 18, 2009 on an Atlas V 401. It was planned to work for one year, but NASA has extended the mission many times.",
-   "model": "models/lro.glb",
-   "markers": [
-    {
-     "planet": "moon",
-     "lat": -86.0,
-     "lon": 0.0,
-     "label": "LRO · polar orbit"
-    }
-   ],
-   "signal": {
-    "place": "the Moon",
-    "minS": 1.2,
-    "maxS": 1.35,
-    "avgS": 1.28,
-    "note": "The Moon is about 384,400 km away on average."
-   },
-   "placeholder": true,
-   "story": [
-    "The Lunar Reconnaissance Orbiter, or LRO, is a NASA robotic spacecraft that has circled the Moon since 2009. Unlike most spacecraft in this museum, it is not silent: it is still working, mapping the surface from a low polar orbit.",
-    "LRO was launched on June 18, 2009, together with a second spacecraft, LCROSS, and reached lunar orbit a few days later. Its first job was to scout the Moon for future human and robotic missions. It was originally planned to work for one year, but NASA has extended the mission many times.",
-    "Its instruments measure the shape of the surface, take very sharp pictures, search for water ice in dark polar craters and measure radiation. Its data are described as essential for planning NASA's future missions.",
-    "LRO also looks at old landing sites. Its camera has photographed the Apollo hardware that was left behind, including the descent stages of the Lunar Modules, so the orbiter keeps watch over the very places in this hall."
-   ],
-   "details": [
-    {
-     "title": "Mission facts",
+     "title": "Facts at a glance",
      "list": [
-      "Operator: NASA, managed by the Goddard Space Flight Center",
-      "Launch: June 18, 2009, on an Atlas V 401 from Cape Canaveral",
-      "Launch mass: 1,916 kg (4,224 lb); dry mass: 1,018 kg (2,244 lb)",
-      "Orbit: low, eccentric polar mapping orbit around the Moon"
+      "Name: Apollo 11 Lunar Module \"Eagle\"",
+      "Spacecraft number: LM-5",
+      "Mission: Apollo 11",
+      "Launch date: July 16, 1969",
+      "Landing date: July 20, 1969",
+      "Landing location: Mare Tranquillitatis (Sea of Tranquility), Moon",
+      "Crew: Neil Armstrong and Buzz Aldrin",
+      "Third astronaut: Michael Collins, who remained in lunar orbit aboard the Command and Service Module",
+      "Mass: approximately 15,103 kilograms, including fuel and other propellants"
      ]
     },
     {
-     "title": "The instruments",
+     "title": "General information",
      "text": [
-      "LRO carries several instruments, among them:"
+      "The Lunar Module was part of NASA's Apollo 11 mission, which made history in July 1969. It carried two astronauts, Neil Armstrong and Edwin \"Buzz\" Aldrin, who became the first humans to walk on the Moon.",
+      "The spacecraft also carried scientific equipment called EASEP (Early Apollo Scientific Experiments Package). The astronauts placed this equipment on the lunar surface so it could collect scientific information after they left."
+     ]
+    },
+    {
+     "title": "The first humans on the Moon",
+     "text": [
+      "During their time outside the Lunar Module, the astronauts:"
      ],
      "list": [
-      "LOLA, the Lunar Orbiter Laser Altimeter, which builds a precise topographic model of the Moon",
-      "LROC, the Lunar Reconnaissance Orbiter Camera, which takes high-resolution pictures",
-      "LAMP, a Lyman-Alpha Mapping Project instrument that studies the Moon in ultraviolet light",
-      "LEND, the Lunar Exploration Neutron Detector, which looks for hydrogen that may be water ice",
-      "Mini-RF, a miniature radio-frequency radar"
+      "Collected lunar rocks and soil.",
+      "Took photographs of the lunar surface.",
+      "Set up scientific experiments.",
+      "Placed an American flag on the Moon.",
+      "Unveiled a plaque commemorating the first human landing.",
+      "Spoke with U.S. President Richard Nixon by radio telephone."
+     ],
+     "after": "The astronauts collected approximately 21.55 kilograms of lunar rocks and soil. They travelled a total distance of about 250 meters on the lunar surface, and both moved as far as approximately 100 meters away from the Lunar Module. After completing their activities, they returned to Eagle. Their time outside the spacecraft lasted approximately 2 hours and 15 minutes."
+    },
+    {
+     "title": "How was the Lunar Module designed?",
+     "text": [
+      "The Lunar Module was a special spacecraft designed to land on the Moon and return astronauts to the spacecraft waiting in lunar orbit. It had two main parts, called stages: the Descent Stage and the Ascent Stage. These two stages worked together during the landing and surface operations, but they had different jobs."
      ]
     },
     {
-     "title": "An orbiter that is not abandoned",
+     "title": "1. The Descent Stage",
      "text": [
-      "LRO is the exception in this hall. It has not been left behind: it is still in orbit and still sending data, which is why it is shown here as a living neighbour of the abandoned sites on the surface."
+      "The Descent Stage was the lower part of the Lunar Module. Its main job was to help the spacecraft land safely on the Moon. It had an octagonal shape and was approximately 4.2 meters wide and 1.7 meters thick. The stage included:"
+     ],
+     "list": [
+      "Four landing legs with round footpads.",
+      "A descent rocket engine.",
+      "Fuel and oxidizer tanks.",
+      "Water and oxygen tanks.",
+      "Storage space for scientific equipment and other supplies.",
+      "A small platform and ladder that allowed astronauts to reach the lunar surface."
+     ],
+     "after": "The distance between the footpads of opposite landing legs was approximately 9.4 meters. The Descent Stage also served as a launching platform for the Ascent Stage. Important: the Descent Stage remained on the Moon after the astronauts left. It did not return to Earth."
+    },
+    {
+     "title": "2. The Ascent Stage",
+     "text": [
+      "The Ascent Stage was the upper part of the Lunar Module. It contained the astronauts' living and working area. Its main purpose was to take Armstrong and Aldrin from the Moon back to the Command and Service Module in lunar orbit. The stage was approximately 2.8 meters high and 4.0 by 4.3 meters wide. It included:"
+     ],
+     "list": [
+      "A pressurized crew compartment.",
+      "An entrance and exit hatch.",
+      "A docking hatch for connecting to the CSM.",
+      "Windows for observing the surroundings.",
+      "Control panels and navigation equipment.",
+      "Communication antennas.",
+      "An ascent rocket engine."
+     ],
+     "after": "The crew compartment had a volume of approximately 6.65 cubic meters. Interestingly, there were no seats inside the Lunar Module. The astronauts operated the spacecraft while standing. After the astronauts finished their work on the Moon, the Ascent Stage lifted off from the Descent Stage and carried them back into lunar orbit."
+    },
+    {
+     "title": "How did the Lunar Module work?",
+     "text": [
+      "The Lunar Module used rocket engines to control its movement and land on the Moon. Its two main engines had different purposes:"
+     ],
+     "list": [
+      "Descent Engine: helped the spacecraft slow down and land on the lunar surface. Its maximum thrust was approximately 45,000 newtons.",
+      "Ascent Engine: lifted the astronauts from the Moon and helped them return to the CSM. Its thrust was approximately 15,000 newtons."
+     ],
+     "after": "The spacecraft also had a Reaction Control System, which used smaller rocket engines to control its direction and movement. Communication with Earth and the orbiting spacecraft was supported by radio antennas. The Lunar Module also had an environmental control system that supplied oxygen and controlled the temperature inside the cabin. Six silver-zinc batteries provided electrical power. For navigation, it used radar, gyroscopes, accelerometers, and the Apollo Guidance Computer."
+    },
+    {
+     "title": "EASEP: the scientific equipment left on the Moon",
+     "text": [
+      "EASEP stands for Early Apollo Scientific Experiments Package. It was a group of scientific instruments that Armstrong and Aldrin placed on the Moon during their mission. Its purpose was to collect information about the Moon and send scientific data back to Earth. EASEP was an early version of the larger scientific experiment packages used during later Apollo missions. The package had a total mass of approximately 48 kilograms. It included several important instruments:"
+     ],
+     "list": [
+      "Passive Seismometer: designed to measure seismic activity on the Moon. In simple words, it helped scientists study movements and vibrations inside the Moon. This information could help researchers understand the Moon's structure and interior.",
+      "Lunar Dust Detector: measured the accumulation of lunar dust and radiation damage to the solar cells. It helped scientists understand how the lunar environment affected equipment left on the surface.",
+      "Solar Panels: EASEP used two solar panels to collect energy from sunlight. The equipment could operate only during the lunar day because it depended on solar power.",
+      "Communication System: an antenna and communication system allowed EASEP to send scientific data to Earth and receive commands from ground stations.",
+      "Laser Ranging Retroreflector (LRRR): also considered part of the EASEP experiment package, although it was not physically attached to the main unit and did not require electrical power. It was placed approximately 5 meters north-northwest of EASEP. It was designed to reflect laser light sent from Earth, which allowed scientists to measure the distance between Earth and the Moon very accurately."
      ]
     },
     {
-     "title": "This model",
+     "title": "Where was EASEP placed?",
      "text": [
-      "The 3D model of LRO is still in development. The shape you see is a temporary placeholder."
+      "The astronauts placed EASEP approximately 17 meters south of the Lunar Module. Its recorded coordinates were latitude 0.6735° N and longitude 23.4730° E.",
+      "The equipment was switched on by a command from Earth at 04:40:39 UT on July 21, 1969, while Armstrong and Aldrin were still on the lunar surface. It continued sending information to Earth until August 3, 1969, when its power began to decrease near lunar sunset. The equipment worked despite reaching temperatures approximately 30°C above its planned maximum operating temperature.",
+      "It was switched on again during the next lunar day. However, on August 27, 1969, it stopped accepting commands from Earth, and the experiment was ended."
+     ]
+    },
+    {
+     "title": "What happened to the Lunar Module?",
+     "text": [
+      "This is an important part of the Apollo 11 story because the Lunar Module had two separate stages. After spending approximately 21 hours and 36 minutes on the lunar surface, Eagle lifted off on July 21, 1969. The Ascent Stage carried Armstrong and Aldrin back into lunar orbit, where they met Michael Collins aboard the Command and Service Module. They docked at 21:34:00 UT.",
+      "After the astronauts transferred back to the CSM, the remaining Ascent Stage was separated from it at 00:01:01 UT on July 22. The exact final location of the Ascent Stage is unknown. The NASA source states that it is assumed to have crashed onto the lunar surface sometime within the following one to four months.",
+      "So, what actually remained on the Moon? There are two different parts to remember:"
+     ],
+     "list": [
+      "Descent Stage: stayed at the Apollo 11 landing site after the astronauts left.",
+      "Ascent Stage: carried the astronauts back to the CSM and was later separated from it in lunar orbit."
+     ],
+     "after": "This distinction is important because the two stages had different purposes and different endings. The EASEP scientific instruments were also left on the lunar surface."
+    },
+    {
+     "title": "Why is Apollo 11 important?",
+     "text": [
+      "Apollo 11 was one of the most important missions in the history of space exploration. It proved that humans could travel to the Moon, land there, work on its surface, and return safely.",
+      "The Lunar Module made this achievement possible by providing a vehicle designed specifically for landing on the Moon and launching astronauts back into lunar orbit. The scientific equipment left behind also helped researchers study the Moon after the astronauts had returned home.",
+      "Today, the Apollo 11 landing site is an important historical location. The Descent Stage and other equipment left there are physical reminders of the first human landing on the Moon. Apollo 11 was not only a successful space mission. It was a major step forward in human exploration beyond Earth."
+     ]
+    },
+    {
+     "title": "Additional facts",
+     "list": [
+      "The Lunar Module was also known as LM-5 and Eagle.",
+      "The landing site was in Mare Tranquillitatis, or the Sea of Tranquility.",
+      "The spacecraft had two stages with different purposes.",
+      "The astronauts collected 21.55 kilograms of lunar material.",
+      "EASEP had a total mass of 48 kilograms.",
+      "Armstrong and Aldrin travelled approximately 250 meters during their surface activities.",
+      "Michael Collins remained in lunar orbit while the other two astronauts explored the surface."
+     ]
+    },
+    {
+     "title": "NASA source",
+     "text": [
+      "The information is based on NASA's National Space Science Data Center (NSSDC) entry for Apollo 11 Lunar Module / EASEP."
+     ],
+     "list": [
+      "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-059C"
      ]
     }
    ]
@@ -232,7 +281,7 @@ window.EXHIBITS_DATA = {
    "location": "Gusev Crater / Meridiani Planum",
    "creators": "NASA Jet Propulsion Laboratory (JPL)",
    "summary": "Two twin rovers landed on Mars in January 2004. They were planned for a few months of work and kept driving for years.",
-   "fact": "Spirit landed on Jan 4 and Opportunity on Jan 25, 2004. Opportunity lost contact during a global dust storm.",
+   "fact": "Spirit landed on Jan 3 and Opportunity on Jan 24, 2004 (Jan 4 and Jan 25 in UTC). Opportunity lost contact during a global dust storm.",
    "model": "models/mer.glb",
    "markers": [
     {
@@ -256,37 +305,239 @@ window.EXHIBITS_DATA = {
     "note": "Depending on where Earth and Mars are in their orbits, a signal takes from about 3 to about 22 minutes."
    },
    "story": [
-    "In January 2004 two identical NASA rovers, Spirit and Opportunity, landed on opposite sides of Mars. Spirit landed on January 4 in Gusev Crater and Opportunity on January 25 on Meridiani Planum. Their mission was planned to last about three months.",
-    "They kept driving far longer. Spirit worked for years, until it got stuck in soft sand, and NASA lost contact with it in March 2010. Opportunity worked for more than fourteen years, and drove a distance greater than a marathon.",
-    "Both rovers found strong evidence that liquid water once shaped the surface of Mars. Opportunity found small mineral spheres and other signs of water, and Spirit found deposits that formed in the presence of hot water.",
-    "In June 2018 a global dust storm covered the sky above Opportunity, its solar panels stopped producing power and contact was lost. NASA kept trying to reach it, and declared the mission complete in February 2019."
+    "Spirit and Opportunity were two almost identical robotic rovers built by NASA to explore Mars as part of the Mars Exploration Rover (MER) mission. Their main goal was to study rocks and soil and to look for evidence that liquid water once existed on the planet, so that scientists could understand what ancient Mars was like and whether it could have supported life billions of years ago.",
+    "Spirit was launched on June 10, 2003, and Opportunity followed on July 7. After about six months in space, each rover reached Mars inside its own spacecraft, slowed by a parachute and wrapped in airbags. Spirit landed on January 3, 2004, in Gusev Crater, where scientists thought a lake might once have existed. Opportunity landed on January 24, 2004, in Eagle Crater on Meridiani Planum, a region where orbiters had seen the mineral hematite, which on Earth can form in the presence of water.",
+    "Each rover was planned to work for 90 Martian days. Spirit worked for more than six years and discovered bright, silica-rich soil at a place called Home Plate. On Earth, such material forms around hot springs, so it suggested that Mars once had hot-spring environments. In 2009 Spirit became stuck in soft soil. NASA lost contact with it after March 22, 2010, and ended its recovery efforts on May 25, 2011, after it had travelled about 7.7 kilometers.",
+    "Opportunity worked for almost 15 years. It found small round hematite formations nicknamed \"blueberries,\" the first meteorite ever found on another planet (Heat Shield Rock), and it studied craters such as Endurance, Victoria and Endeavour. In 2015 it became the first human-made vehicle to travel a marathon distance, 42.195 kilometers, on another world. By the end it had travelled about 45.16 kilometers.",
+    "In 2018 a massive dust storm covered a large part of Mars and blocked the sunlight that Opportunity's solar panels needed. Its last communication came on June 10, 2018, from Perseverance Valley, where it had just taken its final panorama. After many unsuccessful attempts to contact it, NASA declared the mission complete on February 13, 2019.",
+    "Together the two rovers showed that ancient Mars was not always the cold and dry planet we see today. It once had different environments involving water, including lakes, wet ground and possible hot springs. Their discoveries helped scientists plan later missions, including Curiosity and Perseverance."
    ],
    "details": [
     {
      "title": "Facts at a glance",
      "list": [
-      "Agency: NASA Jet Propulsion Laboratory (JPL)",
-      "Landing: Spirit, Jan 4, 2004 (Gusev Crater); Opportunity, Jan 25, 2004 (Meridiani Planum)",
-      "Planned duration: about 90 Martian days",
-      "Last contact: Spirit, March 22, 2010; Opportunity, June 10, 2018"
+      "Mission name: Mars Exploration Rover (MER)",
+      "Rovers: Spirit (MER-A) and Opportunity (MER-B)",
+      "Type: Robotic Mars rovers",
+      "Destination: Mars",
+      "Main objective: Search for evidence of ancient water",
+      "Launch period: June and July 2003",
+      "Landing period: January 2004",
+      "Original mission lifetime: 90 Martian days for each rover",
+      "Management: NASA and the Jet Propulsion Laboratory (JPL)"
      ]
     },
     {
-     "title": "Why two rovers?",
+     "title": "Why did NASA send two rovers?",
      "text": [
-      "Building twins doubled the chance of success and let scientists study two very different places on Mars. The two sites were chosen because they looked as if water could have been there."
+      "NASA wanted to study two different regions of Mars at the same time. Spirit and Opportunity were sent to opposite sides of the planet because scientists believed that both locations might have been affected by liquid water in the past.",
+      "Each rover had the same main scientific instruments, but they explored different environments and made different discoveries."
      ]
     },
     {
-     "title": "The dust storm",
+     "title": "The journey to Mars",
      "text": [
-      "Opportunity relied on sunlight to charge its batteries. In 2018 the dust storm blocked the light for weeks, and the rover did not wake up again."
+      "The two rovers travelled to Mars aboard separate spacecraft. Spirit was launched on June 10, 2003, from Cape Canaveral, Florida, aboard a Delta II rocket. Opportunity followed on July 7, 2003, using another Delta II rocket. Both spacecraft travelled for approximately six months before reaching Mars.",
+      "The rovers used a special landing system to reach the surface safely. First, a parachute slowed their descent through the Martian atmosphere. Then, large airbags inflated around the lander to protect it during landing.",
+      "After hitting the ground, the landers bounced several times before stopping. The airbags then deflated, allowing the rovers to open their landing platforms and begin exploring."
      ]
     },
     {
-     "title": "Legacy",
+     "title": "Spirit: the first rover",
      "text": [
-      "The two rovers changed the picture of Mars from a dry, dead world to a planet with a wet past, and they paved the way for later rovers such as Curiosity and Perseverance."
+      "Spirit was the first of the two rovers to reach Mars. It landed on January 3, 2004, inside Gusev Crater. Scientists selected this location because they believed it might have once contained a lake. Its landing site was named Columbia Memorial Station in memory of the seven astronauts who died in the Space Shuttle Columbia accident in 2003."
+     ],
+     "list": [
+      "Mission designation: MER-A",
+      "Launch date: June 10, 2003",
+      "Landing date: January 3, 2004",
+      "Landing location: Gusev Crater",
+      "Mass of rover: approximately 185 kilograms",
+      "Original mission duration: 90 Martian days",
+      "Last communication: March 22, 2010",
+      "Mission officially ended: May 25, 2011",
+      "Total distance travelled: approximately 7.7 kilometers"
+     ]
+    },
+    {
+     "title": "What did Spirit discover?",
+     "text": [
+      "Spirit found strong evidence that ancient Mars was much wetter than it is today. One of its most important discoveries happened at a location called Home Plate. In 2007, Spirit's damaged front wheel dragged across the soil and uncovered bright material containing a very high amount of silica. Silica is a mineral commonly found in places such as hot springs and steam vents on Earth. This discovery suggested that water and possibly hot springs had existed in that area of Mars long ago.",
+      "Featured museum exhibit, Home Plate and silica-rich soil. What visitors can see: photographs of the bright soil uncovered by Spirit near Home Plate. Why it matters: the material contained a high amount of silica. On Earth, similar deposits can form around hot springs. This discovery provided evidence that ancient Mars may once have had hydrothermal environments.",
+      "Spirit also discovered rocks at a location called Comanche. These rocks contained large amounts of magnesium and iron carbonates. These minerals suggested that this area once had a warmer and wetter environment, with water that was less acidic than water found in some other locations explored by the rovers."
+     ]
+    },
+    {
+     "title": "Problems and the end of Spirit's mission",
+     "text": [
+      "In 2005, winds and dust devils sometimes cleaned dust from Spirit's solar panels. This allowed the rover to receive more sunlight and produce more electricity. However, the rover later experienced mechanical problems.",
+      "On May 1, 2009, Spirit became stuck in soft Martian soil. Its wheels could no longer get enough grip to move forward. One of its wheels had already stopped working, and another wheel later experienced a failure. NASA engineers tried many different ways to free the rover, but these attempts were unsuccessful.",
+      "In 2010, NASA changed Spirit's role. Instead of continuing to drive, it was planned to work as a stationary science platform. However, NASA stopped receiving signals from Spirit after March 22, 2010. Engineers continued trying to contact it, but they received no response. On May 25, 2011, NASA officially ended recovery efforts and declared the mission complete.",
+      "Spirit travelled approximately 7.7 kilometers and operated for more than six years. This was far beyond its original planned lifetime."
+     ]
+    },
+    {
+     "title": "Opportunity: the long-distance explorer",
+     "text": [
+      "Opportunity was Spirit's twin rover. It had almost the same design and scientific equipment, but it explored a completely different region of Mars. It landed on January 24, 2004, in a region called Meridiani Planum, inside a small impact crater known as Eagle Crater.",
+      "Scientists selected this area because observations from orbit showed signs of a mineral called hematite. On Earth, this mineral can form in environments involving water. Opportunity's landing site was later named Challenger Memorial Station, in memory of the Space Shuttle Challenger crew."
+     ],
+     "list": [
+      "Mission designation: MER-B",
+      "Launch date: July 7, 2003",
+      "Landing date: January 24, 2004",
+      "Landing location: Meridiani Planum",
+      "Mass of rover: approximately 185 kilograms",
+      "Original mission duration: 90 Martian days",
+      "Last communication: June 10, 2018",
+      "Mission officially ended: February 13, 2019",
+      "Total distance travelled: approximately 45.16 kilometers"
+     ]
+    },
+    {
+     "title": "What did Opportunity discover?",
+     "text": [
+      "One of Opportunity's most famous discoveries was the presence of small, round mineral formations on the Martian surface. These formations were made of a mineral called hematite and were nicknamed \"blueberries\" because of their round shape. Scientists studied them and found evidence that they had formed in an environment where water was present.",
+      "However, the water in this region was acidic. This means that although water existed there, the conditions may have been difficult for some forms of life.",
+      "Featured museum exhibit, Martian blueberries. What visitors can see: close-up photographs of the small, round hematite formations found by Opportunity. Why it matters: these formations provided evidence that liquid water had affected the rocks and soil in this region of Mars. Their shape and mineral composition helped scientists study the planet's ancient environment.",
+      "Opportunity also studied several large impact craters, including Eagle Crater, Endurance Crater, Victoria Crater, and Endeavour Crater. By examining the layers of rock and soil, it helped scientists understand how water, wind, and other geological processes had changed the Martian surface over time."
+     ]
+    },
+    {
+     "title": "Heat Shield Rock: a meteorite on Mars",
+     "text": [
+      "In January 2005, Opportunity discovered an unusual rock near its discarded heat shield. The rock was named Heat Shield Rock. Scientists examined it and found that it was an iron-nickel meteorite that had fallen onto the surface of Mars.",
+      "Featured museum exhibit, Heat Shield Rock. What visitors can see: images of Heat Shield Rock taken by Opportunity. Why it matters: it was the first meteorite discovered on another planet. Its composition showed that rocks from space can be found on the Martian surface.",
+      "Opportunity also studied a rock called Marquette Island, which appeared to have come from deep inside the Martian crust."
+     ]
+    },
+    {
+     "title": "Opportunity's long journey",
+     "text": [
+      "Opportunity travelled much farther than NASA originally expected. Its journey included several important locations:"
+     ],
+     "list": [
+      "Eagle Crater: its landing area, where it began studying Martian rocks and soil.",
+      "Endurance Crater: one of its early major exploration targets.",
+      "Victoria Crater: a large crater that the rover reached in September 2006.",
+      "Endeavour Crater: a much larger crater that Opportunity reached in August 2011.",
+      "Perseverance Valley: the region where the rover spent its final months."
+     ],
+     "after": "In 2005, Opportunity became stuck in soft sand. Several of its wheels were buried, but NASA engineers managed to free it after approximately six weeks of careful work. The rover also survived major dust storms in 2007. These storms reduced the amount of sunlight reaching its solar panels, making it difficult to generate enough electricity. In 2015, Opportunity became the first human-made vehicle to travel a marathon distance on another world: 42.195 kilometers. By the end of its mission, it had travelled approximately 45.16 kilometers."
+    },
+    {
+     "title": "Opportunity's final panorama",
+     "text": [
+      "Before Opportunity stopped communicating with Earth, it took a large panoramic series of photographs from its location in Perseverance Valley. The images were taken between May 13 and June 10, 2018. They were later combined into a wide view of the surrounding Martian landscape.",
+      "Featured museum exhibit, Opportunity's final panorama. What visitors can see: a panoramic view of Perseverance Valley, captured by Opportunity near the end of its mission. Why it matters: this was the final panorama created from Opportunity's images. It gives visitors a view of the place where the rover spent its last days on Mars."
+     ]
+    },
+    {
+     "title": "The end of Opportunity's mission",
+     "text": [
+      "Opportunity's mission lasted almost 15 years, far beyond its original 90-Martian-day plan. In 2018, a massive dust storm spread across Mars and covered a large part of the planet. The storm blocked sunlight from reaching Opportunity's solar panels. Since the rover depended on solar energy, it could no longer produce enough electricity to continue normal operations.",
+      "The last communication from Opportunity was received on June 10, 2018. NASA continued trying to contact the rover and restore communication. After many unsuccessful attempts, NASA officially declared the mission complete on February 13, 2019.",
+      "Opportunity had travelled approximately 45.16 kilometers and worked on Mars for more than 14 years. Its final location was in Perseverance Valley, near Endeavour Crater."
+     ]
+    },
+    {
+     "title": "How were the rovers designed?",
+     "text": [
+      "Spirit and Opportunity were about the size of a golf cart. Each rover weighed approximately 185 kilograms and had six wheels that allowed it to travel across the Martian surface. Their design included several important systems:"
+     ],
+     "list": [
+      "Body: the main structure of the rover. It protected important equipment, including computers and electronics.",
+      "Computers: the onboard computers processed information and helped control the rover's systems.",
+      "Cameras and sensors: the cameras allowed scientists to observe the Martian landscape, while other instruments collected scientific information about rocks, soil, and the environment.",
+      "Robotic arm: each rover had a robotic arm with several joints. It could move scientific instruments close to rocks and soil so that scientists could examine them.",
+      "Wheels: the six wheels allowed the rover to move across the Martian surface and explore different locations.",
+      "Solar panels and batteries: the rovers used solar panels to collect energy from sunlight and rechargeable batteries to store electrical power.",
+      "Communication antennas: the antennas allowed the rovers to send information and images to Earth and receive commands from mission controllers."
+     ]
+    },
+    {
+     "title": "Scientific instruments",
+     "text": [
+      "Spirit and Opportunity carried the same main scientific instruments. Each one had a special purpose."
+     ],
+     "list": [
+      "1. Panoramic Camera (Pancam): took detailed color photographs of the Martian landscape. It consisted of two cameras that worked together to create panoramic and three-dimensional views.",
+      "2. Navigation Cameras (Navcam): helped the rovers observe the terrain around them. They provided images that helped mission teams plan routes and understand the surrounding environment.",
+      "3. Microscopic Imager (MI): a small camera mounted at the end of the robotic arm. It took very close black-and-white pictures of rocks and soil, which helped scientists study small details that could not be seen clearly with ordinary cameras.",
+      "4. Miniature Thermal Emission Spectrometer (Mini-TES): studied infrared light, which is related to heat. Different minerals produce different patterns of infrared radiation, so by studying these patterns scientists could identify minerals in rocks and soil.",
+      "5. Mössbauer Spectrometer (MB): studied minerals containing iron. It helped scientists identify different iron-bearing minerals in Martian rocks and soil.",
+      "6. Alpha Particle X-Ray Spectrometer (APXS): studied the chemical elements found in rocks and soil. It helped scientists understand what materials made up the Martian surface and how water and other geological processes had changed it.",
+      "7. Rock Abrasion Tool (RAT): attached to the robotic arm. It used a small grinding wheel to remove dust and the weathered outer surface of rocks. This exposed fresh material underneath, allowing the other instruments to study the rock more accurately.",
+      "8. Magnet Array: each rover carried magnets. These collected magnetic dust particles from the Martian environment. Scientists studied the collected particles to learn more about the composition and history of Martian dust.",
+      "9. Calibration Targets: special reference objects used to check the accuracy of the instruments. One of them was a sundial mounted on the rover. It helped scientists adjust the colors and brightness of panoramic images so that they could better understand the appearance of the Martian landscape."
+     ]
+    },
+    {
+     "title": "How did scientists control the rovers?",
+     "text": [
+      "Spirit and Opportunity were controlled by teams on Earth. Scientists and engineers studied images and information sent by the rovers, planned their next movements, and sent commands back to Mars.",
+      "The rovers also had onboard computers and software that allowed them to perform certain tasks automatically. This made it possible for the rovers to work efficiently, even when communication with Earth was delayed."
+     ]
+    },
+    {
+     "title": "Comparing Spirit and Opportunity",
+     "text": [
+      "Although the rovers had almost identical designs, their missions had different results."
+     ],
+     "list": [
+      "Spirit: landed in Gusev Crater. Discovered evidence of ancient water and possible hot spring environments. Found silica-rich soil and unusual minerals. Travelled approximately 7.7 kilometers. Became stuck in soft soil in 2009. Last communicated with Earth on March 22, 2010. Mission officially ended on May 25, 2011.",
+      "Opportunity: landed in Meridiani Planum. Discovered hematite formations nicknamed \"blueberries.\" Found the iron-nickel meteorite Heat Shield Rock. Studied many impact craters and different rock formations. Travelled approximately 45.16 kilometers. Last communicated with Earth on June 10, 2018. Mission officially ended on February 13, 2019."
+     ]
+    },
+    {
+     "title": "Five featured exhibits",
+     "text": [
+      "The mission produced many photographs and discoveries that can be presented as individual exhibits in a virtual space museum. These five show different parts of the mission: scientific discoveries, unusual objects, the rovers themselves, and the final stage of exploration."
+     ],
+     "list": [
+      "Exhibit 1, Spirit's Home Plate discovery. Object: silica-rich soil discovered by Spirit. Location: Home Plate, Gusev Crater. Importance: the discovery suggested that ancient Mars may have had hot springs or other hydrothermal environments. Suggested media: close-up photographs of the bright silica-rich soil and images of Spirit exploring Home Plate.",
+      "Exhibit 2, Opportunity's Martian blueberries. Object: small, round hematite formations. Location: Meridiani Planum. Importance: these formations provided evidence that water once affected the Martian surface. Suggested media: close-up images of the formations taken by Opportunity's cameras.",
+      "Exhibit 3, Heat Shield Rock. Object: an iron-nickel meteorite discovered by Opportunity. Location: near Opportunity's landing area. Importance: it was the first meteorite discovered on another planet. Suggested media: photographs of the meteorite and the rover's discarded heat shield.",
+      "Exhibit 4, Opportunity's final panorama. Object: a panoramic image created from photographs taken by Opportunity. Location: Perseverance Valley, near Endeavour Crater. Importance: it shows the landscape around the rover near the end of its mission and represents its final photographic work. Suggested media: NASA's final Opportunity panorama, which visitors can explore as a wide landscape image.",
+      "Exhibit 5, Spirit and Opportunity rover models. Object: three-dimensional models of the two Mars rovers. Importance: visitors can explore the design of the rovers and understand how their cameras, wheels, robotic arms, and other systems worked. Suggested media: NASA's 3D rover models, diagrams, and photographs of both vehicles."
+     ]
+    },
+    {
+     "title": "Why are some NASA numbers different?",
+     "text": [
+      "When reading different NASA pages, you may notice that some dates and measurements are not exactly the same. This does not always mean that the information is incorrect. Sometimes NASA uses different time zones or describes different measurements."
+     ],
+     "list": [
+      "Different landing dates: Spirit's landing is listed as January 3, 2004, while Opportunity's landing is listed as January 24, 2004, on NASA's main mission page. Some detailed records also show January 4 for Spirit and January 25 for Opportunity. The reason is the difference between local Pacific time and Universal Time (UTC). The landings happened late in the local evening, so the UTC calendar date was already the next day.",
+      "Different distance measurements: NASA sometimes rounds the distances travelled by the rovers. Spirit: approximately 7.7 kilometers, with a more precise figure of about 7.73 kilometers. Opportunity: approximately 45.16 kilometers. These values describe the same achievements, but one version may use rounded numbers.",
+      "Planned mission vs. actual mission: both rovers were originally designed for missions lasting only 90 Martian days. However, they continued working for years. Spirit operated for more than six years, while Opportunity worked for almost 15 years. The original duration describes what NASA expected at the beginning. The longer durations describe what actually happened.",
+      "Rover mass vs. spacecraft mass: some NASA technical records list a mass of approximately 1,062 kilograms, while other descriptions state that each rover weighed about 185 kilograms. The 185-kilogram figure refers to the rover itself. A larger figure can refer to the spacecraft and its additional landing equipment. It should not be confused with the mass of the rover alone."
+     ]
+    },
+    {
+     "title": "The legacy of Spirit and Opportunity",
+     "text": [
+      "Spirit and Opportunity changed our understanding of Mars. Before their mission, scientists had evidence that water might once have existed on the planet. However, the two rovers provided important discoveries directly from the Martian surface.",
+      "They showed that ancient Mars had several different water-related environments, including acidic water, warmer and less acidic conditions, and possible hot springs. Their discoveries helped scientists plan later missions, including Curiosity and Perseverance. The experience gained from operating Spirit and Opportunity also helped engineers improve rover navigation, software, and mission planning.",
+      "Although both rovers stopped working many years ago, their scientific contributions continue to influence Mars exploration. They proved that robotic explorers could survive much longer than expected and travel much farther than originally planned."
+     ]
+    },
+    {
+     "title": "NASA resources and official sources",
+     "text": [
+      "NASA provides additional materials that allow visitors to explore the mission in more detail: 3D rover models, an interactive visualization of Opportunity's journey, Mars images (panoramas, close-ups of rocks, rover tracks and landing sites), Opportunity's final panorama of Perseverance Valley, and mission videos about the landings, discoveries and history of the two rovers."
+     ],
+     "list": [
+      "Main mission page: https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/",
+      "Spirit: https://science.nasa.gov/mission/mer-spirit/",
+      "Opportunity: https://science.nasa.gov/mission/mer-opportunity/",
+      "Rover basics: https://science.nasa.gov/planetary-science/programs/mars-exploration/rover-basics/",
+      "Science objectives: https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/science-objectives/",
+      "Science instruments: https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/science-instruments/",
+      "Science highlights: https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/science-highlights/",
+      "20 years after landing: https://www.nasa.gov/missions/mer/20-years-after-landing-how-nasas-twin-rovers-changed-mars-science/",
+      "Opportunity's final panorama: https://science.nasa.gov/photojournal/opportunity-legacy-pan-true-color/",
+      "Mars Exploration Rovers 3D model: https://science.nasa.gov/3d-resources/mars-exploration-rover-spirit-and-opportunity/"
      ]
     }
    ]

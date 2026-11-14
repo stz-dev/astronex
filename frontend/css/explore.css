@@ -26,12 +26,6 @@ html.xp-away #stars{opacity:.9}
 #xp-intro{position:fixed;inset:0;z-index:9950;background:transparent;pointer-events:none;opacity:0;transition:opacity .7s ease}
 #xp-intro.on{opacity:1}
 #xp-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.xp-intro-ui{pointer-events:auto;position:absolute;right:1.4rem;bottom:1.4rem;display:flex;gap:.7rem;z-index:2}
-.xp-intro-ui button{font:800 .8rem/1 var(--f-display,system-ui,sans-serif);letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
-  background:var(--cream);border:3px solid var(--ink);border-radius:999px;padding:.7rem 1.2rem;cursor:pointer;box-shadow:4px 4px 0 var(--pink);transition:transform .12s,box-shadow .12s}
-.xp-intro-ui button:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pink)}
-.xp-intro-ui button[data-a=skip]{background:var(--lime)}
-.xp-intro-ui button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
 /* заголовок поверх финала: класс .show добавляется таймлайном */
 .xp-intro-title{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;gap:1.4rem;pointer-events:none;z-index:1}
 .xp-intro-title h1{margin:0;font:900 clamp(2.4rem,8vw,6rem)/1 var(--f-display,system-ui,sans-serif);letter-spacing:.04em;color:var(--cream);text-transform:uppercase;
@@ -41,7 +35,6 @@ html.xp-away #stars{opacity:.9}
   background:var(--lime);padding:.5rem 1.2rem;transform:rotate(-2deg) translateY(12px);box-shadow:5px 5px 0 var(--pink);border-radius:3px;opacity:0;transition:opacity .4s ease .25s,transform .6s cubic-bezier(.2,1.4,.4,1) .25s}
 .xp-intro-title.show h1{opacity:1;transform:none}
 .xp-intro-title.show p{opacity:1;transform:rotate(-2deg)}
-@media (max-width:600px){.xp-intro-ui{right:.8rem;bottom:.8rem}}
 #xp-note{position:fixed;inset:0;z-index:9955;display:grid;place-items:center;text-align:center;padding:2rem;color:var(--lav);
   font-family:var(--f-display);font-weight:700;font-size:.9rem;opacity:0;transition:opacity .4s;pointer-events:none}
 #xp-note.on{opacity:1}

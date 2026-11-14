@@ -76,8 +76,7 @@ function drawFlame(ctx, s, lw, len, t) {
 export function createIntro({ container = document.body, onAnimationEnd = () => {}, onFade = () => {}, title = "", subtitle = "", duration = TL.total } = {}) {
   // ---------- DOM ----------
   const el = document.createElement("div"); el.id = "xp-intro"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Intro animation");
-  el.innerHTML = `<canvas></canvas><div class="xp-intro-title"><h1></h1><p></p></div>
-    <div class="xp-intro-ui"><button type="button" data-a="replay">Replay ↺</button><button type="button" data-a="skip">Skip ›</button></div>`;
+  el.innerHTML = `<canvas></canvas><div class="xp-intro-title"><h1></h1><p></p></div>`;
   el.querySelector("h1").textContent = title; el.querySelector(".xp-intro-title p").textContent = subtitle;
   container.append(el);
   if (!title) el.querySelector(".xp-intro-title").remove();
@@ -200,9 +199,8 @@ export function createIntro({ container = document.body, onAnimationEnd = () => 
   function replay() { cancelAnimationFrame(raf); running = false; reset(); play(); }
   function skip() { if (ended || disposed) return; if (!faded) { faded = true; onFade(); } ended = true; running = false; cancelAnimationFrame(raf); onAnimationEnd(); }
   function seek(sec) { cancelAnimationFrame(raf); running = false; reset(); let n = 0; while (time < sec && n++ < 4000) step(1 / 60); render(); }
-  function capture() { cancelAnimationFrame(raf); running = false; captureMode = true; el.classList.add("on"); el.querySelector(".xp-intro-ui").style.display = "none"; reset(); resize(); render(); }
+  function capture() { cancelAnimationFrame(raf); running = false; captureMode = true; el.classList.add("on"); reset(); resize(); render(); }
   function frame(dt) { step(dt); render(); return time; }
-  el.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; b.dataset.a === "replay" ? replay() : skip(); });
 
   function dispose() { disposed = true; running = false; cancelAnimationFrame(raf); removeEventListener("resize", resize); el.remove(); }
   return { el, play, replay, skip, seek, capture, frame, dispose, get time() { return time; }, get ended() { return ended; }, duration, hide() { el.classList.remove("on"); } };

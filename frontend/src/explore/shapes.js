@@ -36,14 +36,6 @@ const BUILDERS = {
     legs(g, 4, .8, 1.35, -.05, -.62, GOLD);
     g.add(part(box(.22, .5, .06), GREY, { pos: [0, -.1, .92], rot: [.25, 0, 0] }));
   },
-  lro: g => {
-    g.add(part(box(.7, .55, .6), GOLD, { pos: [0, 0, 0] }));
-    g.add(part(box(1.5, .04, .5), DARK, { pos: [0, .05, -.75] }));
-    g.add(part(cyl(.025, .025, .8, 6), GREY, { pos: [.42, .5, 0], rot: [0, 0, .5] }));
-    dish(g, [.7, .9, 0], .24, [-1.1, 0, 0]);
-    g.add(part(cyl(.14, .1, .3, 10), DARK, { pos: [0, -.42, 0] }));
-    g.add(part(box(.22, .18, .4), WHITE, { pos: [-.3, -.1, .45] }));
-  },
   surveyor3: g => {
     g.add(part(cyl(.1, .1, .9, 8), GREY, { pos: [0, .35, 0] }));
     g.add(part(box(.5, .3, .35), WHITE, { pos: [0, 0, 0] }));
