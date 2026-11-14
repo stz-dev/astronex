@@ -14,6 +14,10 @@ document.getElementById("stats").innerHTML = `
   <div><b>${halls.length}</b><span>halls</span></div>
   <div><b>1967–2024</b><span>mission years</span></div>
   <div><b>∞</b><span>silent orbits</span></div>`;
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.querySelectorAll("#stats b").forEach(b => {   // gentle count-up for plain numbers
+  const t = +b.textContent; if (!Number.isFinite(t)) return; let f = 0; b.textContent = "0";
+  new IntersectionObserver(([en], o) => { if (!en.isIntersecting) return; o.disconnect(); const go = () => { f++; b.textContent = Math.round(t * Math.min(1, f / 28)); if (f < 28) requestAnimationFrame(go); }; go(); }).observe(b);
+});
 
 // halls
 const tabs = document.getElementById("tabs");
@@ -51,10 +55,9 @@ grid.addEventListener("pointerover", e => {
 });
 grid.addEventListener("pointerleave", () => setBg(current === "all" ? "space" : current));
 
-// scrolling: hero/about -> neutral space, archive -> current hall
+// scrolling: hero -> neutral space, archive -> current hall
 const mark = (id, fn) => new IntersectionObserver(es => es.forEach(x => x.isIntersecting && fn()), { rootMargin: "-45% 0px -45% 0px" }).observe(document.getElementById(id) || document.querySelector("." + id));
 mark("hero", () => setBg("space"));
 mark("archive", () => setBg(current === "all" ? "space" : current));
-mark("about", () => setBg("space"));
 
 })();

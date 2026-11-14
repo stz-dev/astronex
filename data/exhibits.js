@@ -41,11 +41,15 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "the Moon",
-    "minS": 1.2,
-    "maxS": 1.35,
-    "avgS": 1.28,
-    "note": "The Moon is about 384,400 km away on average."
+    "contacts": [
+     {
+      "label": "Crew departed",
+      "date": "Jul 21, 1969",
+      "oneWayS": 1.28,
+      "distance": "about 384,900 km (the Moon)"
+     }
+    ],
+    "basis": "Earth–Moon distance on that date, computed from a lunar ephemeris; light speed 299,792 km/s."
    },
    "story": [
     "The Apollo 11 Lunar Module, named \"Eagle\" (LM-5), was the spacecraft that carried the first two astronauts to the surface of the Moon. Apollo 11 launched on July 16, 1969, from Cape Canaveral, Florida, aboard a Saturn V rocket. After reaching the Moon, Eagle separated from the Command and Service Module. Michael Collins stayed aboard it in lunar orbit, while Neil Armstrong and Buzz Aldrin prepared to land.",
@@ -203,6 +207,20 @@ window.EXHIBITS_DATA = {
       "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1969-059C"
      ]
     }
+   ],
+   "images": [
+    {
+     "src": "img/exhibits/apollo-lm-1.jpg",
+     "alt": "Apollo LM · Eagle — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Apollo%20LM%20·%20Eagle"
+    },
+    {
+     "src": "img/exhibits/apollo-lm-2.jpg",
+     "alt": "Apollo LM · Eagle — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Apollo%20LM%20·%20Eagle"
+    }
    ]
   },
   {
@@ -228,11 +246,15 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "the Moon",
-    "minS": 1.2,
-    "maxS": 1.35,
-    "avgS": 1.28,
-    "note": "The Moon is about 384,400 km away on average."
+    "contacts": [
+     {
+      "label": "Last transmission",
+      "date": "May 3, 1967",
+      "oneWayS": 1.33,
+      "distance": "about 400,100 km (the Moon)"
+     }
+    ],
+    "basis": "Last contact May 3, 1967 (NASA/NSSDC). Distance computed from a lunar ephemeris."
    },
    "story": [
     "Surveyor 3 was an unmanned NASA lander, launched in April 1967 to test whether a spacecraft could land softly on the Moon and what the lunar soil was like. It landed in the Ocean of Storms on April 20, 1967, and bounced twice before it settled.",
@@ -267,7 +289,21 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true
+   "placeholder": true,
+   "images": [
+    {
+     "src": "img/exhibits/surveyor3-1.jpg",
+     "alt": "Surveyor 3 — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Surveyor%203"
+    },
+    {
+     "src": "img/exhibits/surveyor3-2.jpg",
+     "alt": "Surveyor 3 — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Surveyor%203"
+    }
+   ]
   },
   {
    "id": "mer",
@@ -298,11 +334,21 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "Mars",
-    "minS": 187,
-    "maxS": 1340,
-    "avgS": 750,
-    "note": "Depending on where Earth and Mars are in their orbits, a signal takes from about 3 to about 22 minutes."
+    "contacts": [
+     {
+      "label": "Spirit, last contact",
+      "date": "Mar 22, 2010",
+      "oneWayS": 463.6,
+      "distance": "about 139.0 million km (Mars)"
+     },
+     {
+      "label": "Opportunity, last contact",
+      "date": "Jun 10, 2018",
+      "oneWayS": 277.1,
+      "distance": "about 83.1 million km (Mars)"
+     }
+    ],
+    "basis": "Dates from NASA/JPL. Earth–Mars distance on each date computed from a planetary ephemeris."
    },
    "story": [
     "Spirit and Opportunity were two almost identical robotic rovers built by NASA to explore Mars as part of the Mars Exploration Rover (MER) mission. Their main goal was to study rocks and soil and to look for evidence that liquid water once existed on the planet, so that scientists could understand what ancient Mars was like and whether it could have supported life billions of years ago.",
@@ -540,6 +586,20 @@ window.EXHIBITS_DATA = {
       "Mars Exploration Rovers 3D model: https://science.nasa.gov/3d-resources/mars-exploration-rover-spirit-and-opportunity/"
      ]
     }
+   ],
+   "images": [
+    {
+     "src": "img/exhibits/mer-1.jpg",
+     "alt": "Spirit & Opportunity — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Spirit%20&%20Opportunity"
+    },
+    {
+     "src": "img/exhibits/mer-2.jpg",
+     "alt": "Spirit & Opportunity — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Spirit%20&%20Opportunity"
+    }
    ]
   },
   {
@@ -626,12 +686,30 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "Mars",
-    "minS": 187,
-    "maxS": 1340,
-    "avgS": 750,
-    "note": "Depending on where Earth and Mars are in their orbits, a signal takes from about 3 to about 22 minutes."
-   }
+    "contacts": [
+     {
+      "label": "Last flight (Flight 72)",
+      "date": "Jan 18, 2024",
+      "oneWayS": 1182,
+      "distance": "about 354.4 million km (Mars)"
+     }
+    ],
+    "basis": "Flight 72 date from NASA/JPL. Earth–Mars distance computed from a planetary ephemeris."
+   },
+   "images": [
+    {
+     "src": "img/exhibits/ingenuity-1.jpg",
+     "alt": "Ingenuity — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Ingenuity"
+    },
+    {
+     "src": "img/exhibits/ingenuity-2.jpg",
+     "alt": "Ingenuity — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Ingenuity"
+    }
+   ]
   },
   {
    "id": "sojourner",
@@ -656,11 +734,15 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "Mars",
-    "minS": 187,
-    "maxS": 1340,
-    "avgS": 750,
-    "note": "Depending on where Earth and Mars are in their orbits, a signal takes from about 3 to about 22 minutes."
+    "contacts": [
+     {
+      "label": "Final transmission",
+      "date": "Sep 27, 1997",
+      "oneWayS": 886,
+      "distance": "about 265.7 million km (Mars)"
+     }
+    ],
+    "basis": "Final data transmission 10:23 UTC, Sep 27, 1997 (NASA). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
     "Sojourner was the first rover ever to drive on Mars. It was a small six-wheeled robot, about the size of a microwave oven, that rode to the planet on the Mars Pathfinder lander and rolled onto the surface in July 1997.",
@@ -697,7 +779,21 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true
+   "placeholder": true,
+   "images": [
+    {
+     "src": "img/exhibits/sojourner-1.jpg",
+     "alt": "Sojourner — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Sojourner"
+    },
+    {
+     "src": "img/exhibits/sojourner-2.jpg",
+     "alt": "Sojourner — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Sojourner"
+    }
+   ]
   },
   {
    "id": "viking",
@@ -722,11 +818,15 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "Mars",
-    "minS": 187,
-    "maxS": 1340,
-    "avgS": 750,
-    "note": "Depending on where Earth and Mars are in their orbits, a signal takes from about 3 to about 22 minutes."
+    "contacts": [
+     {
+      "label": "Final transmission",
+      "date": "Nov 11, 1982",
+      "oneWayS": 908,
+      "distance": "about 272.2 million km (Mars)"
+     }
+    ],
+    "basis": "Viking Lander 1 final transmission Nov 11, 1982 (NASA/JPL). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
     "Viking 1 was the first successful American lander on Mars. It was launched together with its orbiter in 1975, and the lander touched down in Chryse Planitia on July 20, 1976, exactly seven years after the Apollo 11 landing.",
@@ -763,7 +863,21 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true
+   "placeholder": true,
+   "images": [
+    {
+     "src": "img/exhibits/viking-1.jpg",
+     "alt": "Viking 1 — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Viking%201"
+    },
+    {
+     "src": "img/exhibits/viking-2.jpg",
+     "alt": "Viking 1 — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Viking%201"
+    }
+   ]
   },
   {
    "id": "phoenix",
@@ -788,11 +902,15 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "Mars",
-    "minS": 187,
-    "maxS": 1340,
-    "avgS": 750,
-    "note": "Depending on where Earth and Mars are in their orbits, a signal takes from about 3 to about 22 minutes."
+    "contacts": [
+     {
+      "label": "Last signal",
+      "date": "Nov 2, 2008",
+      "oneWayS": 1249,
+      "distance": "about 374.5 million km (Mars)"
+     }
+    ],
+    "basis": "Last signal Nov 2, 2008 (NASA/JPL). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
     "Phoenix landed in the far north of Mars on May 25, 2008, in a region called Vastitas Borealis. Unlike earlier landers, it did not come down on airbags. It slowed itself with rockets and touched down on three legs.",
@@ -829,7 +947,21 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true
+   "placeholder": true,
+   "images": [
+    {
+     "src": "img/exhibits/phoenix-1.jpg",
+     "alt": "Phoenix — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Phoenix"
+    },
+    {
+     "src": "img/exhibits/phoenix-2.jpg",
+     "alt": "Phoenix — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Phoenix"
+    }
+   ]
   },
   {
    "id": "insight",
@@ -854,11 +986,15 @@ window.EXHIBITS_DATA = {
     }
    ],
    "signal": {
-    "place": "Mars",
-    "minS": 187,
-    "maxS": 1340,
-    "avgS": 750,
-    "note": "Depending on where Earth and Mars are in their orbits, a signal takes from about 3 to about 22 minutes."
+    "contacts": [
+     {
+      "label": "Last communication",
+      "date": "Dec 15, 2022",
+      "oneWayS": 281,
+      "distance": "about 84.4 million km (Mars)"
+     }
+    ],
+    "basis": "Last communication Dec 15, 2022 (NASA). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
     "InSight landed on Mars on November 26, 2018, in Elysium Planitia, a flat plain near the equator. Its goal was to listen to the planet's interior, much as doctors listen to a heartbeat.",
@@ -895,7 +1031,21 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true
+   "placeholder": true,
+   "images": [
+    {
+     "src": "img/exhibits/insight-1.jpg",
+     "alt": "InSight — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=InSight"
+    },
+    {
+     "src": "img/exhibits/insight-2.jpg",
+     "alt": "InSight — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=InSight"
+    }
+   ]
   },
   {
    "id": "pioneer",
@@ -913,11 +1063,15 @@ window.EXHIBITS_DATA = {
    "model": "models/pioneer.glb",
    "markers": [],
    "signal": {
-    "place": "Pioneer 10",
-    "minS": 68000,
-    "maxS": 71500,
-    "avgS": 70500,
-    "note": "Pioneer 10 is about 140 times farther from the Sun than Earth is, so even light needs most of a day to cross the gap."
+    "contacts": [
+     {
+      "label": "Last signal",
+      "date": "Jan 23, 2003",
+      "oneWayS": 40800,
+      "distance": "about 12.23 billion km (≈82 AU)"
+     }
+    ],
+    "basis": "NASA: the last signal came from 12.23 billion km and took 11 hours 20 minutes to reach Earth (science.nasa.gov/mission/pioneer-10)."
    },
    "story": [
     "Pioneer 10 was launched on March 2, 1972. It was the first spacecraft to cross the asteroid belt, and the first to fly close to Jupiter, passing the giant planet in December 1973 and sending back the first close-up pictures.",
@@ -955,7 +1109,21 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true
+   "placeholder": true,
+   "images": [
+    {
+     "src": "img/exhibits/pioneer-1.jpg",
+     "alt": "Pioneer 10 — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Pioneer%2010"
+    },
+    {
+     "src": "img/exhibits/pioneer-2.jpg",
+     "alt": "Pioneer 10 — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Pioneer%2010"
+    }
+   ]
   },
   {
    "id": "dawn",
@@ -973,11 +1141,15 @@ window.EXHIBITS_DATA = {
    "model": "models/dawn.glb",
    "markers": [],
    "signal": {
-    "place": "Ceres",
-    "minS": 790,
-    "maxS": 1990,
-    "avgS": 1300,
-    "note": "Ceres is in the main asteroid belt, and the distance to it changes as Earth and Ceres move around the Sun."
+    "contacts": [
+     {
+      "label": "Last weeks of contact",
+      "date": "Oct 2018",
+      "oneWayS": 1786,
+      "distance": "about 536 million km (3.58 AU)"
+     }
+    ],
+    "basis": "JPL Dawn Journal, Oct 19, 2018: Dawn was 3.58 AU from Earth, about one hour round trip. Contact ended Oct 31–Nov 1, 2018."
    },
    "story": [
     "Dawn was launched in September 2007 to visit the two largest bodies in the main asteroid belt, Vesta and Ceres. It reached Vesta in 2011, and in 2015 it became the first spacecraft to orbit a dwarf planet when it arrived at Ceres.",
@@ -1015,7 +1187,21 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true
+   "placeholder": true,
+   "images": [
+    {
+     "src": "img/exhibits/dawn-1.jpg",
+     "alt": "Dawn — view 1",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Dawn"
+    },
+    {
+     "src": "img/exhibits/dawn-2.jpg",
+     "alt": "Dawn — view 2",
+     "credit": "NASA / JPL-Caltech",
+     "page": "https://images.nasa.gov/search?q=Dawn"
+    }
+   ]
   }
  ]
 };

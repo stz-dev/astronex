@@ -182,6 +182,10 @@ async function mountViewer(stage, ex, { controls = true, rotate = true } = {}) {
   mv.setAttribute("exposure", "1");
   mv.setAttribute("tone-mapping", "aces");
   mv.setAttribute("camera-orbit", "35deg 72deg auto");
+  mv.setAttribute("min-camera-orbit", "auto 15deg auto");
+  mv.setAttribute("max-camera-orbit", "auto 90deg auto");   // cannot go below the floor
+  mv.setAttribute("disable-pan", "");
+  mv.setAttribute("field-of-view", "30deg");                // same framing for every model -> similar on-screen size
   mv.setAttribute("interaction-prompt", "none");
   mv.addEventListener("load", () => stage.querySelector(".loader")?.classList.add("done"));
   stage.prepend(mv);
@@ -189,12 +193,13 @@ async function mountViewer(stage, ex, { controls = true, rotate = true } = {}) {
   if (controls) addControls(stage, mv, ex);
 }
 
-// Human-readable duration: 1.3 seconds / 12 minutes / 19.6 hours
+// Human-readable duration: 1.3 seconds / 7 min 44 s / 11 h 20 min
 function fmtTime(sec) {
-  if (sec < 10) return sec.toFixed(1).replace(/\.0$/, "") + " seconds";
+  if (sec < 10) return sec.toFixed(2).replace(/0$/, "").replace(/\.0$/, "") + " seconds";
   if (sec < 90) return Math.round(sec) + " seconds";
-  if (sec < 5400) { const m = sec / 60; return (m < 10 ? m.toFixed(1).replace(/\.0$/, "") : Math.round(m)) + " minutes"; }
-  const h = sec / 3600; return h.toFixed(1).replace(/\.0$/, "") + " hours";
+  const r = Math.round(sec);
+  if (r < 3600) { const m = Math.floor(r / 60), s = r % 60; return s ? `${m} min ${s} s` : `${m} min`; }
+  const h = Math.floor(r / 3600), m = Math.round((r % 3600) / 60); return m ? `${h} h ${m} min` : `${h} h`;
 }
 
 function addControls(stage, mv, ex) {
@@ -220,12 +225,79 @@ function addControls(stage, mv, ex) {
     out.classList.remove("show"); stage.classList.add("pinging");
     setTimeout(() => {
       stage.classList.remove("pinging");
-      const sg = ex.signal || { place: ex.short, avgS: 1.28 };
-      const avg = fmtTime(sg.avgS), rng = sg.minS && sg.maxS && sg.maxS / sg.minS > 1.5 ? ` (between ${fmtTime(sg.minS)} and ${fmtTime(sg.maxS)} depending on positions)` : "";
-      out.innerHTML = `<b>Signal received by ${esc(ex.short)}.</b> Your signal travelled for about <b>${avg}</b>${rng}.
-        <span>A reply would need the same time to come back, so a round trip takes about ${fmtTime(sg.avgS * 2)}. ${esc(sg.note || "")} Nobody answers — but the signal got there.</span>`;
+      const sg = ex.signal;
+      const rows = (sg && sg.contacts || []).map(c => `<li><b>${esc(c.label)}</b> (${esc(c.date)}): the signal needed about <b>${fmtTime(c.oneWayS)}</b> to get there — ${esc(c.distance)} away.</li>`).join("");
+      out.innerHTML = `<b>No reply.</b> ${esc(ex.short)} is abandoned and no longer receives anything, so your signal will not reach it.
+        <span>But it used to. When it was still working:</span>
+        <ul>${rows}</ul>
+        <small>${esc((sg && sg.basis) || "")}</small>`;
       out.classList.add("show");
       b.disabled = false; b.textContent = "Send signal again"; busy = false;
     }, 1400);
   });
 }
+
+
+// mobile burger menu (header)
+(() => {
+  const top = document.querySelector(".top"), wrap = top && top.querySelector(".wrap"), nav = top && top.querySelector(".nav");
+  if (!wrap || !nav) return;
+  const b = document.createElement("button");
+  b.className = "burger"; b.type = "button"; b.setAttribute("aria-label", "Menu"); b.setAttribute("aria-expanded", "false");
+  b.innerHTML = "<i></i>";
+  wrap.appendChild(b);
+  const set = on => { top.classList.toggle("open", on); b.setAttribute("aria-expanded", on); };
+  b.addEventListener("click", () => set(!top.classList.contains("open")));
+  nav.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+  addEventListener("resize", () => { if (innerWidth > 760) set(false); });
+})();
+
+
+// ---- nav highlight: current page + scroll-spy on the home page ----
+(() => {
+  const links = [...document.querySelectorAll(".nav a[data-nav]")]; if (!links.length) return;
+  const page = location.pathname.split("/").pop() || "index.html";
+  const set = k => links.forEach(a => a.toggleAttribute("aria-current", a.dataset.nav === k));
+  if (page === "game.html") return set("game");
+  if (page === "about.html") return set("about");
+  if (page !== "index.html" && page !== "") return set("archive");        // exhibit pages belong to the archive
+  const secs = ["explore", "minigame", "archive"].map(id => document.getElementById(id)).filter(Boolean);
+  const key = { explore: "explore", minigame: "game", archive: "archive" };
+  const upd = () => {
+    const y = innerHeight * .35; let cur = "";
+    for (const sc of secs) { const r = sc.getBoundingClientRect(); if (r.top <= y && r.bottom > y) cur = key[sc.id]; }
+    set(cur);
+  };
+  addEventListener("scroll", upd, { passive: true }); addEventListener("resize", upd); addEventListener("load", upd); upd();
+})();
+
+// ---- keep the scroll position across reloads ----
+window.AX = (() => {
+  const key = "astronex:scroll:" + location.pathname + location.search.replace(/[?&](explore|site|edit)=[^&]*/g, "");
+  const get = () => { try { return Number(sessionStorage.getItem(key)) || 0; } catch { return 0; } };
+  const put = () => { try { sessionStorage.setItem(key, String(Math.round(scrollY))); } catch {} };
+  try { history.scrollRestoration = "manual"; } catch {}
+  let t = 0; addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(put, 120); }, { passive: true });
+  addEventListener("pagehide", put);
+  const nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+  const again = nav && (nav.type === "reload" || nav.type === "back_forward");
+  if (again && !/[?&]explore=/.test(location.search)) {
+    const y = get(); let tries = 0;
+    const go = () => { if (document.documentElement.scrollHeight >= y + innerHeight * .5 || tries > 25) scrollTo(0, y); else { tries++; setTimeout(go, 80); } if (tries <= 25 && Math.abs(scrollY - y) > 2) setTimeout(go, 120), tries++; };
+    if (y > 0) addEventListener("DOMContentLoaded", () => setTimeout(go, 60));
+  }
+  return { savedScroll: get };
+})();
+
+// ---- subtle motion: scroll reveal + count-up (off for prefers-reduced-motion) ----
+(() => {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js-motion");
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("seen"); io.unobserve(e.target); } }), { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+  const scan = () => document.querySelectorAll("[data-reveal]:not(.seen), .block > .wrap > *, .card, .stats > div, .team > *, .dsec").forEach((el, i) => {
+    if (el.dataset.rv) return; el.dataset.rv = 1; el.classList.add("rv"); el.style.setProperty("--rv", (i % 6) * 60 + "ms"); io.observe(el);
+  });
+  addEventListener("DOMContentLoaded", () => { scan(); setTimeout(scan, 600); setTimeout(scan, 1500); });
+  window.AX.rescan = scan;
+})();

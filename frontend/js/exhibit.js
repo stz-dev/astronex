@@ -29,6 +29,7 @@ if (i < 0) {
         <span class="eyebrow">${esc(hallName(data, e.hall))}</span>
         <h1>${esc(e.name)}</h1>
         ${(e.story || [e.summary]).map(t => `<p style="color:var(--muted)">${esc(t)}</p>`).join("")}
+        ${galleryHTML(e)}
         <dl class="telemetry">
           <div><dt>Status</dt><dd class="st">${esc(e.status)}</dd></div>
           <div><dt>Last contact</dt><dd>${esc(e.last_contact)}</dd></div>
@@ -45,6 +46,33 @@ if (i < 0) {
       <a class="btn ghost" href="exhibit.html?id=${encodeURIComponent(next.id)}">${esc(next.short)} →</a>
     </div>`;
   mountViewer(document.getElementById("stage"), e);
+  initGallery(root.querySelector(".gal"));
+  window.AX && AX.rescan && AX.rescan();
+}
+
+// 2 images per exhibit: arrows, dots, swipe, arrow keys. A missing file shows a labelled placeholder instead of a broken image.
+function galleryHTML(e) {
+  const im = (e.images || []).slice(0, 2); if (!im.length) return "";
+  return `<div class="gal" tabindex="0" aria-label="Images of ${esc(e.short)}">
+    <div class="gal-track">${im.map(g => `<figure><img src="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy" draggable="false">
+      <figcaption>${esc(g.alt)} · <small>${esc(g.credit)} · <a href="${esc(g.page)}" target="_blank" rel="noopener">find on NASA</a></small></figcaption></figure>`).join("")}</div>
+    <button type="button" class="gal-nav prev" aria-label="Previous image">‹</button><button type="button" class="gal-nav next" aria-label="Next image">›</button>
+    <div class="gal-dots">${im.map((_, k) => `<i data-k="${k}"></i>`).join("")}</div></div>`;
+}
+function initGallery(g) {
+  if (!g) return;
+  const tr = g.querySelector(".gal-track"), n = tr.children.length, dots = [...g.querySelectorAll(".gal-dots i")]; let k = 0, x0 = null;
+  g.querySelectorAll("img").forEach(img => img.addEventListener("error", () => {
+    img.replaceWith(Object.assign(document.createElement("div"), { className: "slot", style: "aspect-ratio:16/10;display:grid;place-items:center;text-align:center", innerHTML: "<div><div class='glyph'>◇</div><b>IMAGE COMING SOON</b><br><small>" + img.getAttribute("src") + "</small></div>" }));
+  }));
+  const go = i => { k = (i + n) % n; tr.style.transform = `translateX(${-k * 100}%)`; dots.forEach((d, j) => d.classList.toggle("on", j === k)); };
+  g.querySelector(".prev").onclick = () => go(k - 1); g.querySelector(".next").onclick = () => go(k + 1);
+  dots.forEach(d => d.onclick = () => go(+d.dataset.k));
+  g.addEventListener("keydown", ev => { if (ev.key === "ArrowLeft") go(k - 1); if (ev.key === "ArrowRight") go(k + 1); });
+  g.addEventListener("pointerdown", ev => (x0 = ev.clientX));
+  g.addEventListener("pointerup", ev => { if (x0 !== null && Math.abs(ev.clientX - x0) > 40) go(k + (ev.clientX < x0 ? 1 : -1)); x0 = null; });
+  if (n < 2) g.querySelectorAll(".gal-nav,.gal-dots").forEach(el => el.remove());
+  go(0);
 }
 
 // "Study in detail" blocks: e.details = [{title, text[], list[], after}]

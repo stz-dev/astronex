@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About · ASTRONEX</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html">ASTRO<span>NEX</span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html#explore" data-nav="explore">Explore</a>
+    <a href="game.html" data-nav="game">Mini-game</a>
+    <a href="index.html#archive" data-nav="archive">Archive</a>
+    <a href="about.html" data-nav="about">About</a>
+  </nav>
+</div></header>
+<main class="wrap about" style="padding:2rem 0 4rem">
+  <span class="eyebrow">About</span>
+  <h1 style="margin:.6rem 0 1rem;font-size:clamp(1.9rem,4vw,3rem)">Abandoned but not Forgotten</h1>
+  <p class="lead" style="color:var(--muted);max-width:48rem">Spacecraft left on the Moon, on Mars and in deep space do not disappear from history. ASTRONEX gathers them in one place: every model, date and story is a reminder that their work keeps inspiring people. Built for the NASA Space Apps Challenge.</p>
+
+  <section class="block" data-reveal><h2>The team</h2>
+    <div class="team">
+      <article class="panel"><span class="role">Frontend</span><h3>Fazliddin</h3><p>Site, interface, Interactive Explore and the intro animation.</p></article>
+      <article class="panel"><span class="role">3D models</span><h3>Sharifhuja</h3><p>Blender models of the spacecraft shown in the viewer.</p></article>
+      <article class="panel"><span class="role">Backend</span><h3>Azimkhon</h3><p>Flask backend and data services.</p></article>
+      <article class="panel"><span class="role">Team</span><h3>Mukhammadsaid</h3><p>Texts and materials for the exhibits.</p></article>
+    </div>
+  </section>
+
+  <section class="block" data-reveal><h2>Sources</h2>
+    <ul class="srcs">
+      <li><a href="https://nssdc.gsfc.nasa.gov/" target="_blank" rel="noopener">NASA NSSDC</a> — mission facts, dates and last-contact records.</li>
+      <li><a href="https://science.nasa.gov/" target="_blank" rel="noopener">NASA Science</a> — mission pages (Pioneer 10, Dawn, InSight, Ingenuity, Mars Pathfinder, Viking and others).</li>
+      <li><a href="https://www.jpl.nasa.gov/" target="_blank" rel="noopener">NASA JPL</a> — mission status reports, the Dawn Journal and press releases.</li>
+      <li><a href="https://nasa3d.arc.nasa.gov/" target="_blank" rel="noopener">NASA 3D Resources</a> and <a href="https://photojournal.jpl.nasa.gov/" target="_blank" rel="noopener">Photojournal</a> — reference models and images.</li>
+      <li>Signal travel times: distances at the date of last contact computed from planetary ephemerides (astronomy-engine); Pioneer 10 and Dawn figures taken from NASA / JPL statements.</li>
+    </ul>
+    <p class="note">Images and 3D models: NASA / JPL-Caltech. This project is not endorsed by NASA.</p>
+  </section>
+
+  <section class="block" data-reveal><h2>Tools</h2>
+    <div class="tools">
+      <span>three.js</span><span>esbuild</span><span>model-viewer</span><span>Draco</span><span>Blender</span><span>Flask</span><span>HTML · CSS · JavaScript</span><span>Rubik (font)</span><span>Claude (AI assistant)</span>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">
+  <span>ASTRONEX · NASA Space Apps · Abandoned but not Forgotten</span>
+  <span>3D models and images: NASA / JPL-Caltech. This project is not endorsed by NASA.</span>
+</div></footer>
+<script src="js/common.js"></script>
+<script>initStars();</script>
+</body>
+</html>

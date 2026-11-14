@@ -79,3 +79,21 @@ The site uses a playful "sticker" look: indigo background with a dot grid, lime 
 
 ## Exhibit data fields (data/exhibits.json)
 Besides the basic fields each exhibit has: `story` (paragraphs shown in the main window), `details` (the "Study in detail" blocks on the exhibit page), `signal` (one-way light time used by the "Send signal" button) and `placeholder: true` while the 3D model is still a stand-in ("3D model in development" labels). After editing the JSON run `python3 data/build.py`. Archive card pictures live in `frontend/img/exhibits/<id>.png`.
+
+## Mobile / phones
+
+The whole site is responsive (tested at 390 px width and up):
+- the header collapses into a burger menu below 760 px (`js/common.js`, styles at the end of `css/app.css`);
+- exhibit pages stack into one column, the 3D window is sized to the screen;
+- in Explore the planets stack vertically, the sites of a planet are a swipeable strip at the bottom, and the info panel is a bottom sheet (`css/explore.css`, portrait layout in `src/explore/explore.js`).
+
+Rebuild the Explore bundle after editing anything in `frontend/src/explore/`: `cd tools && npm install && npm run build`.
+
+## Placing markers on the planets (marker tool)
+Open `frontend/index.html?explore=mars&edit=1` (or `explore=moon`) from the local server. Fly to the planet, **click the exact spot** on the surface — a red dot appears and the panel shows `lat / lon` plus a ready JSON line. Arrow keys nudge the point by 0.25° (Shift = 1°). Press **Copy JSON** and paste it into the exhibit's `markers` list in `data/exhibits.json`, then run `python3 data/build.py`.
+
+## Exhibit images
+Each exhibit shows two images on its page (swipe / arrows / dots). Put the files at `frontend/img/exhibits/<id>-1.jpg` and `<id>-2.jpg` (ids are in `data/exhibits.json`); until a file exists a "coming soon" card is shown. Use NASA / JPL public-domain images and keep the credit line.
+
+## Signal times
+`signal.contacts` in `data/exhibits.json` holds the real last-contact date, distance and one-way light time per exhibit (Moon/Mars distances computed from ephemerides; Pioneer 10 and Dawn from NASA/JPL statements).

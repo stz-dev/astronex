@@ -46,7 +46,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     if (busy || inExplore) return; busy = true;
     scrollPos = scrollY;
     xp ??= createExplore(data);
-    xp.onExit = leave;
+    xp.onExit = leave; xp.onState = saveState;
     const prep = xp.prepare();                       // планеты строятся, пока играет вступление
     pieces().forEach(([el, dir]) => (el.dataset.xpAway = dir));
     html.classList.add("xp-lock", "xp-away");        // элементы сайта плавно исчезают, остаётся только фон
@@ -60,8 +60,17 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     busy = false;
   }
 
+  // keep the Explore position in the URL so a reload reopens the same place
+  const EDITQ = /[?&]edit(=|&|$)/.test(location.search) ? "&edit=1" : "";
+  function saveState(st) {
+    if (!inExplore && !busy) return;
+    const u = "?explore=" + (st.planet || "select") + (st.site ? "&site=" + encodeURIComponent(st.site) : "") + EDITQ;
+    history.replaceState(null, "", location.pathname + u);
+  }
+
   async function leave() {
     if (busy || !inExplore) return; busy = true;
+    history.replaceState(null, "", location.pathname + location.hash);
     await fade(true, 800);
     xp.hide(); inExplore = false;
     html.classList.add("xp-instant"); html.classList.remove("xp-away");
@@ -74,19 +83,20 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
 
   // coming back from exhibit.html: open Explore straight at the planet / site (no intro)
   async function enterDirect(planet, exId) {
-    busy = true; scrollPos = 0;
+    busy = true; scrollPos = (window.AX && AX.savedScroll()) || 0;
     veil.style.transitionDuration = "0ms"; veil.classList.add("on");
-    xp ??= createExplore(data); xp.onExit = leave;
+    xp ??= createExplore(data); xp.onExit = leave; xp.onState = saveState;
     await xp.prepare();
     html.classList.add("xp-lock", "xp-away", "xp-instant");
     pieces().forEach(([el, dir]) => { el.dataset.xpAway = dir; el.inert = true; });
     await xp.show(); inExplore = true;
-    xp.openAt(planet, exId);
+    xp.openAt(planet, exId); saveState({ planet: P_OK(planet), site: exId });
     await wait(120); html.classList.remove("xp-instant");
     await fade(false, 800); busy = false;
   }
   const q = new URLSearchParams(location.search);
-  if (q.get("explore")) { history.replaceState(null, "", location.pathname); enterDirect(q.get("explore"), q.get("site")); }
+  const P_OK = p => (p === "moon" || p === "mars" ? p : null);
+  if (q.get("explore")) enterDirect(q.get("explore"), q.get("site"));
 
   btn.addEventListener("click", enter);
   document.querySelectorAll('a[href="#explore"]').forEach(a => a.addEventListener("click", e => {

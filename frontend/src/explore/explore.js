@@ -57,11 +57,11 @@ export function createExplore(data) {
       <span class="eyebrow xp-eb"></span>
       <h2 class="xp-name"></h2>
       <span class="status xp-status"></span>
+      <a class="btn xp-more">Read the full story →</a>
       <div class="xp-pv"><canvas></canvas><small class="xp-tag"></small></div>
       <dl class="telemetry xp-tele"></dl>
       <div class="xp-sum"></div>
       <p class="fact xp-fact"></p>
-      <a class="btn xp-more">Study in detail →</a>
     </aside>
     <div class="xp-hint"></div>`;
   document.body.append(root);
@@ -143,14 +143,23 @@ export function createExplore(data) {
       const other = chosen && id !== chosen;
       if (state === "select") {
         const xo = Math.min(3.6, worldW(0) * .25);
-        if (portrait) { p.posT.set(0, id === "moon" ? 2.5 : -2.3, 0); p.scT = .72; }
+        if (portrait) {
+          // телефон: две планеты друг под другом, ниже заголовка и выше края экрана
+          const wh = worldW(0) / aspect, d = Math.min(worldW(0) * .6, wh * .24);
+          p.posT.set(0, wh * (id === "moon" ? .5 - .31 : .5 - .70), 0); p.scT = d / (2 * p.spec.radius);
+        }
         else { p.posT.set(id === "moon" ? -xo : xo, 0, 0); p.scT = 1; }
         p.opT = 1;
       } else if (other) {
         p.posT.set(id === "moon" ? -9 : 9, 0, -4); p.scT = .35; p.opT = 0;
       } else {
         const ds = 1.85 / p.spec.radius;
-        if (state === "site") {
+        const wh3 = worldW(3) / aspect;
+        if (narrow() && aspect < .9) {
+          // телефон (портрет): планета целиком на экране, не залезает под нижнюю панель
+          if (state === "site") { const d = Math.min(worldW(3) * .52, wh3 * .24); p.posT.set(0, wh3 * (.5 - .2), 3); p.scT = d / (2 * p.spec.radius); }
+          else { const d = Math.min(worldW(3) * .8, wh3 * .46); p.posT.set(0, wh3 * (.5 - .4), 3); p.scT = d / (2 * p.spec.radius); }
+        } else if (state === "site") {
           if (narrow()) p.posT.set(0, 1.5, 2.4);
           else p.posT.set(-(panelPx() / 2) / innerWidth * worldW(3), -.2, 3);
           p.scT = narrow() ? ds * .7 : ds;
@@ -238,6 +247,7 @@ export function createExplore(data) {
     else if (state === "planet") setTitle(PLANETS[chosen].name, `${sites.filter(s => s.planet === chosen).length} abandoned sites · ${hallOf(chosen)?.tagline ?? ""}`);
     $(".xp-title").classList.toggle("off", state === "site");
     markerEls.forEach(m => m.el.classList.toggle("active", m.site === activeSite));
+    api.onState && api.onState({ state, planet: chosen, site: activeSite && activeSite.ex.id });
   }
 
   // ---------- actions ----------
@@ -269,6 +279,42 @@ export function createExplore(data) {
   $(".xp-back").addEventListener("click", () => (state === "site" ? closeSite() : backToSelect()));
   $(".xp-exit").addEventListener("click", () => api.onExit && api.onExit());
 
+  // ---------- marker placement tool: open the site with ?edit, click the planet, copy lat/lon ----------
+  const EDIT = /[?&]edit(=|&|$)/.test(location.search);
+  let editLocal = null;                           // clicked point in the planet's local frame (unit sphere)
+  const ed = EDIT ? Object.assign(document.createElement("div"), { className: "xp-edit" }) : null;
+  const edDot = EDIT ? Object.assign(document.createElement("i"), { className: "xp-edit-dot" }) : null;
+  const vecToLL = q => {
+    const r = q.length(), th = Math.acos(Math.max(-1, Math.min(1, q.y / r))), ph = Math.atan2(q.z, -q.x);
+    let lon = ph * 180 / Math.PI - 180; lon = ((lon + 540) % 360) - 180;
+    return { lat: 90 - th * 180 / Math.PI, lon };
+  };
+  function editShow() {
+    if (!ed) return;
+    const ll = vecToLL(editLocal), lat = +ll.lat.toFixed(2), lon = +ll.lon.toFixed(2);
+    const snip = `{ "planet": "${chosen}", "lat": ${lat}, "lon": ${lon}, "label": "Site name" }`;
+    ed.innerHTML = `<b>Marker tool</b><span>Click the planet to set a point · arrows nudge 0.25° (Shift = 1°)</span>
+      <code>lat ${lat} · lon ${lon}</code><code class="snip">${esc(snip)}</code><button type="button">Copy JSON</button>`;
+    ed.querySelector("button").onclick = e => { navigator.clipboard && navigator.clipboard.writeText(snip); e.target.textContent = "Copied ✓"; };
+  }
+  if (EDIT) {
+    root.append(ed, edDot); ed.innerHTML = "<b>Marker tool</b><span>Fly to a planet, then click the surface to read its latitude / longitude.</span>";
+    addEventListener("keydown", e => {
+      if (!running || !editLocal || !e.key.startsWith("Arrow")) return;
+      const st = e.shiftKey ? 1 : .25, ll = vecToLL(editLocal);
+      if (e.key === "ArrowUp") ll.lat += st; if (e.key === "ArrowDown") ll.lat -= st;
+      if (e.key === "ArrowLeft") ll.lon -= st; if (e.key === "ArrowRight") ll.lon += st;
+      editLocal = llToVec(Math.max(-89.9, Math.min(89.9, ll.lat)), ll.lon, 1); editShow(); e.preventDefault();
+    });
+  }
+  function editPick(e) {
+    const p = P[chosen]; if (!p) return;
+    ndc.set(e.clientX / W * 2 - 1, -(e.clientY / H) * 2 + 1); ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObject(p.body, true)[0]; if (!hit) return;
+    p.spin.updateWorldMatrix(true, false);
+    editLocal = p.spin.worldToLocal(hit.point.clone()).normalize(); editShow();
+  }
+
   // ---------- pointer: hover / click / drag ----------
   const ray = new T.Raycaster(), ndc = new T.Vector2();
   let down = null;
@@ -293,6 +339,7 @@ export function createExplore(data) {
   canvas.addEventListener("pointerup", e => {
     const wasClick = down && down.moved < 6; down = null; canvas.style.cursor = state === "select" ? (hover ? "pointer" : "default") : "grab";
     if (wasClick && state === "select") { const id = pick(e); if (id) choose(id); }
+    else if (wasClick && EDIT && chosen) editPick(e);
   });
 
   // ---------- frame ----------
@@ -332,12 +379,23 @@ export function createExplore(data) {
         m.el.style.setProperty("--vis", vis.toFixed(2)); m.el.style.pointerEvents = vis > .4 ? "auto" : "none";
       }
     }
+    if (EDIT) {                                   // keep the red dot glued to the picked surface point
+      let on = false;
+      if (editLocal && chosen) {
+        const p = P[chosen]; p.spin.updateWorldMatrix(true, false); c.setFromMatrixPosition(p.group.matrixWorld);
+        v.copy(editLocal).multiplyScalar(p.spec.radius * 1.004).applyMatrix4(p.spin.matrixWorld);
+        n.copy(v).sub(c).normalize(); tc.copy(camera.position).sub(v).normalize();
+        on = n.dot(tc) > .05; v.project(camera);
+        edDot.style.transform = `translate(${(v.x * .5 + .5) * W}px,${(-v.y * .5 + .5) * H}px)`;
+      }
+      edDot.style.display = on ? "block" : "none";
+    }
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
   }
 
   const api = {
-    root, prepare, onExit: null,
+    root, prepare, onExit: null, onState: null,
     async show({ fade = false } = {}) {
       await prepare();
       state = "select"; chosen = null; activeSite = null; hover = null; markerEls.length = 0; markersEl.innerHTML = "";
