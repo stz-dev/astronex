@@ -1,11 +1,12 @@
 // Interactive Explore: planet picker -> fly-in -> site markers -> info panel with a 3D object.
 import * as T from "three";
 import { makePlanetCanvas } from "./texgen.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { Preview } from "./preview.js";
 
 const PLANETS = {
-  moon: { id: "moon", name: "Moon", radius: 1.35, atmo: 0xaebbd6, atmoK: .38, atmoPow: 3.2, bump: .9,  tex: "textures/moon.jpg" },
-  mars: { id: "mars", name: "Mars", radius: 1.8,  atmo: 0xe8793d, atmoK: .95, atmoPow: 2.5, bump: .55, tex: "textures/mars.jpg" }
+  moon: { id: "moon", name: "Moon", radius: 1.35, atmo: 0xaebbd6, atmoK: .38, atmoPow: 3.2, bump: .9,  tex: "textures/moon.jpg", glb: "models/moon.glb" },
+  mars: { id: "mars", name: "Mars", radius: 1.8,  atmo: 0xe8793d, atmoK: .95, atmoPow: 2.5, bump: .55, tex: "textures/mars.jpg", glb: "models/mars.glb" }
 };
 const CAM_Z = 10, FOV = 40;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -72,32 +73,59 @@ export function createExplore(data) {
   renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.15;
   const scene = new T.Scene();
   const camera = new T.PerspectiveCamera(FOV, 1, .1, 100); camera.position.set(0, 0, CAM_Z);
-  scene.add(new T.AmbientLight(0x3a4a78, .9));
-  const sun = new T.DirectionalLight(0xfff0dc, 3.4); sun.position.set(-6, 3, 7); scene.add(sun);
-  const rim = new T.DirectionalLight(0x5ee2ff, 1.1); rim.position.set(7, 2, -5); scene.add(rim);
+  scene.add(new T.AmbientLight(0xcdbcff, 1.6));
+  const sun = new T.DirectionalLight(0xfff4e0, 2.6); sun.position.set(-6, 4, 7); scene.add(sun);
+  const rim = new T.DirectionalLight(0xec5190, .5); rim.position.set(7, 2, -5); scene.add(rim);
 
   const P = {};                                   // planet objects
+  // Мультяшный вид: ступенчатое освещение (toon), чёрный контур и розовый полумесяц-«тень» позади планеты.
+  const toonGrad = new T.DataTexture(new Uint8Array([170, 205, 235, 255]), 4, 1, T.RedFormat); toonGrad.minFilter = toonGrad.magFilter = T.NearestFilter; toonGrad.needsUpdate = true;
+  const INK = 0x12072e, PINK = 0xec5190;
   let prepared = null;
   function prepare() {
     return prepared ??= (async () => {
       for (const spec of Object.values(PLANETS)) {
-        const tex = new T.CanvasTexture(await makePlanetCanvas(spec.id)); tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = 8;
-        const mat = new T.MeshStandardMaterial({ map: tex, bumpMap: tex, bumpScale: spec.bump, roughness: 1, metalness: 0, transparent: true });
-        const mesh = new T.Mesh(new T.SphereGeometry(spec.radius, 128, 80), mat);
-        const spin = new T.Group(); spin.add(mesh); spin.add(graticule(spec.radius * 1.004));
-        const atmo = atmosphere(spec.radius, spec.atmo, spec.atmoK, spec.atmoPow);
-        const group = new T.Group(); group.add(spin); group.add(atmo); scene.add(group);
-        P[spec.id] = { spec, group, spin, mesh, mat, atmo, hover: 0, op: 1, opT: 1,
+        // 1) preferred: models/<planet>.glb (unit sphere, equirectangular UVs, see README). 2) fallback: procedural sphere + optional textures/<planet>.jpg
+        let body = await loadPlanetGLB(spec), mat = null;
+        if (!body) {
+          const tex = new T.CanvasTexture(await makePlanetCanvas(spec.id)); tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = 8;
+          mat = new T.MeshToonMaterial({ map: tex, gradientMap: toonGrad, transparent: true });
+          body = new T.Mesh(new T.SphereGeometry(spec.radius, 96, 64), mat);
+        }
+        const R = spec.radius, mats = [];
+        body.traverse(o => { if (o.isMesh) for (const m of [].concat(o.material)) { m.transparent = true; mats.push(m); } });
+        const spin = new T.Group(); spin.add(body);
+        const flat = (geo, color, x, y, z) => { const m = new T.MeshBasicMaterial({ color, transparent: true }); const mesh = new T.Mesh(geo, m); mesh.position.set(x, y, z); mats.push(m); return mesh; };
+        const group = new T.Group(); group.add(spin);
+        const outline = flat(new T.SphereGeometry(R * 1.05, 64, 48), INK, 0, 0, 0); outline.material.side = T.BackSide; group.add(outline);   // контур планеты
+        scene.add(group);
+        const atmo = { material: { uniforms: { o: { value: 0 } } } };           // (старое свечение атмосферы убрано, оставлена заглушка для совместимости)
+        P[spec.id] = { spec, group, spin, body, mats, atmo, hover: 0, op: 1, opT: 1,
           pos: new T.Vector3(), posT: new T.Vector3(), sc: 1, scT: 1,
           rx: .35, ry: spec.id === "mars" ? 1 : 2, rxT: .35, ryT: spec.id === "mars" ? 1 : 2 };
         spin.rotation.set(P[spec.id].rx, P[spec.id].ry, 0);
-        // optional real NASA map: textures/<planet>.jpg (equirectangular, lon -180..180). Needs a local server.
-        if (location.protocol !== "file:") fetch(spec.tex, { method: "HEAD" }).then(r => {
+        // optional real NASA map for the procedural sphere: textures/<planet>.jpg (equirectangular, lon -180..180). Needs a local server.
+        if (mat && location.protocol !== "file:") fetch(spec.tex, { method: "HEAD" }).then(r => {
           if (r.ok && !(r.headers.get("content-type") || "").includes("text/html"))
-            new T.TextureLoader().load(spec.tex, t => { t.colorSpace = T.SRGBColorSpace; t.anisotropy = 8; mat.map = t; mat.bumpMap = t; mat.bumpScale = spec.bump * .5; mat.needsUpdate = true; });
+            new T.TextureLoader().load(spec.tex, t => { t.colorSpace = T.SRGBColorSpace; t.anisotropy = 8; mat.map = t; mat.needsUpdate = true; });
         }).catch(() => {});
       }
     })();
+  }
+  async function loadPlanetGLB(spec) {
+    if (location.protocol === "file:") return null;           // browsers block local file reads for WebGL
+    try {
+      const h = await fetch(spec.glb, { method: "HEAD" });
+      if (!h.ok || (h.headers.get("content-type") || "").includes("text/html")) return null;
+      const obj = (await new GLTFLoader().loadAsync(spec.glb)).scene;
+      const box = new T.Box3().setFromObject(obj), c = box.getCenter(new T.Vector3()), s = box.getSize(new T.Vector3());
+      const k = spec.radius / (Math.max(s.x, s.y, s.z) / 2);   // fit any model into the same radius as the markers expect
+      obj.scale.setScalar(k); obj.position.sub(c.multiplyScalar(k));
+      obj.traverse(o => { if (o.isMesh && o.material && o.material.isMeshStandardMaterial) {   // любые материалы из Blender → мультяшные
+        const m = o.material; o.material = new T.MeshToonMaterial({ color: m.color, map: m.map, vertexColors: m.vertexColors, gradientMap: toonGrad });
+      } });
+      const wrap = new T.Group(); wrap.add(obj); return wrap;
+    } catch { return null; }
   }
 
   // ---------- state ----------
@@ -230,9 +258,11 @@ export function createExplore(data) {
   let down = null;
   function pick(e) {
     ndc.set(e.clientX / W * 2 - 1, -(e.clientY / H) * 2 + 1); ray.setFromCamera(ndc, camera);
-    const meshes = Object.values(P).filter(p => p.group.visible && p.op > .5).map(p => p.mesh);
-    const hit = ray.intersectObjects(meshes)[0];
-    return hit ? Object.values(P).find(p => p.mesh === hit.object).spec.id : null;
+    const meshes = Object.values(P).filter(p => p.group.visible && p.op > .5).map(p => p.body);
+    const hit = ray.intersectObjects(meshes, true)[0];
+    if (!hit) return null;
+    for (let o = hit.object; o; o = o.parent) { const p = Object.values(P).find(q => q.body === o); if (p) return p.spec.id; }
+    return null;
   }
   canvas.addEventListener("pointermove", e => {
     if (down) {
@@ -264,7 +294,7 @@ export function createExplore(data) {
       p.hover += ((hover === p.spec.id && state === "select" ? 1 : 0) - p.hover) * (1 - Math.exp(-dt * 8));
       p.pos.lerp(p.posT, kP); p.sc += (p.scT * (1 + p.hover * .06) - p.sc) * kP; p.op += (p.opT - p.op) * (1 - Math.exp(-dt * 4));
       p.group.position.copy(p.pos); p.group.scale.setScalar(p.sc);
-      p.mat.opacity = p.op; p.atmo.material.uniforms.o.value = p.op * (1 + p.hover * .8);
+      for (const m of p.mats) m.opacity = p.op; p.atmo.material.uniforms.o.value = p.op * (1 + p.hover * .8);
       p.group.visible = p.op > .01;
     }
     // planet name labels (select stage)

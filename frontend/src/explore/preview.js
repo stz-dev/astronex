@@ -17,12 +17,12 @@ export class Preview {
     this.r.toneMapping = T.ACESFilmicToneMapping;
     this.scene = new T.Scene();
     this.cam = new T.PerspectiveCamera(36, 1, .1, 50); this.cam.position.set(0, .7, 4.6); this.cam.lookAt(0, 0, 0);
-    this.scene.add(new T.AmbientLight(0x6677aa, 1.1));
+    this.scene.add(new T.AmbientLight(0xcdbcff, 1.3));
     const sun = new T.DirectionalLight(0xfff0dd, 3); sun.position.set(-3, 4, 5); this.scene.add(sun);
-    const rim = new T.DirectionalLight(0x5ee2ff, 1.6); rim.position.set(4, 2, -4); this.scene.add(rim);
+    const rim = new T.DirectionalLight(0xec5190, 1.2); rim.position.set(4, 2, -4); this.scene.add(rim);
     this.holder = new T.Group(); this.scene.add(this.holder);
     // pedestal ring
-    const ring = new T.Mesh(new T.RingGeometry(1.15, 1.2, 64), new T.MeshBasicMaterial({ color: 0x5ee2ff, transparent: true, opacity: .5, side: T.DoubleSide }));
+    const ring = new T.Mesh(new T.RingGeometry(1.12, 1.22, 64), new T.MeshBasicMaterial({ color: 0xec5190, transparent: true, opacity: .9, side: T.DoubleSide }));
     ring.rotation.x = -Math.PI / 2; ring.position.y = -.85; this.scene.add(ring);
     this.ring = ring;
     this.yaw = .6; this.drag = null; this.token = 0; this.running = false;

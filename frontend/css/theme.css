@@ -1,37 +1,55 @@
-/* ASTRONEX — theme tokens. Edit colours/fonts HERE only. */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+/* ASTRONEX — theme tokens. Edit colours/fonts HERE only.
+   Style: playful "sticker" look — deep indigo, dotted grid, lime labels, cream titles, pink offset shadows. */
+/* Rubik (SIL OFL), bundled locally in frontend/fonts so the site looks the same offline */
+@font-face{font-family:"Rubik";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/rubik-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/rubik-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/rubik-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/rubik-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:normal;font-weight:800;font-display:swap;src:url("../fonts/rubik-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:normal;font-weight:900;font-display:swap;src:url("../fonts/rubik-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:italic;font-weight:700;font-display:swap;src:url("../fonts/rubik-latin-700-italic.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:italic;font-weight:800;font-display:swap;src:url("../fonts/rubik-latin-800-italic.woff2") format("woff2")}
+@font-face{font-family:"Rubik";font-style:italic;font-weight:900;font-display:swap;src:url("../fonts/rubik-latin-900-italic.woff2") format("woff2")}
 
 :root {
-  /* surfaces */
-  --space-0: #05070d;
-  --space-1: #0b1020;
-  --space-2: #121a30;
-  --line:    rgba(168, 162, 158, .18);
-  --line-strong: rgba(168, 162, 158, .38);
+  /* palette */
+  --ink:    #12072e;   /* outlines and hard shadows */
+  --indigo: #1a0e4f;   /* page background */
+  --indigo-2: #241466; /* panels */
+  --indigo-3: #321b86; /* raised bits */
+  --cream:  #f6ecd3;   /* titles, tags */
+  --lime:   #c6f35a;   /* labels, main buttons */
+  --pink:   #ec5190;   /* offset shadows */
+  --cyan:   #6fd8ff;   /* links */
+  --lav:    #d8cdf7;   /* body text */
 
-  /* text */
-  --text:   #e6e9f0;
-  --muted:  #a8a29e;   /* lunar dust */
-  --faint:  #6b7385;
-
-  /* accents */
-  --gold:   #d9a441;   /* Apollo foil */
-  --rust:   #c1440e;   /* Mars */
-  --signal: #5ee2ff;   /* HUD */
-  --danger: #ff5d5d;
+  /* legacy names used across the code */
+  --space-0: var(--indigo);
+  --space-1: var(--indigo-2);
+  --space-2: var(--indigo-3);
+  --line:    rgba(246, 236, 211, .16);
+  --line-strong: rgba(246, 236, 211, .38);
+  --text:   var(--cream);
+  --muted:  var(--lav);
+  --faint:  #a398d4;
+  --gold:   #ffd23f;
+  --rust:   #ff7a59;
+  --signal: var(--cyan);
+  --danger: #ff5d7a;
 
   /* per-hall accent (overridden by [data-hall]) */
-  --accent: var(--gold);
+  --accent: var(--lime);
 
   /* type */
-  --f-display: "Orbitron", "Space Grotesk", system-ui, sans-serif;
-  --f-body:    "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-display: "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body:    "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:    "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --radius: 2px;
-  --cut: 14px;         /* corner cut on panels */
+  --radius: 16px;
+  --cut: 0px;
+  --shadow: 6px 6px 0 var(--ink);
 }
 
-[data-hall="moon"] { --accent: var(--gold); }
-[data-hall="mars"] { --accent: #e0643a; }
-[data-hall="deep"] { --accent: var(--signal); }
+[data-hall="moon"] { --accent: var(--lime); }
+[data-hall="mars"] { --accent: #ff8a5c; }
+[data-hall="deep"] { --accent: var(--cyan); }

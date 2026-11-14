@@ -1,5 +1,8 @@
-// Entry point: "Interactive Explore" button -> page slides away -> darken -> intro video -> darken -> planets.
+// Entry point: "Interactive Explore" button -> page slides away -> darken -> three.js intro -> darken -> planets.
 import { createExplore } from "./explore.js";
+import { createIntro } from "./intro.js";
+
+window.AstronexIntro = { create: createIntro };           // для демо-страницы intro.html
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
@@ -22,30 +25,20 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     return out.filter(([el]) => el);
   };
 
+  // Вступление на three.js (src/explore/intro.js): одна непрерывная сцена ~14 с вместо mp4.
   function playIntro() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return Promise.resolve();   // без анимации для тех, кому она вредна
     return new Promise(resolve => {
-      const video = Object.assign(document.createElement("video"), { id: "xp-video", playsInline: true, preload: "auto" });
-      const skip = Object.assign(document.createElement("button"), { id: "xp-skip", type: "button", textContent: "Skip ›" });
-      const note = Object.assign(document.createElement("div"), { id: "xp-note" });
-      let done = false;
-      const finish = async () => {
+      let intro = null, done = false;
+      const finish = async () => {                                  // onAnimationEnd: и по окончании, и по «Skip»
         if (done) return; done = true; skipIntro = null;
-        video.classList.remove("on"); skip.classList.remove("on"); note.classList.remove("on");
-        await wait(650);
-        video.pause(); video.removeAttribute("src"); video.load(); video.remove(); skip.remove(); note.remove();
-        resolve();
+        intro.el.classList.remove("on");
+        await wait(700);
+        intro.dispose(); resolve();
       };
-      skipIntro = finish;
-      video.addEventListener("ended", finish);
-      video.addEventListener("error", () => {
-        note.textContent = "Intro video not found — add frontend/video/intro.mp4"; note.classList.add("on");
-        setTimeout(finish, 1800);
-      });
-      skip.addEventListener("click", finish);
-      document.body.append(video, note, skip);
-      video.src = "video/intro.mp4";
-      requestAnimationFrame(() => { video.classList.add("on"); setTimeout(() => skip.classList.add("on"), 800); });
-      const p = video.play(); if (p) p.catch(() => { video.muted = true; video.play().catch(() => {}); });
+      intro = createIntro({ onAnimationEnd: finish });
+      skipIntro = () => intro.skip();
+      intro.play();
     });
   }
 
@@ -60,7 +53,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     await wait(350);
     await fade(true, 1100);                          // site goes dark
     pieces().forEach(([el]) => (el.inert = true));
-    await playIntro();                               // mp4
+    await playIntro();                               // three.js intro (ракета, дым)
     await prep;
     await xp.show();                                 // planets appear (under the black veil)
     inExplore = true;

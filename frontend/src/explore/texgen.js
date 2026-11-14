@@ -23,49 +23,42 @@ function rng(seed) { let t = seed; return () => { t += 0x6D2B79F5; let r = Math.
 const slice = (() => { let t = 0; return async () => { if (performance.now() - t > 7) { await new Promise(r => setTimeout(r, 0)); t = performance.now(); } }; })();
 
 export async function makePlanetCanvas(kind, W = 2048, H = 1024) {
+  // Плоская «наклейка»: 3–4 заливки по шуму вместо реалистичных градиентов.
   const c = document.createElement("canvas"); c.width = W; c.height = H;
   const g = c.getContext("2d");
   const img = g.createImageData(W, H), d = img.data;
   const moon = kind === "moon", S = moon ? 11 : 37;
+  const PAL = moon
+    ? { base: [226, 218, 247], light: [244, 238, 255], dark: [176, 162, 226], deep: [138, 120, 205], crater: "rgba(122,104,196,.9)", rim: "rgba(255,255,255,.55)" }
+    : { base: [255, 138, 92],  light: [255, 184, 132], dark: [226, 98, 70],  deep: [190, 66, 66],  crater: "rgba(168,52,60,.9)",  rim: "rgba(255,214,170,.55)" };
   for (let y = 0; y < H; y++) {
     if (y % 4 === 0) await slice();                       // keep the page responsive (animations, video)
     const v = y / H, lat = Math.abs(v - .5) * 180;
     for (let x = 0; x < W; x++) {
       const u = x / W, n = fbm(u, v, S), big = fbm(u, v, S + 99, 3);
-      let r, gg, b;
-      if (moon) {
-        const maria = smooth(.5, .62, big);                       // dark basalt plains
-        const k = (92 + n * 95) * (1 - maria * .45);
-        r = k; gg = k * 1.0; b = k * (1.04 - maria * .04);
-      } else {
-        const dark = smooth(.48, .6, big), bright = smooth(.5, .7, fbm(u, v, S + 5, 4));
-        r = 150 + n * 55 + bright * 25 - dark * 70;
-        gg = 72 + n * 38 + bright * 22 - dark * 34;
-        b = 44 + n * 24 + bright * 14 - dark * 18;
-        const cap = smooth(78, 85, lat + (n - .5) * 14);          // polar caps
-        r += (236 - r) * cap; gg += (236 - gg) * cap; b += (240 - b) * cap;
-      }
+      let col = PAL.base;
+      if (big > .6) col = PAL.deep; else if (big > .53) col = PAL.dark;           // тёмные «моря» / тени
+      if (n > .62 && big < .53) col = PAL.light;                                   // светлые пятна
+      if (!moon && smooth(78, 85, lat + (n - .5) * 14) > .5) col = [250, 244, 232]; // полярные шапки
       const i = (y * W + x) * 4;
-      d[i] = r; d[i + 1] = gg; d[i + 2] = b; d[i + 3] = 255;
+      d[i] = col[0]; d[i + 1] = col[1]; d[i + 2] = col[2]; d[i + 3] = 255;
     }
   }
   g.putImageData(img, 0, 0);
 
-  // craters
-  const rand = rng(S), count = moon ? 1100 : 420;
+  // craters: flat dark discs with a light rim
+  const rand = rng(S), count = moon ? 520 : 240;
   for (let i = 0; i < count; i++) {
     if (i % 25 === 0) await slice();
-    const rr = 2.5 + Math.pow(rand(), 3.2) * (moon ? 46 : 36);
-    const y = H * (.08 + rand() * .84), x0 = rand() * W;
+    const rr = 4 + Math.pow(rand(), 3) * (moon ? 52 : 40);
+    const y = H * (.1 + rand() * .8), x0 = rand() * W;
     const lat = (y / H - .5) * Math.PI, sx = 1 / Math.max(.28, Math.cos(lat));
     for (const x of [x0, x0 - W, x0 + W]) {
       if (x < -rr * sx * 2 || x > W + rr * sx * 2) continue;
       g.save(); g.translate(x, y); g.scale(sx, 1);
-      const gr = g.createRadialGradient(-rr * .15, -rr * .15, rr * .1, 0, 0, rr);
-      gr.addColorStop(0, "rgba(0,0,0,.34)"); gr.addColorStop(.8, "rgba(0,0,0,.14)"); gr.addColorStop(1, "rgba(0,0,0,0)");
-      g.fillStyle = gr; g.beginPath(); g.arc(0, 0, rr, 0, 6.2832); g.fill();
-      g.strokeStyle = moon ? "rgba(255,255,255,.16)" : "rgba(255,210,170,.12)"; g.lineWidth = Math.max(.6, rr * .08);
-      g.beginPath(); g.arc(0, 0, rr * .94, Math.PI * 1.05, Math.PI * 1.85); g.stroke();
+      g.fillStyle = PAL.crater; g.beginPath(); g.arc(0, 0, rr, 0, 6.2832); g.fill();
+      g.strokeStyle = PAL.rim; g.lineWidth = Math.max(1.5, rr * .14);
+      g.beginPath(); g.arc(0, 0, rr * .98, Math.PI * .8, Math.PI * 1.45); g.stroke();
       g.restore();
     }
   }

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASTRONEX — intro preview</title>
+<link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/explore.css">
+<style>html,body{margin:0;background:#000;height:100%}</style>
+</head>
+<body>
+<!-- Демо вступления отдельно от сайта. Работает и по двойному клику (file://). -->
+<script src="js/explore.bundle.js" defer></script>
+<script defer>
+  addEventListener("DOMContentLoaded", () => {
+    const intro = AstronexIntro.create({
+      onAnimationEnd() { console.log("onAnimationEnd"); }       // здесь можно переходить к контенту сайта
+    });
+    window.intro = intro; intro.play();
+  });
+</script>
+</body>
+</html>

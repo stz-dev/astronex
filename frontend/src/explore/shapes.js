@@ -1,7 +1,7 @@
 // Abstract placeholder objects (until the 3D team's .glb files arrive in frontend/models/).
 import * as T from "three";
 
-const edgeMat = new T.LineBasicMaterial({ color: 0x5ee2ff, transparent: true, opacity: .55 });
+const edgeMat = new T.LineBasicMaterial({ color: 0x12072e, transparent: true, opacity: .9 });
 function part(geo, color, { metal = .3, rough = .55, pos = [0, 0, 0], rot = [0, 0, 0], emissive = 0 } = {}) {
   const m = new T.Mesh(geo, new T.MeshStandardMaterial({ color, metalness: metal, roughness: rough, emissive, emissiveIntensity: .4, flatShading: true }));
   m.position.set(...pos); m.rotation.set(...rot);
