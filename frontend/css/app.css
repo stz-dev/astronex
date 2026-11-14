@@ -140,3 +140,12 @@ footer{border-top:3px solid var(--ink);background:rgba(18,7,46,.55);padding:2rem
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* ---- "Study in detail" sections on the exhibit page ---- */
+.details{margin:3rem 0 1rem}
+.dsec{margin-top:1.4rem;padding:1.4rem 1.6rem;background:var(--indigo-2);border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink)}
+.dsec h2{font-family:var(--f-display);font-weight:900;font-size:1.5rem;color:var(--cream);margin:0 0 .7rem}
+.dsec p{color:var(--lav);line-height:1.7;margin:.5rem 0}
+.dsec ul{margin:.6rem 0 .6rem 1.2rem;padding:0;color:var(--lav);line-height:1.7}
+.dsec li{margin:.5rem 0}
+.exhibit .panel>p{margin:.8rem 0}

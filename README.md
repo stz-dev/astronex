@@ -41,7 +41,7 @@ Used on exhibit pages (`exhibit.html`) and in the Interactive Explore panel. As 
 | File | What | Status |
 |---|---|---|
 | `apollo-lm.glb` | Apollo Lunar Module | **real model** |
-| `lrv.glb` | Lunar Roving Vehicle | placeholder |
+| `lro.glb` | Lunar Reconnaissance Orbiter | placeholder |
 | `mer.glb` | Spirit & Opportunity (one shared exhibit) | placeholder |
 | `ingenuity.glb` | Ingenuity helicopter | placeholder |
 | `moon.glb`, `mars.glb` | the two planets in Interactive Explore | placeholder |
@@ -74,3 +74,6 @@ If `moon.glb` / `mars.glb` is missing, the site draws a procedural planet (and u
 ## Visual style
 
 The site uses a playful "sticker" look: indigo background with a dot grid, lime labels with pink offset shadows, cream headings, flat toon-shaded planets with a dark outline and a pink crescent. All colours live in `frontend/css/theme.css`. The Rubik font (SIL OFL) is bundled in `frontend/fonts/`, so no external font requests are made.
+
+## Draco-compressed models
+`.glb` files compressed with Draco (e.g. `apollo-lm.glb`, `ingenuity.glb`) are supported. The decoder lives in `frontend/draco/` — keep that folder in the repo.

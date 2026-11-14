@@ -1,6 +1,6 @@
 // Generates stand-in .glb files so every model slot has a real file to replace later.
 // Run:  cd tools && npm run placeholders
-// Output: frontend/models/{lrv,mer,ingenuity,moon,mars}.glb  (apollo-lm.glb is the real model and is not touched)
+// Output: frontend/models/{lro,mer,ingenuity,moon,mars}.glb  (apollo-lm.glb is the real model and is not touched)
 import * as T from "three";
 import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
 import { buildAbstract } from "../frontend/src/explore/shapes.js";
@@ -22,7 +22,7 @@ async function save(name, object) {
 }
 
 // ---- spacecraft: same abstract shapes as the Explore fallback, minus the cyan edge lines
-for (const [id, file] of [["lrv", "lrv"], ["mer", "mer"], ["ingenuity", "ingenuity"]]) {
+for (const [id, file] of [["lro", "lro"], ["mer", "mer"], ["ingenuity", "ingenuity"]]) {
   const g = buildAbstract(id);
   const lines = []; g.traverse(o => { if (o.isLineSegments) lines.push(o); }); lines.forEach(l => l.parent.remove(l));
   g.name = "placeholder-" + id;

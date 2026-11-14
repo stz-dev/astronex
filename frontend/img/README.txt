@@ -4,7 +4,7 @@ The site fades them in per hall automatically (Ken Burns + dark overlay). No cod
 If a file is missing, the procedural scenery is used instead.
 
 Suggested sources (credit NASA in the footer):
-  Moon : Apollo 17 LRV at its final resting place, AS17-143-21933 (LM in the background)
+  Moon : Apollo 17 Lunar Module site (replace with any Moon photo)
          https://www.nasa.gov/history/alsj/a17/images17.html
   Mars : Opportunity, Endurance Crater panorama, PIA05867 (NASA/JPL/Cornell)
          https://photojournal.jpl.nasa.gov/catalog/PIA05867

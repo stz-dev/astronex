@@ -1,7 +1,7 @@
 // Interactive Explore: planet picker -> fly-in -> site markers -> info panel with a 3D object.
 import * as T from "three";
 import { makePlanetCanvas } from "./texgen.js";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { makeGLTFLoader } from "./glb.js";
 import { Preview } from "./preview.js";
 
 const PLANETS = {
@@ -42,6 +42,7 @@ export function createExplore(data) {
   const root = document.createElement("div");
   root.id = "xp"; root.className = "xp"; root.setAttribute("role", "dialog"); root.setAttribute("aria-label", "Interactive Explore");
   root.innerHTML = `
+    <canvas class="xp-stars"></canvas>
     <canvas class="xp-canvas"></canvas>
     <div class="xp-top">
       <div class="xp-crumb"><span>Interactive Explore</span><b class="xp-crumb-p"></b></div>
@@ -58,9 +59,9 @@ export function createExplore(data) {
       <span class="status xp-status"></span>
       <div class="xp-pv"><canvas></canvas><small class="xp-tag"></small></div>
       <dl class="telemetry xp-tele"></dl>
-      <p class="xp-sum"></p>
+      <div class="xp-sum"></div>
       <p class="fact xp-fact"></p>
-      <a class="btn xp-more">Open full exhibit page →</a>
+      <a class="btn xp-more">Study in detail →</a>
     </aside>
     <div class="xp-hint"></div>`;
   document.body.append(root);
@@ -97,7 +98,6 @@ export function createExplore(data) {
         const spin = new T.Group(); spin.add(body);
         const flat = (geo, color, x, y, z) => { const m = new T.MeshBasicMaterial({ color, transparent: true }); const mesh = new T.Mesh(geo, m); mesh.position.set(x, y, z); mats.push(m); return mesh; };
         const group = new T.Group(); group.add(spin);
-        const outline = flat(new T.SphereGeometry(R * 1.05, 64, 48), INK, 0, 0, 0); outline.material.side = T.BackSide; group.add(outline);   // контур планеты
         scene.add(group);
         const atmo = { material: { uniforms: { o: { value: 0 } } } };           // (старое свечение атмосферы убрано, оставлена заглушка для совместимости)
         P[spec.id] = { spec, group, spin, body, mats, atmo, hover: 0, op: 1, opT: 1,
@@ -117,7 +117,7 @@ export function createExplore(data) {
     try {
       const h = await fetch(spec.glb, { method: "HEAD" });
       if (!h.ok || (h.headers.get("content-type") || "").includes("text/html")) return null;
-      const obj = (await new GLTFLoader().loadAsync(spec.glb)).scene;
+      const obj = (await makeGLTFLoader().loadAsync(spec.glb)).scene;
       const box = new T.Box3().setFromObject(obj), c = box.getCenter(new T.Vector3()), s = box.getSize(new T.Vector3());
       const k = spec.radius / (Math.max(s.x, s.y, s.z) / 2);   // fit any model into the same radius as the markers expect
       obj.scale.setScalar(k); obj.position.sub(c.multiplyScalar(k));
@@ -159,7 +159,23 @@ export function createExplore(data) {
       }
     }
   }
+  // простой космос: чёрный фон и звёзды (без точек-сетки и мультяшных планет)
+  const starCv = root.querySelector(".xp-stars");
+  function drawStars() {
+    const dpr = Math.min(devicePixelRatio || 1, 2), w = innerWidth, h = innerHeight;
+    starCv.width = w * dpr; starCv.height = h * dpr;
+    const c = starCv.getContext("2d"); c.scale(dpr, dpr);
+    let seed = 12345; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const n = Math.round(w * h / 2600);
+    for (let i = 0; i < n; i++) {
+      const x = rnd() * w, y = rnd() * h, big = rnd() > .965, r = big ? .9 + rnd() * .7 : .3 + rnd() * .6;
+      c.globalAlpha = .35 + rnd() * .65; c.fillStyle = rnd() > .85 ? "#bcd4ff" : rnd() > .9 ? "#ffe2bd" : "#ffffff";
+      c.beginPath(); c.arc(x, y, r, 0, 6.2832); c.fill();
+    }
+  }
+  drawStars();
   function resize() {
+    drawStars();
     W = innerWidth; H = innerHeight; aspect = W / H;
     renderer.setSize(W, H, false); camera.aspect = aspect; camera.updateProjectionMatrix();
     layout(); preview.resize();
@@ -203,7 +219,7 @@ export function createExplore(data) {
     $(".xp-status").textContent = ex.status;
     $(".xp-tele").innerHTML = [["Last contact", ex.last_contact], ["Mission years", ex.years], ["Location", ex.location], ["Agency", ex.agency], ["Creators", ex.creators]]
       .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
-    $(".xp-sum").textContent = ex.summary;
+    $(".xp-sum").innerHTML = (ex.story || [ex.summary]).map(t => `<p>${esc(t)}</p>`).join("");
     $(".xp-fact").innerHTML = `<b class="mono" style="font-size:.7rem;letter-spacing:.14em;color:var(--accent)">FACT</b><br>${esc(ex.fact)}`;
     $(".xp-more").href = "exhibit.html?id=" + encodeURIComponent(ex.id);
     preview.show(ex);

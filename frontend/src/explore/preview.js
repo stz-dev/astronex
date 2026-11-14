@@ -1,6 +1,6 @@
 // Small 3D viewer used in the info panel. Shows the exhibit's .glb if it exists, else an abstract placeholder.
 import * as T from "three";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { makeGLTFLoader } from "./glb.js";
 import { buildAbstract } from "./shapes.js";
 
 async function exists(url) {
@@ -40,7 +40,7 @@ export class Preview {
     let obj = null, real = false;
     if (await exists(ex.model)) {
       try {
-        const gltf = await new GLTFLoader().loadAsync(ex.model); obj = gltf.scene; real = true;
+        const gltf = await makeGLTFLoader().loadAsync(ex.model); obj = gltf.scene; real = true;
         const box = new T.Box3().setFromObject(obj), size = box.getSize(new T.Vector3()), c = box.getCenter(new T.Vector3());
         const k = 1.9 / Math.max(size.x, size.y, size.z); obj.scale.setScalar(k); obj.position.sub(c.multiplyScalar(k));
       } catch { obj = null; }

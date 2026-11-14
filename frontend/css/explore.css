@@ -51,7 +51,8 @@ html.xp-away #stars{opacity:.9}
 
 /* overlay root */
 .xp{position:fixed;inset:0;z-index:9000;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s;overflow:hidden;
-  background:radial-gradient(ellipse at 50% 55%,transparent 45%,rgba(18,7,46,.6))}
+  background:radial-gradient(ellipse at 50% 55%,#05070f 0%,#020309 70%,#000 100%)}
+.xp-stars{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
 .xp.on{opacity:1;visibility:visible;transition:opacity .6s ease}
 .xp-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
 
@@ -118,6 +119,7 @@ html.xp-away #stars{opacity:.9}
 .xp-pv{position:relative;margin:1.2rem 0;border:3px solid var(--ink);border-radius:18px;overflow:hidden;background:radial-gradient(circle at 50% 70%,rgba(246,236,211,.16),transparent 62%),var(--indigo)}
 .xp-pv canvas{width:100%;height:clamp(340px,52vh,560px);display:block;touch-action:none;cursor:grab}
 .xp-pv small{position:absolute;left:.7rem;bottom:.6rem;font-family:var(--f-display);font-weight:700;font-size:.62rem;letter-spacing:.04em;color:var(--ink);background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:.1rem .6rem;text-transform:uppercase;pointer-events:none}
+.xp-sum p{margin:.7rem 0}
 .xp-sum{color:var(--lav);margin-top:1rem;font-size:1.08rem;line-height:1.65}
 .xp-more{margin-top:1.4rem}
 .xp .telemetry{margin:1rem 0 0}

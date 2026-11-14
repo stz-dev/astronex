@@ -42,37 +42,25 @@ window.EXHIBITS_DATA = {
    ]
   },
   {
-   "id": "lrv",
-   "name": "Lunar Roving Vehicle (LRV)",
-   "short": "Lunar Rover (LRV)",
+   "id": "lro",
+   "name": "Lunar Reconnaissance Orbiter (LRO)",
+   "short": "Lunar Reconnaissance Orbiter",
    "hall": "moon",
    "agency": "NASA",
-   "years": "1971–1972",
-   "status": "PARKED FOREVER",
-   "last_contact": "Dec 1972 (Apollo 17)",
-   "location": "Hadley–Apennine, Descartes, Taurus–Littrow",
-   "creators": "Boeing, General Motors",
-   "summary": "Three electric \"moon buggies\" carried the Apollo 15, 16 and 17 astronauts. All three were parked where they were last used.",
-   "fact": "About 3.1 m long, it folded to fit inside the lunar module's bay. On Apollo 17 a broken fender was repaired with maps and tape.",
-   "model": "models/lrv.glb",
+   "years": "2009–present",
+   "status": "STILL ORBITING THE MOON",
+   "last_contact": "Ongoing",
+   "location": "Polar orbit around the Moon",
+   "creators": "NASA Goddard Space Flight Center (GSFC)",
+   "summary": "A NASA robotic spacecraft that has orbited the Moon since 2009 and maps its surface. Its data help plan future human and robotic missions.",
+   "fact": "Launched on June 18, 2009 on an Atlas V 401. It was planned to work for one year, but NASA has extended the mission many times.",
+   "model": "models/lro.glb",
    "markers": [
     {
      "planet": "moon",
-     "lat": 26.13,
-     "lon": 3.63,
-     "label": "LRV · Apollo 15 · Hadley–Apennine"
-    },
-    {
-     "planet": "moon",
-     "lat": -8.97,
-     "lon": 15.5,
-     "label": "LRV · Apollo 16 · Descartes"
-    },
-    {
-     "planet": "moon",
-     "lat": 20.19,
-     "lon": 30.77,
-     "label": "LRV · Apollo 17 · Taurus–Littrow"
+     "lat": -86.0,
+     "lon": 0.0,
+     "label": "LRO · polar orbit"
     }
    ]
   },
@@ -148,6 +136,67 @@ window.EXHIBITS_DATA = {
      "lat": 18.44,
      "lon": 77.45,
      "label": "Jezero Crater"
+    }
+   ],
+   "story": [
+    "Ingenuity was a lightweight helicopter with specially designed rotor blades, and it did something no aircraft had ever done before: a powered, controlled flight on another planet.",
+    "NASA originally expected it to perform no more than five test flights within approximately 30 days. Instead, the little helicopter completed 72 flights over almost three years. The original technology demonstration was so successful that NASA extended its mission and gave it additional tasks.",
+    "Its flights were autonomous. Engineers on Earth planned the flights and sent commands, but Ingenuity used its onboard computer and sensors to control its movements during flight.",
+    "On January 18, 2024, Ingenuity completed its final flight. The helicopter experienced an unexpected problem and made an early landing, and NASA later received images showing damage to one or more rotor blades. The damage meant that Ingenuity could no longer fly, and on January 25, 2024 NASA officially announced the end of the mission.",
+    "Although its flights were over, Ingenuity had already achieved much more than originally planned. It remained on the Martian surface as a stationary artifact of space exploration. It was more than a small helicopter: it was a technology demonstration that helped make future aerial exploration of Mars possible."
+   ],
+   "details": [
+    {
+     "title": "How Ingenuity worked",
+     "text": [
+      "To solve the problem of flying on Mars, engineers created a lightweight helicopter with specially designed rotor blades.",
+      "Ingenuity used solar energy to charge its rechargeable lithium-ion batteries. The stored energy powered its systems and provided enough energy for a planned flight of approximately 90 seconds per Martian day.",
+      "The helicopter also had cameras and sensors that helped it understand its position and movement.",
+      "Communication with Earth was supported through the Perseverance rover."
+     ]
+    },
+    {
+     "title": "Technical specifications",
+     "list": [
+      "Mass: 1.8 kilograms (3.97 pounds)",
+      "Rotor blade span: Approximately 1.2 meters",
+      "Power source: Solar panel and rechargeable lithium-ion batteries",
+      "Average power during flight: Approximately 350 watts",
+      "Battery type: Lithium-ion",
+      "Flight environment: Martian atmosphere, less than 1% as dense as Earth's atmosphere"
+     ]
+    },
+    {
+     "title": "Understanding the different NASA numbers",
+     "text": [
+      "Some NASA materials show different numbers for Ingenuity's flight altitude and distance. This does not necessarily mean that the information is incorrect.",
+      "The reason is that NASA presents both the helicopter's technical specifications and its actual achievements. These numbers describe different things."
+     ],
+     "list": [
+      "1. Flight altitude: 5 meters vs. 24 meters. NASA lists approximately 5 meters as the helicopter's flight altitude in its technical specifications. This describes its planned operating capability. However, during the mission, Ingenuity reached a maximum recorded altitude of 24 meters. The 5-meter figure is a technical specification, while 24 meters is an actual mission achievement.",
+      "2. Flight distance: 300 meters vs. 17 kilometers. NASA lists up to 300 meters as the helicopter's flight range in its technical specifications. However, Ingenuity travelled approximately 17 kilometers during its entire mission. These numbers describe different measurements. The 300-meter figure refers to the listed range for an individual flight, while 17 kilometers represents the total distance from all 72 flights combined.",
+      "3. Five planned flights vs. 72 completed flights. NASA originally expected Ingenuity to perform no more than five test flights within approximately 30 days. Instead, the helicopter completed 72 flights over almost three years. This happened because the original technology demonstration was so successful that NASA extended its mission and gave it additional tasks."
+     ],
+     "after": "In short, some numbers describe what Ingenuity was designed or expected to do, while others describe what it actually achieved."
+    },
+    {
+     "title": "Why is Ingenuity important?",
+     "text": [
+      "Ingenuity changed the way scientists think about exploring other planets.",
+      "Before its mission, no aircraft had ever completed a powered and controlled flight on another planet. Ingenuity proved that small flying vehicles could operate in the Martian atmosphere.",
+      "Its success showed that future missions could use helicopters to explore areas that are difficult for rovers to reach.",
+      "It also provided engineers with important information about flight in a very thin atmosphere.",
+      "It proved that powered flight on Mars was possible and provided valuable information for future aircraft designs."
+     ]
+    },
+    {
+     "title": "What comes next?",
+     "text": [
+      "NASA's future Mars helicopter plans build on the experience gained from Ingenuity.",
+      "One of the projects mentioned by NASA is SkyFall, which aims to deliver a group of next-generation helicopters to Mars.",
+      "These helicopters are planned to help scout possible human landing sites and search for underground water ice.",
+      "This shows how Ingenuity's successful mission could influence the design of future space exploration vehicles."
+     ]
     }
    ]
   },

@@ -5,7 +5,6 @@ const edgeMat = new T.LineBasicMaterial({ color: 0x12072e, transparent: true, op
 function part(geo, color, { metal = .3, rough = .55, pos = [0, 0, 0], rot = [0, 0, 0], emissive = 0 } = {}) {
   const m = new T.Mesh(geo, new T.MeshStandardMaterial({ color, metalness: metal, roughness: rough, emissive, emissiveIntensity: .4, flatShading: true }));
   m.position.set(...pos); m.rotation.set(...rot);
-  m.add(new T.LineSegments(new T.EdgesGeometry(geo, 25), edgeMat));
   return m;
 }
 const cyl = (rt, rb, h, s = 12) => new T.CylinderGeometry(rt, rb, h, s);
@@ -37,14 +36,13 @@ const BUILDERS = {
     legs(g, 4, .8, 1.35, -.05, -.62, GOLD);
     g.add(part(box(.22, .5, .06), GREY, { pos: [0, -.1, .92], rot: [.25, 0, 0] }));
   },
-  lrv: g => {
-    g.add(part(box(1.7, .1, .85), GREY));
-    wheels(g, [-.6, .6], [-.5, .5], -.12, .26, .12);
-    g.add(part(box(.3, .3, .3), WHITE, { pos: [-.15, .2, -.18] }));
-    g.add(part(box(.3, .3, .3), WHITE, { pos: [-.15, .2, .18] }));
-    g.add(part(cyl(.025, .025, .8, 6), GREY, { pos: [.5, .5, 0] }));
-    dish(g, [.5, .92, 0], .26, [-1.1, 0, 0]);
-    g.add(part(box(.4, .22, .6), DARK, { pos: [.55, .12, 0] }));
+  lro: g => {
+    g.add(part(box(.7, .55, .6), GOLD, { pos: [0, 0, 0] }));
+    g.add(part(box(1.5, .04, .5), DARK, { pos: [0, .05, -.75] }));
+    g.add(part(cyl(.025, .025, .8, 6), GREY, { pos: [.42, .5, 0], rot: [0, 0, .5] }));
+    dish(g, [.7, .9, 0], .24, [-1.1, 0, 0]);
+    g.add(part(cyl(.14, .1, .3, 10), DARK, { pos: [0, -.42, 0] }));
+    g.add(part(box(.22, .18, .4), WHITE, { pos: [-.3, -.1, .45] }));
   },
   surveyor3: g => {
     g.add(part(cyl(.1, .1, .9, 8), GREY, { pos: [0, .35, 0] }));
