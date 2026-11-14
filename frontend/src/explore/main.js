@@ -25,18 +25,18 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     return out.filter(([el]) => el);
   };
 
-  // Вступление на three.js (src/explore/intro.js): одна непрерывная сцена ~14 с вместо mp4.
-  function playIntro() {
+  // Вступление (src/explore/intro.js): ракета на фоне сайта. onFade — момент, когда фон начинает плавно меняться на космос Explore.
+  function playIntro(onFade) {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return Promise.resolve();   // без анимации для тех, кому она вредна
     return new Promise(resolve => {
       let intro = null, done = false;
       const finish = async () => {                                  // onAnimationEnd: и по окончании, и по «Skip»
         if (done) return; done = true; skipIntro = null;
         intro.el.classList.remove("on");
-        await wait(700);
+        await wait(650);
         intro.dispose(); resolve();
       };
-      intro = createIntro({ onAnimationEnd: finish });
+      intro = createIntro({ onFade, onAnimationEnd: finish });
       skipIntro = () => intro.skip();
       intro.play();
     });
@@ -47,17 +47,16 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     scrollPos = scrollY;
     xp ??= createExplore(data);
     xp.onExit = leave;
-    const prep = xp.prepare();                       // build planets while the intro plays
+    const prep = xp.prepare();                       // планеты строятся, пока играет вступление
     pieces().forEach(([el, dir]) => (el.dataset.xpAway = dir));
-    html.classList.add("xp-lock", "xp-away");        // everything slides aside
-    await wait(350);
-    await fade(true, 1100);                          // site goes dark
+    html.classList.add("xp-lock", "xp-away");        // элементы сайта плавно исчезают, остаётся только фон
+    await wait(800);
     pieces().forEach(([el]) => (el.inert = true));
-    await playIntro();                               // three.js intro (ракета, дым)
-    await prep;
-    await xp.show();                                 // planets appear (under the black veil)
+    let shown = null;
+    const reveal = () => (shown ??= prep.then(() => xp.show({ fade: true })));   // фон плавно становится космосом, элементы Explore проявляются
+    await playIntro(reveal);                         // летящая ракета
+    await reveal();
     inExplore = true;
-    await fade(false, 1000);                         // lights come up on the planets
     busy = false;
   }
 
@@ -72,6 +71,22 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     await fade(false, 900);
     busy = false;
   }
+
+  // coming back from exhibit.html: open Explore straight at the planet / site (no intro)
+  async function enterDirect(planet, exId) {
+    busy = true; scrollPos = 0;
+    veil.style.transitionDuration = "0ms"; veil.classList.add("on");
+    xp ??= createExplore(data); xp.onExit = leave;
+    await xp.prepare();
+    html.classList.add("xp-lock", "xp-away", "xp-instant");
+    pieces().forEach(([el, dir]) => { el.dataset.xpAway = dir; el.inert = true; });
+    await xp.show(); inExplore = true;
+    xp.openAt(planet, exId);
+    await wait(120); html.classList.remove("xp-instant");
+    await fade(false, 800); busy = false;
+  }
+  const q = new URLSearchParams(location.search);
+  if (q.get("explore")) { history.replaceState(null, "", location.pathname); enterDirect(q.get("explore"), q.get("site")); }
 
   btn.addEventListener("click", enter);
   document.querySelectorAll('a[href="#explore"]').forEach(a => a.addEventListener("click", e => {

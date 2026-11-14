@@ -151,8 +151,6 @@ async function modelExists(url) {
 async function mountViewer(stage, ex, { controls = true, rotate = true } = {}) {
   stage.dataset.hall = ex.hall;
   stage.innerHTML = `
-    <div class="ring"></div><div class="ring r2"></div>
-    <div class="scanline"></div>
     <div class="tag">${esc(ex.short)} · MODEL</div>`;
 
   const exists = await modelExists(ex.model);
@@ -161,13 +159,14 @@ async function mountViewer(stage, ex, { controls = true, rotate = true } = {}) {
     stage.insertAdjacentHTML("beforeend", `
       <div class="slot" role="img" aria-label="3D model goes here: ${esc(ex.short)}">
         <div class="glyph">◇</div>
-        <b>3D MODEL SLOT</b>
-        <code>${esc(ex.model)}</code>
-        <small>waiting for the 3D team’s file</small>
+        <b>3D MODEL IN DEVELOPMENT</b>
+        <small>This exhibit is coming soon — the model is still being made.</small>
       </div>`);
+    if (controls) addControls(stage, null, ex);
     return;
   }
 
+  if (ex.placeholder) stage.insertAdjacentHTML("beforeend", `<div class="wip">3D model in development · temporary placeholder</div>`);
   stage.insertAdjacentHTML("beforeend", `<div class="loader">LOADING TELEMETRY…</div>`);
   mvPromise ??= import(MV_URL);
   await mvPromise;
@@ -187,31 +186,46 @@ async function mountViewer(stage, ex, { controls = true, rotate = true } = {}) {
   mv.addEventListener("load", () => stage.querySelector(".loader")?.classList.add("done"));
   stage.prepend(mv);
 
-  if (controls) addControls(stage, mv);
+  if (controls) addControls(stage, mv, ex);
 }
 
-function addControls(stage, mv) {
+// Human-readable duration: 1.3 seconds / 12 minutes / 19.6 hours
+function fmtTime(sec) {
+  if (sec < 10) return sec.toFixed(1).replace(/\.0$/, "") + " seconds";
+  if (sec < 90) return Math.round(sec) + " seconds";
+  if (sec < 5400) { const m = sec / 60; return (m < 10 ? m.toFixed(1).replace(/\.0$/, "") : Math.round(m)) + " minutes"; }
+  const h = sec / 3600; return h.toFixed(1).replace(/\.0$/, "") + " hours";
+}
+
+function addControls(stage, mv, ex) {
   const bar = document.createElement("div");
   bar.className = "controls";
   bar.innerHTML = `
-    <button data-m="solid" aria-pressed="true">Solid</button>
-    <button data-m="blueprint" aria-pressed="false">Blueprint</button>
-    <button data-m="scan" aria-pressed="false">Scan</button>
-    <button data-m="rotate" aria-pressed="true">Rotate</button>`;
-  stage.after(bar);
+    ${mv ? '<button data-m="rotate" aria-pressed="true">Rotate</button>' : ""}
+    <button data-m="signal" class="signal-btn">Send signal</button>`;
+  const out = document.createElement("div");
+  out.className = "signal-out"; out.setAttribute("aria-live", "polite");
+  stage.after(bar); bar.after(out);
+  let busy = false;
   bar.addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
-    const m = b.dataset.m;
-    if (m === "rotate") {
+    if (b.dataset.m === "rotate") {
       const on = b.getAttribute("aria-pressed") !== "true";
       b.setAttribute("aria-pressed", on);
       on ? mv.setAttribute("auto-rotate", "") : mv.removeAttribute("auto-rotate");
       return;
     }
-    stage.classList.toggle("blueprint", m === "blueprint");
-    stage.classList.toggle("scan", m === "scan" || m === "blueprint");
-    bar.querySelectorAll("[data-m=solid],[data-m=blueprint],[data-m=scan]")
-       .forEach(x => x.setAttribute("aria-pressed", x === b));
+    if (b.dataset.m !== "signal" || busy) return;
+    busy = true; b.disabled = true; b.textContent = "Transmitting…";
+    out.classList.remove("show"); stage.classList.add("pinging");
+    setTimeout(() => {
+      stage.classList.remove("pinging");
+      const sg = ex.signal || { place: ex.short, avgS: 1.28 };
+      const avg = fmtTime(sg.avgS), rng = sg.minS && sg.maxS && sg.maxS / sg.minS > 1.5 ? ` (between ${fmtTime(sg.minS)} and ${fmtTime(sg.maxS)} depending on positions)` : "";
+      out.innerHTML = `<b>Signal received by ${esc(ex.short)}.</b> Your signal travelled for about <b>${avg}</b>${rng}.
+        <span>A reply would need the same time to come back, so a round trip takes about ${fmtTime(sg.avgS * 2)}. ${esc(sg.note || "")} Nobody answers — but the signal got there.</span>`;
+      out.classList.add("show");
+      b.disabled = false; b.textContent = "Send signal again"; busy = false;
+    }, 1400);
   });
 }
-

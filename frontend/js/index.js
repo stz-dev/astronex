@@ -29,7 +29,7 @@ function render() {
   line.textContent = halls.find(h => h.id === current)?.tagline ?? "Pick a hall or browse the whole archive.";
   grid.innerHTML = list.map(e => `
     <a class="card panel" data-hall="${e.hall}" href="exhibit.html?id=${encodeURIComponent(e.id)}">
-      <div class="thumb">◇</div>
+      <div class="thumb"><img src="img/exhibits/${esc(e.id)}.png" alt="${esc(e.short)}" loading="lazy" onerror="var p=this.parentNode;this.remove();p.classList.add('ph')">${e.placeholder ? '<span class="wipb">3D model in development</span>' : ""}</div>
       <span class="status">${esc(e.status)}</span>
       <h3>${esc(e.short)}</h3>
       <div class="meta"><span>${esc(hallName(data, e.hall))}</span><span>${esc(e.years)}</span></div>

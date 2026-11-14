@@ -13,11 +13,8 @@
 
 /* page slides away */
 html.xp-lock{overflow:hidden}
-[data-xp-away]{transition:transform 1.05s cubic-bezier(.7,0,.25,1),opacity .95s ease}
-html.xp-away [data-xp-away="l"]{transform:translateX(-115%);opacity:0}
-html.xp-away [data-xp-away="r"]{transform:translateX(115%);opacity:0}
-html.xp-away [data-xp-away="u"]{transform:translateY(-130%);opacity:0}
-html.xp-away [data-xp-away="d"]{transform:translateY(130%);opacity:0}
+[data-xp-away]{transition:opacity .75s ease}
+html.xp-away [data-xp-away]{opacity:0;pointer-events:none}
 html.xp-instant [data-xp-away]{transition:none!important}
 html.xp-away #stars{opacity:.9}
 
@@ -26,10 +23,10 @@ html.xp-away #stars{opacity:.9}
 #xp-veil.on{opacity:1;pointer-events:auto}
 
 /* three.js intro (src/explore/intro.js) */
-#xp-intro{position:fixed;inset:0;z-index:9950;background:#000;opacity:0;transition:opacity .7s ease}
+#xp-intro{position:fixed;inset:0;z-index:9950;background:transparent;pointer-events:none;opacity:0;transition:opacity .7s ease}
 #xp-intro.on{opacity:1}
 #xp-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.xp-intro-ui{position:absolute;right:1.4rem;bottom:1.4rem;display:flex;gap:.7rem;z-index:2}
+.xp-intro-ui{pointer-events:auto;position:absolute;right:1.4rem;bottom:1.4rem;display:flex;gap:.7rem;z-index:2}
 .xp-intro-ui button{font:800 .8rem/1 var(--f-display,system-ui,sans-serif);letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
   background:var(--cream);border:3px solid var(--ink);border-radius:999px;padding:.7rem 1.2rem;cursor:pointer;box-shadow:4px 4px 0 var(--pink);transition:transform .12s,box-shadow .12s}
 .xp-intro-ui button:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pink)}
@@ -39,11 +36,11 @@ html.xp-away #stars{opacity:.9}
 .xp-intro-title{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;gap:1.4rem;pointer-events:none;z-index:1}
 .xp-intro-title h1{margin:0;font:900 clamp(2.4rem,8vw,6rem)/1 var(--f-display,system-ui,sans-serif);letter-spacing:.04em;color:var(--cream);text-transform:uppercase;
   text-shadow:4px 4px 0 var(--pink),8px 8px 0 var(--ink);
-  opacity:0;filter:blur(14px);transform:translateY(10px) scale(1.04);transition:opacity 1.6s ease,filter 1.6s ease,transform 2s ease}
+  opacity:0;transform:scale(.6) rotate(-4deg);transition:opacity .25s ease,transform .75s cubic-bezier(.2,1.5,.4,1)}
 .xp-intro-title p{margin:0;font:800 italic clamp(.8rem,1.7vw,1.05rem)/1.2 var(--f-display,system-ui,sans-serif);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
-  background:var(--lime);padding:.5rem 1.2rem;transform:rotate(-2deg);box-shadow:5px 5px 0 var(--pink);border-radius:3px;opacity:0;transition:opacity 1.6s ease .5s}
-.xp-intro-title.show h1{opacity:1;filter:blur(0);transform:none}
-.xp-intro-title.show p{opacity:.95}
+  background:var(--lime);padding:.5rem 1.2rem;transform:rotate(-2deg) translateY(12px);box-shadow:5px 5px 0 var(--pink);border-radius:3px;opacity:0;transition:opacity .4s ease .25s,transform .6s cubic-bezier(.2,1.4,.4,1) .25s}
+.xp-intro-title.show h1{opacity:1;transform:none}
+.xp-intro-title.show p{opacity:1;transform:rotate(-2deg)}
 @media (max-width:600px){.xp-intro-ui{right:.8rem;bottom:.8rem}}
 #xp-note{position:fixed;inset:0;z-index:9955;display:grid;place-items:center;text-align:center;padding:2rem;color:var(--lav);
   font-family:var(--f-display);font-weight:700;font-size:.9rem;opacity:0;transition:opacity .4s;pointer-events:none}
@@ -53,7 +50,9 @@ html.xp-away #stars{opacity:.9}
 .xp{position:fixed;inset:0;z-index:9000;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s;overflow:hidden;
   background:radial-gradient(ellipse at 50% 55%,#05070f 0%,#020309 70%,#000 100%)}
 .xp-stars{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
-.xp.on{opacity:1;visibility:visible;transition:opacity .6s ease}
+.xp.on{opacity:1;visibility:visible;transition:opacity 1.2s ease}
+@keyframes xpIn{from{opacity:0}to{opacity:1}}
+.xp.entering .xp-top,.xp.entering .xp-title,.xp.entering .xp-hint{animation:xpIn 1s ease .7s both}
 .xp-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
 
 .xp-top{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 1.6rem;pointer-events:none}

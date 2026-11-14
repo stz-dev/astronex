@@ -21,10 +21,6 @@ export class Preview {
     const sun = new T.DirectionalLight(0xfff0dd, 3); sun.position.set(-3, 4, 5); this.scene.add(sun);
     const rim = new T.DirectionalLight(0xec5190, 1.2); rim.position.set(4, 2, -4); this.scene.add(rim);
     this.holder = new T.Group(); this.scene.add(this.holder);
-    // pedestal ring
-    const ring = new T.Mesh(new T.RingGeometry(1.12, 1.22, 64), new T.MeshBasicMaterial({ color: 0xec5190, transparent: true, opacity: .9, side: T.DoubleSide }));
-    ring.rotation.x = -Math.PI / 2; ring.position.y = -.85; this.scene.add(ring);
-    this.ring = ring;
     this.yaw = .6; this.drag = null; this.token = 0; this.running = false;
     canvas.addEventListener("pointerdown", e => { this.drag = e.clientX; canvas.setPointerCapture(e.pointerId); });
     canvas.addEventListener("pointermove", e => { if (this.drag !== null) { this.yaw += (e.clientX - this.drag) * .01; this.drag = e.clientX; } });
@@ -48,7 +44,7 @@ export class Preview {
     if (my !== this.token) return;
     if (!obj) obj = buildAbstract(ex.id);
     this.holder.add(obj);
-    if (this.tagEl) this.tagEl.textContent = real ? "3D MODEL · " + ex.model : "ABSTRACT PLACEHOLDER · slot: " + ex.model;
+    if (this.tagEl) this.tagEl.textContent = real && !ex.placeholder ? "3D MODEL · " + ex.short : "3D MODEL IN DEVELOPMENT · placeholder";
   }
   start() { if (this.running) return; this.running = true; const loop = () => { if (!this.running) return; this.holder.rotation.y = this.yaw += this.drag === null ? .006 : 0; this.r.render(this.scene, this.cam); requestAnimationFrame(loop); }; loop(); }
   stop() { this.running = false; }

@@ -10,12 +10,15 @@ if (i < 0) {
   root.innerHTML = `<div class="panel"><h1>Exhibit not found</h1><p style="margin:1rem 0">This spacecraft is not in the archive.</p><a class="btn" href="index.html#archive">Back to the archive</a></div>`;
 } else {
   const e = data.exhibits[i];
+  const qs = new URLSearchParams(location.search);
+  const fromXp = qs.get("from") === "explore" ? (qs.get("planet") || "") : "";
   const prev = data.exhibits[(i - 1 + data.exhibits.length) % data.exhibits.length];
   const next = data.exhibits[(i + 1) % data.exhibits.length];
   document.title = `${e.short} · ASTRONEX`;
   document.body.dataset.hall = e.hall;
   setBg(e.hall);
   root.innerHTML = `
+    ${fromXp ? `<a class="btn back-xp" href="index.html?explore=${encodeURIComponent(fromXp)}&site=${encodeURIComponent(e.id)}">← Back to Explore</a>` : ""}
     <div class="crumbs"><a href="index.html">Archive</a> / <a href="index.html#archive">${esc(hallName(data, e.hall))}</a> / ${esc(e.short)}</div>
     <div class="exhibit">
       <div><div class="stage tall" id="stage"></div></div>

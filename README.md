@@ -77,3 +77,6 @@ The site uses a playful "sticker" look: indigo background with a dot grid, lime 
 
 ## Draco-compressed models
 `.glb` files compressed with Draco (e.g. `apollo-lm.glb`, `ingenuity.glb`) are supported. The decoder lives in `frontend/draco/` — keep that folder in the repo.
+
+## Exhibit data fields (data/exhibits.json)
+Besides the basic fields each exhibit has: `story` (paragraphs shown in the main window), `details` (the "Study in detail" blocks on the exhibit page), `signal` (one-way light time used by the "Send signal" button) and `placeholder: true` while the 3D model is still a stand-in ("3D model in development" labels). After editing the JSON run `python3 data/build.py`. Archive card pictures live in `frontend/img/exhibits/<id>.png`.

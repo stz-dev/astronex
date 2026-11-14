@@ -221,7 +221,7 @@ export function createExplore(data) {
       .map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
     $(".xp-sum").innerHTML = (ex.story || [ex.summary]).map(t => `<p>${esc(t)}</p>`).join("");
     $(".xp-fact").innerHTML = `<b class="mono" style="font-size:.7rem;letter-spacing:.14em;color:var(--accent)">FACT</b><br>${esc(ex.fact)}`;
-    $(".xp-more").href = "exhibit.html?id=" + encodeURIComponent(ex.id);
+    $(".xp-more").href = "exhibit.html?id=" + encodeURIComponent(ex.id) + "&from=explore&planet=" + encodeURIComponent(s.planet);
     preview.show(ex);
   }
   function syncUI() {
@@ -338,13 +338,21 @@ export function createExplore(data) {
 
   const api = {
     root, prepare, onExit: null,
-    async show() {
+    async show({ fade = false } = {}) {
       await prepare();
       state = "select"; chosen = null; activeSite = null; hover = null; markerEls.length = 0; markersEl.innerHTML = "";
-      for (const p of Object.values(P)) { p.op = p.opT = 1; p.sc = p.scT = 1; p.rxT = p.rx = .35; }
+      for (const p of Object.values(P)) { p.op = fade ? 0 : 1; p.opT = 1; p.sc = fade ? .86 : 1; p.scT = 1; p.rxT = p.rx = .35; }
+      root.classList.toggle("entering", fade); if (fade) setTimeout(() => root.classList.remove("entering"), 2600);
       buildLabels(); root.classList.add("on"); running = true; resize();
       for (const p of Object.values(P)) { p.pos.copy(p.posT); }
       syncUI(); last = performance.now(); requestAnimationFrame(frame);
+    },
+    // restore a state coming back from exhibit.html: planet + (optionally) the exhibit's site
+    openAt(planetId, exId) {
+      if (!P[planetId]) return;
+      choose(planetId);
+      const m = markerEls.find(x => x.site.ex && x.site.ex.id === exId);
+      if (m) focusSite(m.site);
     },
     hide() { running = false; preview.stop(); root.classList.remove("on"); },
     escape

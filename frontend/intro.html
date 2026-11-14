@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ASTRONEX — intro preview</title>
 <link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/explore.css">
-<style>html,body{margin:0;background:#000;height:100%}</style>
+<style>html,body{margin:0;background:#1a0e4f url(img/exhibits/apollo-lm.png) no-repeat -9999px;height:100%}</style>
 </head>
 <body>
 <!-- Демо вступления отдельно от сайта. Работает и по двойному клику (file://). -->
@@ -12,6 +12,7 @@
 <script defer>
   addEventListener("DOMContentLoaded", () => {
     const intro = AstronexIntro.create({
+      title: "ASTRONEX", subtitle: "Abandoned but not forgotten",
       onAnimationEnd() { console.log("onAnimationEnd"); }       // здесь можно переходить к контенту сайта
     });
     window.intro = intro; intro.play();
