@@ -1,0 +1,37 @@
+/* ASTRONEX — theme tokens. Edit colours/fonts HERE only. */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* surfaces */
+  --space-0: #05070d;
+  --space-1: #0b1020;
+  --space-2: #121a30;
+  --line:    rgba(168, 162, 158, .18);
+  --line-strong: rgba(168, 162, 158, .38);
+
+  /* text */
+  --text:   #e6e9f0;
+  --muted:  #a8a29e;   /* lunar dust */
+  --faint:  #6b7385;
+
+  /* accents */
+  --gold:   #d9a441;   /* Apollo foil */
+  --rust:   #c1440e;   /* Mars */
+  --signal: #5ee2ff;   /* HUD */
+  --danger: #ff5d5d;
+
+  /* per-hall accent (overridden by [data-hall]) */
+  --accent: var(--gold);
+
+  /* type */
+  --f-display: "Orbitron", "Space Grotesk", system-ui, sans-serif;
+  --f-body:    "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius: 2px;
+  --cut: 14px;         /* corner cut on panels */
+}
+
+[data-hall="moon"] { --accent: var(--gold); }
+[data-hall="mars"] { --accent: #e0643a; }
+[data-hall="deep"] { --accent: var(--signal); }

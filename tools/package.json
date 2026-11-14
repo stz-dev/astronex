@@ -1,0 +1,7 @@
+{
+  "name": "astronex-tools",
+  "private": true,
+  "description": "Build step for the Interactive Explore 3D scene (bundles three.js into one classic script).",
+  "scripts": { "build": "NODE_PATH=./node_modules esbuild ../frontend/src/explore/main.js --bundle --minify --format=iife --target=es2019 --outfile=../frontend/js/explore.bundle.js" },
+  "devDependencies": { "esbuild": "^0.24.0", "three": "^0.170.0" }
+}
