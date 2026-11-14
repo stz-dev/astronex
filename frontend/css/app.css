@@ -142,6 +142,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .dsec ul{margin:.6rem 0 .6rem 1.2rem;padding:0;color:var(--lav);line-height:1.7}
 .dsec li{margin:.5rem 0}
 .exhibit .panel>p{margin:.8rem 0}
+.exh-left{display:flex;flex-direction:column;gap:1rem;min-width:0;position:sticky;top:5.2rem;align-self:start}
+.exh-left .stage.tall{aspect-ratio:auto;max-height:none;height:clamp(440px,82vh,860px)}
+.exh-left .controls{margin:0}
+.exh-left .fact{margin:.2rem 0 0}
+@media(max-width:960px){.exh-left{position:static}.exh-left .stage.tall{height:clamp(320px,70vw,520px)}}
 
 /* ---- send signal ---- */
 .signal-btn{background:var(--lime)!important;color:var(--ink)!important}

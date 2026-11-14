@@ -21,7 +21,10 @@ if (i < 0) {
     ${fromXp ? `<a class="btn back-xp" href="index.html?explore=${encodeURIComponent(fromXp)}&site=${encodeURIComponent(e.id)}">← Back to Explore</a>` : ""}
     <div class="crumbs"><a href="index.html">Archive</a> / <a href="index.html#archive">${esc(hallName(data, e.hall))}</a> / ${esc(e.short)}</div>
     <div class="exhibit">
-      <div><div class="stage tall" id="stage"></div></div>
+      <div class="exh-left">
+        <div class="stage tall" id="stage"></div>
+        <p class="fact"><b class="mono" style="font-size:.7rem;letter-spacing:.14em;color:var(--accent)">FACT</b><br>${esc(e.fact)}</p>
+      </div>
       <div class="panel">
         <span class="eyebrow">${esc(hallName(data, e.hall))}</span>
         <h1>${esc(e.name)}</h1>
@@ -34,7 +37,6 @@ if (i < 0) {
           <div><dt>Agency</dt><dd>${esc(e.agency)}</dd></div>
           <div><dt>Creators</dt><dd>${esc(e.creators)}</dd></div>
         </dl>
-        <p class="fact"><b class="mono" style="font-size:.7rem;letter-spacing:.14em;color:var(--accent)">FACT</b><br>${esc(e.fact)}</p>
       </div>
     </div>
     ${detailsHTML(e)}
