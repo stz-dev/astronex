@@ -35,8 +35,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "moon",
-     "lat": 0.67,
-     "lon": 23.47,
+     "lat": 0.93,
+     "lon": -160.55,
      "label": "Apollo 11 · Tranquility Base"
     }
    ],
@@ -240,8 +240,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "moon",
-     "lat": -3.02,
-     "lon": -23.42,
+     "lat": -0.07,
+     "lon": 154.63,
      "label": "Oceanus Procellarum"
     }
    ],
@@ -392,7 +392,8 @@ window.EXHIBITS_DATA = {
      "used": "Apollo 12 astronaut Alan Bean examining Surveyor 3 (image)"
     }
    ],
-   "notes": "Distance note: NASA's Surveyor 3 page gives about 180 m between Apollo 12 and Surveyor 3. Apollo 12 landed on November 19, 1969 UTC (November 18 in U.S. time zones)."
+   "notes": "Distance note: NASA's Surveyor 3 page gives about 180 m between Apollo 12 and Surveyor 3. Apollo 12 landed on November 19, 1969 UTC (November 18 in U.S. time zones).",
+   "made_by": "Claude"
   },
   {
    "id": "mer",
@@ -411,14 +412,14 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": -14.57,
-     "lon": 175.47,
+     "lat": -10.15,
+     "lon": -4.49,
      "label": "Spirit · Gusev Crater"
     },
     {
      "planet": "mars",
-     "lat": -1.95,
-     "lon": -5.53,
+     "lat": -2.31,
+     "lon": 174.24,
      "label": "Opportunity · Meridiani Planum"
     }
    ],
@@ -708,8 +709,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": 18.44,
-     "lon": 77.45,
+     "lat": 14.84,
+     "lon": -101.48,
      "label": "Jezero Crater"
     }
    ],
@@ -817,8 +818,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": 19.13,
-     "lon": -33.22,
+     "lat": 18.07,
+     "lon": 149.52,
      "label": "Ares Vallis"
     }
    ],
@@ -978,7 +979,8 @@ window.EXHIBITS_DATA = {
      "url": "https://www.nasa.gov/image-article/nasas-first-rover-red-planet",
      "used": "Sol 2 image of Sojourner"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "viking",
@@ -997,8 +999,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": 22.7,
-     "lon": -47.95,
+     "lat": 20.8,
+     "lon": 130.84,
      "label": "Chryse Planitia"
     }
    ],
@@ -1184,7 +1186,8 @@ window.EXHIBITS_DATA = {
      "used": "Phoenix's perchlorate discovery (2008)"
     }
    ],
-   "closing": "Viking 1 had a twin, Viking 2. We plan to add its story to ASTRONEX later."
+   "closing": "Viking 1 had a twin, Viking 2. We plan to add its story to ASTRONEX later.",
+   "made_by": "Claude"
   },
   {
    "id": "phoenix",
@@ -1203,8 +1206,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": 68.22,
-     "lon": -125.75,
+     "lat": 74.91,
+     "lon": 60.51,
      "label": "Vastitas Borealis"
     }
    ],
@@ -1426,7 +1429,8 @@ window.EXHIBITS_DATA = {
      "url": "https://www.uahirise.org/phoenix-descent-color.php",
      "used": "The crater in the background is about 20 km behind the lander"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "insight",
@@ -1445,8 +1449,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": 4.5,
-     "lon": 135.62,
+     "lat": 1.9,
+     "lon": -38.57,
      "label": "Elysium Planitia"
     }
    ],
@@ -1650,7 +1654,8 @@ window.EXHIBITS_DATA = {
      "url": "https://www.jpl.nasa.gov/news/nasa-hears-marco-cubesats-loud-and-clear-from-mars/",
      "used": "MarCO relay during landing; MarCO-B picture of Mars"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "pioneer",
@@ -1728,7 +1733,8 @@ window.EXHIBITS_DATA = {
      "credit": "NASA / JPL-Caltech",
      "page": "https://images.nasa.gov/search?q=Pioneer%2010"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "dawn",
@@ -1806,7 +1812,8 @@ window.EXHIBITS_DATA = {
      "credit": "NASA / JPL-Caltech",
      "page": "https://images.nasa.gov/search?q=Dawn"
     }
-   ]
+   ],
+   "made_by": "Claude"
   }
  ]
 };

@@ -1,0 +1,7 @@
+# Only the project owner can approve changes to these files (see README: "Protecting the labels").
+/data/exhibits.json   @stz-dev
+/data/exhibits.js     @stz-dev
+/frontend/js/common.js @stz-dev
+/frontend/css/app.css  @stz-dev
+/frontend/about.html   @stz-dev
+/.github/CODEOWNERS    @stz-dev

@@ -151,7 +151,7 @@ async function modelExists(url) {
 async function mountViewer(stage, ex, { controls = true, rotate = true } = {}) {
   stage.dataset.hall = ex.hall;
   stage.innerHTML = `
-    <div class="tag">${esc(ex.short)} · MODEL</div>`;
+    <div class="tag">${esc(ex.short)} · MODEL</div>${ex.made_by ? `<div class="madeby" title="This 3D model was made with ${esc(ex.made_by)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.1L21 12l-6.8 2.9L12 22l-2.2-7.1L3 12l6.8-2.9z" fill="currentColor"/></svg><span>Made by ${esc(ex.made_by)}</span></div>` : ""}`;
 
   const exists = await modelExists(ex.model);
 
