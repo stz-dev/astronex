@@ -391,7 +391,8 @@
      "used": "Apollo 12 astronaut Alan Bean examining Surveyor 3 (image)"
     }
    ],
-   "notes": "Distance note: NASA's Surveyor 3 page gives about 180 m between Apollo 12 and Surveyor 3. Apollo 12 landed on November 19, 1969 UTC (November 18 in U.S. time zones)."
+   "notes": "Distance note: NASA's Surveyor 3 page gives about 180 m between Apollo 12 and Surveyor 3. Apollo 12 landed on November 19, 1969 UTC (November 18 in U.S. time zones).",
+   "made_by": "Claude"
   },
   {
    "id": "mer",
@@ -977,7 +978,8 @@
      "url": "https://www.nasa.gov/image-article/nasas-first-rover-red-planet",
      "used": "Sol 2 image of Sojourner"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "viking",
@@ -1183,7 +1185,8 @@
      "used": "Phoenix's perchlorate discovery (2008)"
     }
    ],
-   "closing": "Viking 1 had a twin, Viking 2. We plan to add its story to ASTRONEX later."
+   "closing": "Viking 1 had a twin, Viking 2. We plan to add its story to ASTRONEX later.",
+   "made_by": "Claude"
   },
   {
    "id": "phoenix",
@@ -1425,7 +1428,8 @@
      "url": "https://www.uahirise.org/phoenix-descent-color.php",
      "used": "The crater in the background is about 20 km behind the lander"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "insight",
@@ -1649,7 +1653,8 @@
      "url": "https://www.jpl.nasa.gov/news/nasa-hears-marco-cubesats-loud-and-clear-from-mars/",
      "used": "MarCO relay during landing; MarCO-B picture of Mars"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "pioneer",
@@ -1727,7 +1732,8 @@
      "credit": "NASA / JPL-Caltech",
      "page": "https://images.nasa.gov/search?q=Pioneer%2010"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "dawn",
@@ -1805,7 +1811,8 @@
      "credit": "NASA / JPL-Caltech",
      "page": "https://images.nasa.gov/search?q=Dawn"
     }
-   ]
+   ],
+   "made_by": "Claude"
   }
  ]
 }

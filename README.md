@@ -103,3 +103,16 @@ Each exhibit shows two images on its page (swipe / arrows / dots). Put the files
 
 ## Generated 3D models
 `surveyor3, sojourner, viking, phoenix, insight, pioneer, dawn` are detailed procedural models built by `tools/make-models.mjs` (three.js primitives exported to .glb). Regenerate with `cd tools && npm install && npm run models`. A real Blender model with the same file name in `frontend/models/` replaces them with no other change.
+
+## Labels ("Made by Claude")
+
+The label in the top-left corner of the 3D viewer comes from one field in `data/exhibits.json`:
+
+    "made_by": "Claude"
+
+- Add the field to an exhibit to show the label, change the name to change the text, delete the field to remove it.
+- After editing, run `python3 data/build.py` (this regenerates `data/exhibits.js`), then commit and push.
+
+### Protecting the labels
+`.github/CODEOWNERS` lists the owner for the files that control the labels. On GitHub: Settings > Branches (or Rules > Rulesets) > protect `main` >
+tick "Require a pull request before merging" and "Require review from Code Owners", and do not give teammates the Admin role.

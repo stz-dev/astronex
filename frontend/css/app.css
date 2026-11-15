@@ -337,3 +337,8 @@ html{-webkit-text-size-adjust:100%}
   .tabs{gap:.4rem}.tabs button{padding:.45rem .8rem;font-size:.72rem}
 }
 @media(max-width:760px){.stats{display:grid!important;grid-template-columns:1fr 1fr;gap:.7rem}.stats>div{padding:.8rem}.stats b{font-size:1.5rem}}
+
+/* "Made by ..." label in the top-left corner of the 3D viewer (set "made_by" in data/exhibits.json) */
+.stage .madeby{position:absolute;top:12px;left:14px;z-index:3;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--f-display);font-weight:700;font-size:.7rem;letter-spacing:.04em;color:var(--ink);background:#ffb98a;border:2px solid var(--ink);border-radius:999px;padding:.15rem .7rem .15rem .5rem;pointer-events:none}
+.stage .madeby svg{width:.95rem;height:.95rem;flex:none}
+@media(max-width:480px){.stage .madeby{top:10px;left:10px;font-size:.62rem;padding:.12rem .55rem .12rem .4rem}.stage .madeby svg{width:.8rem;height:.8rem}}
