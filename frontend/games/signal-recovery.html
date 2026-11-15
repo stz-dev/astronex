@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="SIGNAL RECOVERY — an ASTRONEX space mini-game. Fly the relay craft, collect batteries and data beacons, dodge hazards.">
 <meta name="theme-color" content="#1a0e4f">
 <title>SIGNAL RECOVERY — ASTRONEX Mini-game</title>
@@ -206,10 +206,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .tbtn{display:none;position:absolute;z-index:3;bottom:4cqw;aspect-ratio:1;border-radius:50%;place-items:center;touch-action:none;
   font-family:var(--f-display);font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);border:4px solid var(--ink);cursor:pointer;
   user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;transition:transform .08s,box-shadow .08s}
-.tbtn.thrust{right:3cqw;width:max(24cqw,5.4rem);font-size:max(.8rem,3.4cqw);background:var(--lime);box-shadow:5px 5px 0 var(--pink)}
-.tbtn.brake{left:3cqw;width:max(17cqw,4.2rem);font-size:max(.68rem,2.8cqw);background:var(--cyan);box-shadow:5px 5px 0 var(--ink)}
+.tbtn.thrust{right:clamp(.6rem,3cqw,1.2rem);width:clamp(3.6rem,19cqw,4.8rem);font-size:clamp(.64rem,3cqw,.82rem);background:var(--lime);box-shadow:4px 4px 0 var(--pink)}
+.tbtn.brake{left:clamp(.6rem,3cqw,1.2rem);width:clamp(3rem,14cqw,3.8rem);font-size:clamp(.58rem,2.5cqw,.7rem);background:var(--cyan);box-shadow:4px 4px 0 var(--ink)}
+.tbtn{bottom:clamp(.6rem,4cqw,1.2rem);border-width:3px}
 .tbtn.held{transform:translate(4px,4px);background:var(--gold);box-shadow:1px 1px 0 var(--ink)}
-.stage.touch.playing .tbtn{display:grid}
+@media (hover:none) and (pointer:coarse){.stage.touch.playing .tbtn{display:grid}}
 .lesson{background:var(--indigo);border:3px solid var(--ink);border-radius:14px;box-shadow:3px 3px 0 var(--ink);padding:.55rem .8rem .7rem;text-align:left}
 .lesson b{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:.15rem}
 .lesson p{font-size:.84rem!important;line-height:1.45!important}
@@ -219,6 +220,57 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .game{grid-template-columns:minmax(0,1fr)}
 .hudbar>*{min-width:0}
 .pill small,.pill b{overflow:hidden;text-overflow:ellipsis}
+
+/* fullscreen (phones and other touch-first devices only) */
+.controls .fsbtn{display:none}
+@media (hover:none) and (pointer:coarse){.controls .fsbtn{display:inline-block}}
+html.fs-lock,html.fs-lock body{overflow:hidden}
+.fsask{position:fixed;inset:0;z-index:10001;display:none;place-items:center;padding:1rem;background:rgba(18,7,46,.84);backdrop-filter:blur(3px)}
+.fsask.on{display:grid;animation:fadein .25s ease}
+.fsask .ov-card{width:min(100%,380px)}
+.fsask .ov-btns{grid-template-columns:1fr;margin-top:1rem}
+.rot{display:none}
+.panel.is-fs{position:fixed;inset:0;z-index:10000;width:100vw;height:100vh;height:100dvh;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none;background:var(--indigo);
+  padding:max(.35rem,env(safe-area-inset-top)) max(.5rem,env(safe-area-inset-right)) max(.35rem,env(safe-area-inset-bottom)) max(.5rem,env(safe-area-inset-left));
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) auto;grid-template-rows:auto minmax(0,1fr);gap:.3rem .45rem;align-content:stretch}
+.panel.is-fs .hudbar{margin:0;gap:.3rem;align-self:center}
+.panel.is-fs .hudbar.phys{margin:0}
+.panel.is-fs .hudbar:not(.phys){grid-template-columns:1fr 1fr 1fr 1.6fr}
+.panel.is-fs .hudbar .fuelbox,.panel.is-fs .hudbar .pill:first-child{grid-column:auto}
+.panel.is-fs .pill{padding:.1rem .4rem;gap:.25rem;border-width:2px;border-radius:9px;box-shadow:2px 2px 0 var(--pink);flex-direction:column;align-items:flex-start;justify-content:center;line-height:1.1}
+.panel.is-fs .pill.soft{box-shadow:2px 2px 0 var(--ink)}
+.panel.is-fs .pill small,.panel.is-fs .pill.soft small{font-size:.48rem;max-width:100%}
+.panel.is-fs .pill b,.panel.is-fs .pill.soft b{font-size:.78rem;line-height:1.1;max-width:100%}
+.panel.is-fs .fuelbox{padding:.1rem .45rem;gap:.3rem;border-width:2px;box-shadow:2px 2px 0 var(--ink)}
+.panel.is-fs .fuelbox small{font-size:.5rem}
+.panel.is-fs .fuelbox b{font-size:.68rem;min-width:3ch}
+.panel.is-fs .controls{margin:0;gap:.25rem;flex-wrap:nowrap;align-self:center}
+.panel.is-fs .controls button{padding:.3rem .5rem;font-size:.56rem;border-width:2px;box-shadow:2px 2px 0 var(--ink);white-space:nowrap}
+.panel.is-fs .stage{grid-column:1/-1;grid-row:2;min-height:0;height:100%;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.panel.is-fs .stage canvas.cv{flex:none;margin:auto}
+.panel.is-fs .stage.flow-start,.panel.is-fs .stage.flow-end{display:block;overflow:auto}
+.panel.is-fs .stage.flow-start canvas.cv,.panel.is-fs .stage.flow-end canvas.cv{display:none}
+.panel.is-fs .stage.flow-start .ov.flow.on,.panel.is-fs .stage.flow-end .ov.flow.on{position:relative;inset:auto;background:transparent;backdrop-filter:none}
+@media (orientation:landscape) and (max-width:780px){
+  .panel.is-fs{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto minmax(0,1fr)}
+  .panel.is-fs .hudbar:not(.phys){grid-template-columns:1.5fr 1fr 1.1fr 1.7fr}
+  .panel.is-fs .hudbar.phys{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(3,1fr)}
+  .panel.is-fs .hudbar.phys .pill:last-child{grid-column:auto}
+  .panel.is-fs .controls{grid-column:2;grid-row:1}
+  .panel.is-fs .stage{grid-row:3}
+  .panel.is-fs .pill{flex-direction:row;align-items:baseline;justify-content:space-between}
+}
+@media (orientation:portrait){
+  .panel.is-fs{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr)}
+  .panel.is-fs .hudbar:not(.phys){grid-template-columns:repeat(3,1fr)}
+  .panel.is-fs .hudbar .fuelbox{grid-column:1/-1}
+  .panel.is-fs .hudbar.phys{grid-template-columns:repeat(3,1fr)}
+  .panel.is-fs .hudbar.phys .pill:last-child{grid-column:auto}
+  .panel.is-fs .controls{justify-content:center;grid-row:3}
+  .panel.is-fs .stage{grid-column:1;grid-row:4}
+  .panel.is-fs .rot{display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:7;pointer-events:none;white-space:nowrap;
+    background:var(--gold);color:var(--ink);border:3px solid var(--ink);border-radius:999px;box-shadow:3px 3px 0 var(--pink);font-weight:800;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:.3rem .9rem}
+}
 </style>
 </head>
 <body>
@@ -512,6 +564,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
           <button type="button" data-action="pause" data-ui="pauseBtn">❚❚ Pause</button>
           <button type="button" data-action="restart">↻ Restart</button>
           <button type="button" data-action="sound" aria-pressed="true">Sound: on</button>
+          <button type="button" class="fsbtn" data-action="fullscreen" data-ui="fsBtn">⛶ Fullscreen</button>
+        </div>
+        <div class="rot" aria-hidden="true">Rotate your phone sideways</div>
+        <div class="fsask" data-ui="fsAsk" role="dialog" aria-modal="true" aria-label="Fullscreen">
+          <div class="ov-card">
+            <span class="eyebrow">Phone detected</span>
+            <h2>Play fullscreen?</h2>
+            <p>Landscape fullscreen gives the biggest play field and hides the browser bars.</p>
+            <div class="ov-btns">
+              <button type="button" class="btn big" data-action="fs-yes">Fullscreen</button>
+              <button type="button" class="btn ghost" data-action="fs-no">Play as it is</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -521,6 +586,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
   const $ = (sel) => gameEl.querySelector(sel);
   const ui = {
     stage: $('[data-ui="stage"]'),
+    panel: $('.panel'),
+    fsBtn: $('[data-ui="fsBtn"]'),
+    fsAsk: $('[data-ui="fsAsk"]'),
     sector: $('[data-ui="sector"]'),
     startSector: $('[data-ui="startSector"]'),
     score: $('[data-ui="score"]'),
@@ -1448,12 +1516,75 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     if (document.hidden) setPaused(true);
   });
 
+  /* ------------------------------------------------------------ fullscreen */
+
+  const touchFirst = () => !!(window.matchMedia && matchMedia("(hover: none) and (pointer: coarse)").matches);
+  const nativeFS = () => document.fullscreenElement || document.webkitFullscreenElement;
+  const fsOn = () => ui.panel.classList.contains("is-fs");
+  let fsDecided = false;
+  try { fsDecided = sessionStorage.getItem("ax-signal-fs") === "1"; } catch { /* ignore */ }
+
+  function fitFS() {
+    if (!fsOn()) { canvas.style.width = ""; canvas.style.height = ""; return; }
+    const sw = ui.stage.clientWidth, sh = ui.stage.clientHeight;
+    if (!sw || !sh) return;
+    const w = Math.min(sw, (sh * W) / H);
+    canvas.style.width = Math.floor(w) + "px";
+    canvas.style.height = Math.floor((w * H) / W) + "px";
+  }
+
+  function applyFS(on) {
+    ui.panel.classList.toggle("is-fs", on);
+    document.documentElement.classList.toggle("fs-lock", on);
+    ui.fsBtn.textContent = on ? "✕ Exit" : "⛶ Fullscreen";
+    fitFS();
+    requestAnimationFrame(() => { fitFS(); setupCanvas(); if (!state.running || state.paused) render(); });
+  }
+
+  async function enterFS() {
+    if (fsOn()) return;
+    let native = false;
+    try {
+      if (ui.panel.requestFullscreen) { await ui.panel.requestFullscreen({ navigationUI: "hide" }); native = true; }
+      else if (ui.panel.webkitRequestFullscreen) { ui.panel.webkitRequestFullscreen(); native = true; }
+    } catch { /* fall back to the in-page fullscreen below */ }
+    applyFS(true);   // on iPhone there is no fullscreen API, so the game simply fills the whole screen
+    if (native) { try { await screen.orientation.lock("landscape"); } catch { /* not supported */ } }
+  }
+
+  function exitFS() {
+    ui.panel.dataset.native = "";
+    try {
+      if (document.exitFullscreen && document.fullscreenElement) document.exitFullscreen();
+      else if (document.webkitExitFullscreen && document.webkitFullscreenElement) document.webkitExitFullscreen();
+    } catch { /* ignore */ }
+    try { screen.orientation.unlock(); } catch { /* ignore */ }
+    applyFS(false);
+  }
+
+  function onFSChange() { if (!nativeFS() && fsOn() && ui.panel.dataset.native === "1") { ui.panel.dataset.native = ""; applyFS(false); } else if (nativeFS()) ui.panel.dataset.native = "1"; }
+  document.addEventListener("fullscreenchange", onFSChange);
+  document.addEventListener("webkitfullscreenchange", onFSChange);
+  window.addEventListener("resize", fitFS);
+  window.addEventListener("orientationchange", () => setTimeout(fitFS, 120));
+  new ResizeObserver(fitFS).observe(ui.stage);
+
+  function decide() { fsDecided = true; try { sessionStorage.setItem("ax-signal-fs", "1"); } catch { /* ignore */ } ui.fsAsk.classList.remove("on"); }
+
+  function requestStart() {
+    if (touchFirst() && !fsOn() && !fsDecided) { ui.fsAsk.classList.add("on"); const b = ui.fsAsk.querySelector("button"); if (b) b.focus({ preventScroll: true }); return; }
+    startGame();
+  }
+
   gameEl.addEventListener("click", (e) => {
     const missionBtn = e.target.closest("[data-mission]");
     if (missionBtn) return selectMission(missionBtn.dataset.mission);
 
     switch (e.target.closest("[data-action]")?.dataset.action) {
-      case "start":   return startGame();
+      case "start":   return requestStart();
+      case "fs-yes":  decide(); enterFS(); return startGame();
+      case "fs-no":   decide(); return startGame();
+      case "fullscreen": return fsOn() ? exitFS() : enterFS();
       case "restart": return startGame();
       case "pause":   return setPaused(!state.paused);
       case "resume":  return setPaused(false);
