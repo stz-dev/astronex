@@ -296,7 +296,7 @@ button.card:nth-child(2):active{box-shadow:3px 3px 0 var(--cyan)}
             <span class="eyebrow">Mission: Moon</span>
             <h2>Land the rover</h2>
             <p>The rover is in free fall and speeding up every second. Slow it down, find the green pad, and remember: the fuel never comes back.</p>
-            <div class="ov-keys"><span id="keyA">Hold = thruster</span><span id="keyB">Aim = steer</span><span id="keyC">Green pad, under 5 m/s</span></div>
+            <div class="ov-keys"><span id="keyA">Hold = thruster</span><span id="keyB">Aim = steer</span><span id="keyC">Green pad, under 10 m/s</span></div>
             <div class="modes" role="group" aria-label="Mode"><button type="button" class="mode on" data-mode="light">Light side</button><button type="button" class="mode" data-mode="dark">Dark side</button></div>
             <button class="btn big" id="startBtn" type="button">Drop the rover!</button>
             <p class="ov-sub" id="modeNote"></p>
@@ -345,7 +345,7 @@ button.card:nth-child(2):active{box-shadow:3px 3px 0 var(--cyan)}
       <ol class="steps">
         <li><b>Hold the screen</b> (or <b>Space</b>) to fire the thruster. It slows you down but burns fuel. On phones, hold the <b>THRUST</b> button.</li>
         <li><b>Aim left or right</b> with the mouse, <b>← →</b>, or by sliding a finger on the screen.</li>
-        <li><b>Land on the green pad</b> slower than 5 m/s, with no sideways drift. It glows red until you are right above it. Real Apollo legs were built for about 3 m/s.</li>
+        <li><b>Land on the green pad</b> slower than 10 m/s, with no sideways drift. It glows red until you are right above it. Real Apollo legs were built for about 3 m/s.</li>
         <li><b>Dark side:</b> there is no light, so your altitude and the pad are hidden. You get <b>3 flashes</b> (<b>F</b>, right-click or the FLASH button). Each one shows the ground and your height for 1 second, then the computer keeps a dim mark where the pad is.</li>
         <li><b>The faster you fall</b>, the harder the engine pushes, but the more fuel it burns. Hits hurt more at high speed: smoke, then alarm and glitchy steering, like Apollo 11's 1202.</li>
       </ol>
@@ -462,7 +462,7 @@ const ALT0 = 3400, V0 = 18;        // start altitude (m) and entry speed (m/s): 
 const G = 1.62;                    // real lunar gravity (m/s^2)
 const THRUST = 4.8, BOOST = 1.0, V_REF = 90;   // engine accel; extra push when falling fast (m/s^2, -, m/s)
 const BURN = 3.0, FUEL0 = 100;     // fuel per second at base thrust; the tank is never refilled
-const SAFE = 5, GOOD = 2.5, TIP_VX = 70;       // landing limits (real LM legs: ~3 m/s)
+const SAFE = 10, GOOD = 2.5, TIP_VX = 70;       // landing limits (real LM legs: ~3 m/s)
 const PAD_HALF = 56, PAD_OK = 44;  // landing pad half width / allowed offset of the rover (px)
 const PG = 4;                      // particle gravity
 const GREEN = '#38e86b', RED = '#ff3b5c';
@@ -905,7 +905,7 @@ function refreshTexts(){
   const on = touchMode;
   $('#keyA').textContent = on ? 'Hold THRUST' : 'Hold = thruster';
   $('#keyB').textContent = on ? 'Touch = steer' : 'Aim = steer';
-  $('#keyC').textContent = dark ? (on ? '3 flashes' : '3 flashes · F') : 'Green pad, under 5 m/s';
+  $('#keyC').textContent = dark ? (on ? '3 flashes' : '3 flashes · F') : 'Green pad, under 10 m/s';
   $('#keyHelp').textContent = on ? 'Hold the THRUST button to fire the engine. Touch and slide on the screen to steer.' + (dark ? ' Tap FLASH to light up the ground.' : '')
                                  : 'Keyboard: Space / ↑ thruster · ← → steer' + (dark ? ' · F flash (or right-click)' : '');
   $('#modeNote').textContent = dark ? 'No light at all: the altitude and the pad are hidden. Each of your 3 flashes shows the ground and your height for 1 second.'
