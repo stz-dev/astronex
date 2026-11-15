@@ -97,3 +97,9 @@ Each exhibit shows two images on its page (swipe / arrows / dots). Put the files
 
 ## Signal times
 `signal.contacts` in `data/exhibits.json` holds the real last-contact date, distance and one-way light time per exhibit (Moon/Mars distances computed from ephemerides; Pioneer 10 and Dawn from NASA/JPL statements).
+
+## Games page
+`frontend/game.html` is the games hub: three cards (Rover landing, Launch to Nowhere, Signal Recovery). The chosen game runs inside the page in an iframe (`frontend/games/*.html?embed=1`); the URL hash (`game.html#rover`, `#launch`, `#signal`) keeps the choice across reloads. The game files are standalone: to add a fourth game put `games/<name>.html` next to them and add one card + one line in `frontend/js/games.js`.
+
+## Generated 3D models
+`surveyor3, sojourner, viking, phoenix, insight, pioneer, dawn` are detailed procedural models built by `tools/make-models.mjs` (three.js primitives exported to .glb). Regenerate with `cd tools && npm install && npm run models`. A real Blender model with the same file name in `frontend/models/` replaces them with no other change.

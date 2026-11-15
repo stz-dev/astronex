@@ -289,7 +289,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/surveyor3-1.jpg",
@@ -779,7 +779,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/sojourner-1.jpg",
@@ -863,7 +863,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/viking-1.jpg",
@@ -947,7 +947,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/phoenix-1.jpg",
@@ -1031,7 +1031,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/insight-1.jpg",
@@ -1109,7 +1109,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/pioneer-1.jpg",
@@ -1187,7 +1187,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/dawn-1.jpg",
