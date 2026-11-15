@@ -261,8 +261,9 @@ function addControls(stage, mv, ex) {
   const set = k => links.forEach(a => a.toggleAttribute("aria-current", a.dataset.nav === k));
   if (page === "game.html") return set("game");
   if (page === "about.html") return set("about");
+  if (page === "archive.html") return set("archive");
   if (page !== "index.html" && page !== "") return set("archive");        // exhibit pages belong to the archive
-  const secs = ["explore", "minigame", "archive"].map(id => document.getElementById(id)).filter(Boolean);
+  const secs = ["explore", "minigame"].map(id => document.getElementById(id)).filter(Boolean);
   const key = { explore: "explore", minigame: "game", archive: "archive" };
   const upd = () => {
     const y = innerHeight * .35; let cur = "";

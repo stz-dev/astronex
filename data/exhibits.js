@@ -3,12 +3,12 @@ window.EXHIBITS_DATA = {
  "halls": [
   {
    "id": "moon",
-   "name": "Moon Hall",
+   "name": "Moon",
    "tagline": "Footprints in dust that no wind will erase."
   },
   {
    "id": "mars",
-   "name": "Mars Hall",
+   "name": "Mars",
    "tagline": "Robots that kept working for as long as they could."
   },
   {
