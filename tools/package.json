@@ -4,7 +4,8 @@
   "description": "Build step for the Interactive Explore 3D scene (bundles three.js into one classic script).",
   "scripts": {
     "build": "NODE_PATH=./node_modules esbuild ../frontend/src/explore/main.js --bundle --minify --format=iife --target=es2019 --outfile=../frontend/js/explore.bundle.js",
-    "placeholders": "NODE_PATH=./node_modules esbuild make-placeholders.mjs --bundle --platform=node --format=esm --outfile=.placeholders.tmp.mjs --log-level=warning && node .placeholders.tmp.mjs && rm .placeholders.tmp.mjs"
+    "placeholders": "NODE_PATH=./node_modules esbuild make-placeholders.mjs --bundle --platform=node --format=esm --outfile=.placeholders.tmp.mjs --log-level=warning && node .placeholders.tmp.mjs && rm .placeholders.tmp.mjs",
+    "models": "NODE_PATH=./node_modules esbuild make-models.mjs --bundle --platform=node --format=esm --outfile=.models.tmp.mjs --log-level=warning && node .models.tmp.mjs && rm .models.tmp.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.24.0",
