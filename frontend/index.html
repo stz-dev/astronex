@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ASTRONEX — Abandoned, but not forgotten</title>
-<meta name="description" content="An interactive museum of historic spacecraft: rovers, landers and probes that stayed where they were left.">
+<title>AstroNex — Abandoned, but not Forgotten</title>
+<meta name="description" content="An interactive educational archive of historic spacecraft: rovers, landers and probes that stayed where they were left.">
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="css/explore.css">
 </head>
@@ -14,20 +14,23 @@
   <a class="logo" href="index.html">ASTRO<span>NEX</span></a>
   <nav class="nav" aria-label="Main navigation">
     <a href="index.html#explore" data-nav="explore">Explore</a>
-    <a href="game.html" data-nav="game">Mini-game</a>
-    <a href="index.html#archive" data-nav="archive">Archive</a>
+    <a href="game.html" data-nav="game">Games</a>
+    <a href="archive.html" data-nav="archive">Archive</a>
     <a href="about.html" data-nav="about">About</a>
   </nav>
 </div></header>
 <main>
   <section class="hero"><div class="wrap">
     <div>
-      <span class="eyebrow">NASA Space Apps · Museum</span>
-      <h1>Abandoned.<br><em>Not forgotten.</em></h1>
-      <p class="lead">They sit silent on the Moon, on Mars and in the dark between the stars. Enter the archive: hear the story of each spacecraft, look at it up close and find out who built it.</p>
+      <span class="eyebrow">NASA Space Apps Challenge</span>
+      <h1>Welcome to <em>AstroNex!</em></h1>
+      <p class="lead">AstroNex is an educational website created by Team TWD as part of the NASA Space Apps Challenge. It explores the history of space exploration through the stories of spacecraft, Mars rovers, satellites, and other missions.</p>
+      <p class="lead">Discover their technologies, scientific achievements, and historical milestones. Explore 3D models, learn through interactive mini-games, and uncover the stories behind these incredible machines.</p>
+      <p class="lead">Our mission is to make space exploration accessible, engaging, and unforgettable.</p>
+      <p class="motto">Abandoned, but not Forgotten.</p>
       <div class="cta">
         <a class="btn" href="#explore">Interactive Explore →</a>
-        <a class="btn ghost" href="#archive">Browse the archive</a>
+        <a class="btn ghost" href="archive.html">Browse the archive</a>
       </div>
     </div>
     <div class="panel" style="padding:1rem"><div class="stage" id="hero-stage"></div></div>
@@ -50,20 +53,22 @@
     <div class="panel teaser">
       <div>
         <span class="eyebrow">Interactive</span>
-        <h2 style="margin:.6rem 0 .8rem;font-size:1.6rem">Mini-game</h2>
-        <p style="color:var(--muted);max-width:38rem">Give the forgotten machines a little attention: collect artifacts and unlock their stories. The game is built right into the museum.</p>
+        <h2 style="margin:.6rem 0 .8rem;font-size:1.6rem">Mini-games</h2>
+        <p style="color:var(--muted);max-width:38rem">Three quick games from real space stories: land a rover on the Moon, escape a failing rocket and keep a relay signal alive.</p>
       </div>
-      <a class="btn" href="game.html">Play →</a>
+      <a class="btn" href="game.html">Choose a game →</a>
     </div>
   </div></section>
 
-  <section class="block" id="archive"><div class="wrap">
-    <div class="sec-head">
-      <div><span class="eyebrow">Exhibition</span><h2>Museum halls</h2></div>
-      <div class="tabs" id="tabs" role="group" aria-label="Filter by hall"></div>
+  <section class="block" id="archive-teaser"><div class="wrap">
+    <div class="panel teaser">
+      <div>
+        <span class="eyebrow">Archive</span>
+        <h2 style="margin:.6rem 0 .8rem;font-size:1.6rem">The spacecraft archive</h2>
+        <p style="color:var(--muted);max-width:38rem">Ten spacecraft on the Moon, on Mars and in deep space. Open any of them to read its story, rotate its 3D model and see its sources.</p>
+      </div>
+      <a class="btn" href="archive.html">Open the archive →</a>
     </div>
-    <p class="hall-line" id="hall-line"></p>
-    <div class="grid" id="grid"></div>
   </div></section>
 
 </main>

@@ -3,12 +3,12 @@ window.EXHIBITS_DATA = {
  "halls": [
   {
    "id": "moon",
-   "name": "Moon Hall",
+   "name": "Moon",
    "tagline": "Footprints in dust that no wind will erase."
   },
   {
    "id": "mars",
-   "name": "Mars Hall",
+   "name": "Mars",
    "tagline": "Robots that kept working for as long as they could."
   },
   {
@@ -35,8 +35,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "moon",
-     "lat": 0.67,
-     "lon": 23.47,
+     "lat": 0.93,
+     "lon": -160.55,
      "label": "Apollo 11 · Tranquility Base"
     }
    ],
@@ -231,7 +231,7 @@ window.EXHIBITS_DATA = {
    "agency": "NASA / JPL",
    "years": "1967",
    "status": "LEFT ON THE MOON",
-   "last_contact": "1967",
+   "last_contact": "May 4, 1967",
    "location": "Oceanus Procellarum (Ocean of Storms)",
    "creators": "NASA JPL, Hughes Aircraft Company",
    "summary": "One of the robotic Surveyor landers that proved soft landings on the Moon were possible. Two years later, Apollo 12 astronauts walked to it and brought home parts of the probe.",
@@ -240,8 +240,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "moon",
-     "lat": -3.02,
-     "lon": -23.42,
+     "lat": -0.07,
+     "lon": 154.63,
      "label": "Oceanus Procellarum"
     }
    ],
@@ -249,61 +249,151 @@ window.EXHIBITS_DATA = {
     "contacts": [
      {
       "label": "Last transmission",
-      "date": "May 3, 1967",
+      "date": "May 4, 1967",
       "oneWayS": 1.33,
       "distance": "about 400,100 km (the Moon)"
      }
     ],
-    "basis": "Last contact May 3, 1967 (NASA/NSSDC). Distance computed from a lunar ephemeris."
+    "basis": "Last contact May 4, 1967 (NASA Science). Distance computed from a lunar ephemeris."
    },
    "story": [
-    "Surveyor 3 was an unmanned NASA lander, launched in April 1967 to test whether a spacecraft could land softly on the Moon and what the lunar soil was like. It landed in the Ocean of Storms on April 20, 1967, and bounced twice before it settled.",
-    "It carried a television camera and a small scoop on an arm. It sent thousands of pictures and dug trenches in the soil to measure how strong it was, important information before astronauts tried to land there.",
-    "Then it went silent, and stayed where it was. Two and a half years later, in November 1969, the Apollo 12 astronauts Pete Conrad and Alan Bean landed only a short walk away, a distance of about 163 meters.",
-    "They walked to Surveyor 3, photographed it and removed its television camera, the scoop and some tubing, then took them back to Earth. This makes Surveyor 3 the only probe on another world that humans have visited."
+    "Surveyor 3 was a robotic NASA lander sent to the Moon in 1967 to answer a simple question: is the lunar surface solid enough for astronauts to land on? It touched down in the Ocean of Storms on April 20, 1967.",
+    "Its landing was far from smooth. The main engine failed to switch off on time, and the lander bounced twice before it stopped. It then went to work, sending thousands of pictures and digging in the soil with a small scoop.",
+    "It stopped communicating on May 4, 1967. But the story did not end there: two and a half years later, Apollo 12 astronauts walked up to it, photographed it and took parts of it home."
    ],
    "details": [
     {
-     "title": "A precise landing",
+     "title": "Mission and scientific achievements",
      "text": [
-      "Apollo 12 was the mission that proved a crewed landing could be aimed at a chosen point. The target was the old Surveyor 3, so that astronauts could examine how a spacecraft had aged on the Moon."
+      "Surveyor 3 was one of NASA's robotic scouts for the Apollo program. Before sending people to the Moon, engineers needed to know how strong and how dusty the lunar soil was. Surveyor 3 carried two main tools to find out."
+     ],
+     "list": [
+      "Television camera: it sent back 6,326 pictures of the lunar surface.",
+      "Surface sampler: a small scoop on an arm that could reach about 1.5 m (5 ft) from the lander and dig up to 18 cm (7 in) into the ground."
+     ],
+     "after": "With the scoop the lander made 4 trenches, 4 bearing tests and 13 impact tests. In a bearing test the scoop is pressed into the soil to see how much weight it can carry; in an impact test the scoop is dropped on the soil to see how it reacts. Together these tests helped scientists understand the strength of lunar soil before the Apollo landings."
+    },
+    {
+     "title": "An unusual landing",
+     "text": [
+      "Surveyor 3's main engine did not shut off at the planned moment. It kept firing until the lander was about 4.3 m (14 ft) above the ground, so the spacecraft hit the surface and bounced.",
+      "The first bounce reached about 10 m (33 ft) and the second about 3 m (10 ft). After the second one Surveyor 3 settled on the surface and kept working."
      ]
     },
     {
-     "title": "What the parts taught engineers",
+     "title": "What happened to Surveyor 3?",
      "text": [
-      "Engineers studied the returned hardware to see how materials survive the Moon. The camera and other parts showed no signs of failure, and the lander's color had changed partly because of lunar dust and partly because sunlight had faded its paint.",
-      "The returned camera is now on loan to the National Air and Space Museum in Washington."
-     ]
-    },
-    {
-     "title": "The microbe story",
-     "text": [
-      "Scientists reported finding a common bacterium inside a piece of foam from the camera. It was first thought that it had survived on the Moon for about two and a half years, but later studies suggested that it may have got in after the camera returned to Earth. The question is still debated."
-     ]
-    },
-    {
-     "title": "This model",
-     "text": [
-      "The 3D model of Surveyor 3 is still in development. The shape you see is a temporary placeholder."
-     ]
+      "Surveyor 3 stopped communicating with Earth on May 4, 1967. It stayed where it was, alone on the plain, for more than two years.",
+      "On November 19, 1969 (UTC), Apollo 12 astronauts Charles \"Pete\" Conrad Jr. and Alan L. Bean landed on the Moon about 180 m (590 ft) from Surveyor 3. During their second moonwalk they walked over to the old lander, photographed it, and removed several parts to take home:"
+     ],
+     "list": [
+      "its television camera system",
+      "the scoop of the surface sampler",
+      "sections of aluminum tubing",
+      "pieces of electrical cable"
+     ],
+     "after": "Back on Earth, NASA teams studied these parts for more than a year. By the time of the visit Surveyor 3 had spent about 31 months on the Moon, and engineers wanted to see how the lunar environment (strong sunlight, extreme temperatures, radiation, dust) had affected its materials, electronics and moving parts. The results were published in NASA's 1972 report on the Surveyor 3 material returned by Apollo 12."
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/surveyor3-1.jpg",
-     "alt": "Surveyor 3 — view 1",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Surveyor%203"
+     "alt": "Apollo 12 astronaut at Surveyor 3, with the lunar module on the horizon",
+     "credit": "NASA",
+     "page": "https://science.nasa.gov/?p=143603"
     },
     {
      "src": "img/exhibits/surveyor3-2.jpg",
-     "alt": "Surveyor 3 — view 2",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Surveyor%203"
+     "alt": "Apollo 12 astronaut beside Surveyor 3 on the Moon",
+     "credit": "NASA",
+     "page": "https://science.nasa.gov/?p=143603"
     }
-   ]
+   ],
+   "specs": [
+    [
+     "Type",
+     "Robotic lunar lander"
+    ],
+    [
+     "Country",
+     "United States"
+    ],
+    [
+     "Organization",
+     "NASA / Jet Propulsion Laboratory (JPL)"
+    ],
+    [
+     "Launch",
+     "April 17, 1967"
+    ],
+    [
+     "Landing",
+     "April 20, 1967"
+    ],
+    [
+     "Landing site",
+     "Oceanus Procellarum (Ocean of Storms), Moon"
+    ],
+    [
+     "Mass",
+     "997.9 kg (2,200 lb)"
+    ],
+    [
+     "Mission status",
+     "Completed"
+    ],
+    [
+     "Last communication",
+     "May 4, 1967"
+    ]
+   ],
+   "facts": [
+    {
+     "title": "A spacecraft visited by astronauts",
+     "text": "More than two years after its landing, Surveyor 3 was visited by Apollo 12 astronauts, who recovered several of its components and brought them back to Earth."
+    },
+    {
+     "title": "An unexpected landing",
+     "text": "Surveyor 3 bounced twice during landing because its engine did not shut down as planned."
+    },
+    {
+     "title": "6,326 pictures from the Moon",
+     "text": "The spacecraft transmitted 6,326 television images, helping scientists study the lunar surface."
+    }
+   ],
+   "importance": [
+    "Surveyor 3 helped prepare for human exploration of the Moon. Its soil tests gave engineers real measurements of the lunar surface, which they needed before astronauts could land safely.",
+    "Its work continued even after its own mission ended. The parts recovered by Apollo 12 were a rare chance to inspect hardware that had spent more than two years on another world, and they taught engineers how spacecraft materials age in the lunar environment. A visit like this, to a spacecraft that had already ended its mission, is very rare in space exploration."
+   ],
+   "sources": [
+    {
+     "title": "Surveyor 3",
+     "publisher": "NASA Science",
+     "url": "https://science.nasa.gov/mission/surveyor-3",
+     "used": "Dates, mass, landing bounces, instruments, test counts, last contact, Apollo 12 recovery"
+    },
+    {
+     "title": "Analysis of Surveyor 3 Material and Photographs Returned by Apollo 12 (NASA SP-284), record page",
+     "publisher": "NASA Technical Reports Server (NASA)",
+     "url": "https://ntrs.nasa.gov/citations/19720019081",
+     "used": "The 1972 report on the returned parts"
+    },
+    {
+     "title": "Analysis of Surveyor 3 Material and Photographs Returned by Apollo 12 (NASA SP-284), full text PDF",
+     "publisher": "NASA (Apollo Lunar Surface Journal archive)",
+     "url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a12/AnalysSurvIIIMtrial.pdf",
+     "used": "31 months on the Moon; camera and other parts studied; study length"
+    },
+    {
+     "title": "Man and Machine (image GPN-2000-001316)",
+     "publisher": "NASA",
+     "url": "https://science.nasa.gov/?p=143603",
+     "used": "Apollo 12 astronaut Alan Bean examining Surveyor 3 (image)"
+    }
+   ],
+   "notes": "Distance note: NASA's Surveyor 3 page gives about 180 m between Apollo 12 and Surveyor 3. Apollo 12 landed on November 19, 1969 UTC (November 18 in U.S. time zones).",
+   "made_by": "Claude"
   },
   {
    "id": "mer",
@@ -322,14 +412,14 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": -14.57,
-     "lon": 175.47,
+     "lat": -10.15,
+     "lon": -4.49,
      "label": "Spirit · Gusev Crater"
     },
     {
      "planet": "mars",
-     "lat": -1.95,
-     "lon": -5.53,
+     "lat": -2.31,
+     "lon": 174.24,
      "label": "Opportunity · Meridiani Planum"
     }
    ],
@@ -619,8 +709,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": 18.44,
-     "lon": 77.45,
+     "lat": 14.84,
+     "lon": -101.48,
      "label": "Jezero Crater"
     }
    ],
@@ -728,8 +818,8 @@ window.EXHIBITS_DATA = {
    "markers": [
     {
      "planet": "mars",
-     "lat": 19.13,
-     "lon": -33.22,
+     "lat": 18.07,
+     "lon": 149.52,
      "label": "Ares Vallis"
     }
    ],
@@ -742,58 +832,155 @@ window.EXHIBITS_DATA = {
       "distance": "about 265.7 million km (Mars)"
      }
     ],
-    "basis": "Final data transmission 10:23 UTC, Sep 27, 1997 (NASA). Earth–Mars distance computed from a planetary ephemeris."
+    "basis": "Final data transmission from Pathfinder Sep 27, 1997 (NASA). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
-    "Sojourner was the first rover ever to drive on Mars. It was a small six-wheeled robot, about the size of a microwave oven, that rode to the planet on the Mars Pathfinder lander and rolled onto the surface in July 1997.",
-    "The Pathfinder lander arrived by bouncing across the surface inside a cluster of airbags, and landed in Ares Vallis, a broad plain where ancient floods seem to have swept across the terrain.",
-    "The rover was designed to work for about a week, and it kept going for around twelve weeks. It stayed close to the lander, took pictures, and used an instrument to study the chemistry of nearby rocks. Scientists gave some of the rocks nicknames.",
-    "Contact with the lander was lost in September 1997, and Sojourner stayed parked beside it. It proved that rovers could work on Mars, and every rover since then follows in its tracks."
+    "Sojourner was the first rover ever delivered to Mars. This small six-wheeled robot rode to the planet on the Mars Pathfinder lander and rolled onto the surface in July 1997.",
+    "Pathfinder landed in Ares Vallis, an ancient flood plain. It did not use rockets all the way down: it was wrapped in airbags and bounced across the ground until it stopped.",
+    "Sojourner was planned to work for 7 days. It worked for 83. It proved that a rover could drive on Mars, and every Mars rover since then follows in its tracks."
    ],
    "details": [
     {
-     "title": "Facts at a glance",
-     "list": [
-      "Agency: NASA Jet Propulsion Laboratory (JPL)",
-      "Landing: July 4, 1997, Ares Vallis, Mars",
-      "Last contact with Pathfinder: September 27, 1997",
-      "Name: chosen in a student contest, after Sojourner Truth, the abolitionist and women's rights activist"
+     "title": "The landing: bouncing on airbags",
+     "text": [
+      "Pathfinder was the first U.S. spacecraft to land with airbags. It hit the surface at about 14 m/s (31 mph), bounced about 15 times, and came to rest about 1 km from where it first touched the ground. Afterwards the lander was named the Carl Sagan Memorial Station.",
+      "On the night of July 5 (late on the second Martian day, called sol 2) Sojourner rolled down the lander's ramp and started to explore."
      ]
     },
     {
-     "title": "A rover for a low budget",
+     "title": "What Sojourner did",
      "text": [
-      "Pathfinder was designed to be a fast, low-cost mission. The rover was small and simple, and the mission showed that NASA could land smaller, cheaper spacecraft on Mars."
+      "Sojourner pressed its APXS instrument against rocks to measure which chemical elements they contain. Scientists gave the rocks nicknames, among them Barnacle Bill, Yogi and Scooby Doo.",
+      "The rover stayed close to its lander. On Sol 75 (September 18) it made its farthest trip: more than 12 m away, which NASA called a mission record."
      ]
     },
     {
-     "title": "What it left behind",
+     "title": "What the mission returned",
      "text": [
-      "Today the Pathfinder lander and the rover remain near each other in Ares Vallis, a small camp that nobody has visited since 1997."
-     ]
-    },
-    {
-     "title": "This model",
-     "text": [
-      "The 3D model of Sojourner is still in development. The shape you see is a temporary placeholder."
+      "Altogether Pathfinder sent back about 2.3 billion bits of data, including more than 16,500 images from the lander and 550 images from the rover. The final data transmission arrived on September 27, 1997, and NASA ended the mission on March 10, 1998."
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/sojourner-1.jpg",
-     "alt": "Sojourner — view 1",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Sojourner"
+     "alt": "Sojourner on Mars next to the Pathfinder lander (image mosaic)",
+     "credit": "NASA / JPL",
+     "page": "https://www.nasa.gov/image-article/nasas-first-rover-red-planet"
     },
     {
      "src": "img/exhibits/sojourner-2.jpg",
-     "alt": "Sojourner — view 2",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Sojourner"
+     "alt": "The Sojourner rover on the surface of Mars",
+     "credit": "NASA / JPL",
+     "page": "https://science.nasa.gov/mission/mars-pathfinder/"
     }
-   ]
+   ],
+   "specs": [
+    [
+     "Type",
+     "Robotic rover (carried by the Mars Pathfinder lander)"
+    ],
+    [
+     "Country",
+     "United States"
+    ],
+    [
+     "Organization",
+     "NASA / Jet Propulsion Laboratory (JPL)"
+    ],
+    [
+     "Launch",
+     "December 4, 1996 (Delta II rocket)"
+    ],
+    [
+     "Landing",
+     "July 4, 1997"
+    ],
+    [
+     "Landing site",
+     "Ares Vallis, Mars"
+    ],
+    [
+     "Rover mass",
+     "10.6 kg (23 lb)"
+    ],
+    [
+     "Rover height",
+     "About 30 cm (1 ft)"
+    ],
+    [
+     "Main instrument",
+     "Alpha Proton X-ray Spectrometer (APXS)"
+    ],
+    [
+     "Time on Mars",
+     "83 days (planned: 7)"
+    ],
+    [
+     "Last data transmission",
+     "September 27, 1997"
+    ],
+    [
+     "Mission status",
+     "Completed"
+    ]
+   ],
+   "facts": [
+    {
+     "title": "Seven days planned, 83 delivered",
+     "text": "Sojourner's mission was planned for seven days, but the rover operated for 83."
+    },
+    {
+     "title": "A rover with a wheel in the air",
+     "text": "In the \"Farthest Journey\" picture taken on Sol 75, Sojourner's middle right wheel is raised above the ground."
+    },
+    {
+     "title": "Rocks with cartoon names",
+     "text": "Controllers nicknamed rocks near the lander Barnacle Bill, Yogi and Scooby Doo."
+    },
+    {
+     "title": "Named after Sojourner Truth",
+     "text": "NASA named the rover after the American civil-rights crusader Sojourner Truth."
+    }
+   ],
+   "importance": [
+    "Sojourner showed that a small, low-cost rover could be delivered to Mars and could drive and analyze rocks there. The airbag landing showed that a cheaper way to reach the surface worked.",
+    "Rovers have been a main way of exploring Mars ever since."
+   ],
+   "sources": [
+    {
+     "title": "Mars Pathfinder",
+     "publisher": "NASA Science",
+     "url": "https://science.nasa.gov/mission/mars-pathfinder/",
+     "used": "Launch and landing facts, rover mass and height, APXS, airbag landing, data returned, naming"
+    },
+    {
+     "title": "25 Years Ago: Mars Pathfinder Launches to Mars to Deploy Sojourner, the First Planetary Rover",
+     "publisher": "NASA",
+     "url": "https://www.nasa.gov/?p=96307",
+     "used": "Airbag landing, Carl Sagan Memorial Station, rock nicknames"
+    },
+    {
+     "title": "Sojourner's Farthest Journey (image PIA00969)",
+     "publisher": "NASA Science (NASA/JPL)",
+     "url": "https://science.nasa.gov/resource/sojourners-farthest-journey/",
+     "used": "83 days instead of 7, Sol 75 distance record, end-of-mission dates"
+    },
+    {
+     "title": "Sojourner's Farthest Journey – Right Eye (image PIA01583)",
+     "publisher": "NASA Science (NASA/JPL)",
+     "url": "https://science.nasa.gov/?p=916109",
+     "used": "Sol 75 image details"
+    },
+    {
+     "title": "NASA's First Rover on the Red Planet",
+     "publisher": "NASA",
+     "url": "https://www.nasa.gov/image-article/nasas-first-rover-red-planet",
+     "used": "Sol 2 image of Sojourner"
+    }
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "viking",
@@ -801,19 +988,19 @@ window.EXHIBITS_DATA = {
    "short": "Viking 1",
    "hall": "mars",
    "agency": "NASA",
-   "years": "1976–1982",
+   "years": "1975–1982",
    "status": "STILL WHERE IT LANDED",
    "last_contact": "Nov 11, 1982",
    "location": "Chryse Planitia, Mars",
    "creators": "NASA, Martin Marietta",
    "summary": "The first successful US lander on Mars. It worked for years and remains exactly at its landing point.",
-   "fact": "The station was renamed the Thomas A. Mutch Memorial Station.",
+   "fact": "The first picture ever taken from the surface of Mars was a photo of Viking 1's own footpad.",
    "model": "models/viking.glb",
    "markers": [
     {
      "planet": "mars",
-     "lat": 22.7,
-     "lon": -47.95,
+     "lat": 20.8,
+     "lon": 130.84,
      "label": "Chryse Planitia"
     }
    ],
@@ -826,58 +1013,181 @@ window.EXHIBITS_DATA = {
       "distance": "about 272.2 million km (Mars)"
      }
     ],
-    "basis": "Viking Lander 1 final transmission Nov 11, 1982 (NASA/JPL). Earth–Mars distance computed from a planetary ephemeris."
+    "basis": "Viking Lander 1 final transmission Nov 11, 1982 (NASA Science). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
-    "Viking 1 was the first successful American lander on Mars. It was launched together with its orbiter in 1975, and the lander touched down in Chryse Planitia on July 20, 1976, exactly seven years after the Apollo 11 landing.",
-    "It sent back the first color pictures from the surface of Mars and carried a weather station and a robotic arm to scoop up soil. Its biology experiments looked for signs of life in the dirt, and their results were puzzling and are still discussed.",
-    "The lander was powered by radioisotope generators, so it did not depend on sunlight. It worked far longer than planned, for more than six years, until it stopped answering in November 1982.",
-    "After the end of the mission the landing site was renamed the Thomas A. Mutch Memorial Station, to honor the scientist who led the lander's imaging team. The lander is still at the same place."
+    "Viking 1 was a two-part spacecraft: an orbiter that circled Mars and a lander that went down to the surface. On July 20, 1976 the lander touched down in Chryse Planitia and became the first fully successful U.S. landing on Mars.",
+    "Within minutes it sent the first photograph ever taken from the surface of Mars. Over the next years it photographed the landscape, studied the weather, analyzed the soil and ran experiments that looked for signs of life.",
+    "The lander kept working until November 11, 1982, when a faulty command from Earth interrupted communications. Contact was never regained."
    ],
    "details": [
     {
-     "title": "Facts at a glance",
+     "title": "Launch, journey and arrival",
+     "text": [
+      "Viking 1 launched from Cape Canaveral on August 20, 1975 and entered orbit around Mars on June 19, 1976. The orbiter then spent weeks photographing possible landing sites.",
+      "Those pictures showed that the planned site in Chryse was rougher than expected, so the lander was sent to a safer spot on the western slopes of Chryse Planitia, about 28 km (17 mi) from the original target. It separated from the orbiter at 08:32 UT and touched down at 11:53 UT on July 20, 1976."
+     ]
+    },
+    {
+     "title": "Two spacecraft in one",
+     "text": [
+      "The orbiter carried a two-camera imaging system, an instrument that mapped water vapor in the atmosphere and an infrared instrument that mapped temperatures.",
+      "The lander carried two cameras, a weather station, a seismometer, an X-ray fluorescence spectrometer for soil chemistry, a gas chromatograph mass spectrometer (GCMS, which looks for chemical compounds), a biology laboratory and a robotic sampler arm."
+     ]
+    },
+    {
+     "title": "The search for life: what was confirmed and what is interpretation",
+     "text": [
+      "The biology laboratory ran three experiments on Martian soil: Gas Exchange, Labeled Release and Pyrolytic Release. Each tested for a different kind of possible life."
+     ],
      "list": [
-      "Agency: NASA, with Martin Marietta as the lander's builder",
-      "Landing: July 20, 1976, Chryse Planitia",
-      "Last contact: November 11, 1982",
-      "Companion: the Viking 1 orbiter, which photographed Mars from above"
-     ]
+      "Confirmed: some early results looked like biological activity. In Labeled Release, adding a nutrient solution to the soil caused a quick release of gas, and NASA says the combined data could be read as a weak positive sign.",
+      "Confirmed: the GCMS, the main test for organic (carbon-based) compounds, found none above its detection limit, and the lander's roughly 5,000 pictures showed no biological objects. The soil also contained a lot of sulfur.",
+      "Interpretation: NASA concluded at the time that there was no evidence of life, and that the results were probably caused by unusual soil chemistry. Scientists still debate details. In 2008 Phoenix discovered perchlorate salt in Martian soil, which has kept the discussion about Viking's organic test alive."
+     ],
+     "after": "The honest summary: Viking 1 did not find life, and it did not prove that Mars is lifeless."
     },
     {
-     "title": "The search for life",
+     "title": "The end of the mission",
      "text": [
-      "The three biology experiments on board mixed Martian soil with nutrients and measured what happened. The results could be explained by chemistry or biology, and scientists still disagree about their meaning."
-     ]
-    },
-    {
-     "title": "A second twin",
-     "text": [
-      "Viking 2 landed in a different place a few weeks later and also worked for years. Together the two landers gave scientists the first long-term look at weather and soil on Mars."
-     ]
-    },
-    {
-     "title": "This model",
-     "text": [
-      "The 3D model of Viking 1 is still in development. The shape you see is a temporary placeholder."
+      "The orbiter shut down on August 7, 1980, when it ran out of the gas used to control its orientation (its 1,489th orbit).",
+      "The lander operated until November 11, 1982, when a faulty command sent from Earth interrupted communications. Attempts to regain contact failed. In January 1982 its landing site had been renamed the Thomas Mutch Memorial Station, after the leader of the lander imaging team."
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/viking-1.jpg",
-     "alt": "Viking 1 — view 1",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Viking%201"
+     "alt": "Illustration of a Viking lander on the surface of Mars",
+     "credit": "NASA",
+     "page": "https://science.nasa.gov/mission/viking-1/"
     },
     {
      "src": "img/exhibits/viking-2.jpg",
-     "alt": "Viking 1 — view 2",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Viking%201"
+     "alt": "A Viking lander model with its sampler arm",
+     "credit": "NASA",
+     "page": "https://science.nasa.gov/mission/viking-1/"
     }
-   ]
+   ],
+   "specs": [
+    [
+     "Type",
+     "Mars orbiter and lander"
+    ],
+    [
+     "Country",
+     "United States"
+    ],
+    [
+     "Organization",
+     "NASA"
+    ],
+    [
+     "Launch",
+     "August 20, 1975, Titan IIIE-Centaur rocket"
+    ],
+    [
+     "Mars orbit",
+     "June 19, 1976"
+    ],
+    [
+     "Landing",
+     "July 20, 1976, 11:53 UT"
+    ],
+    [
+     "Landing site",
+     "Western slope of Chryse Planitia, Mars (22.483° N, 47.94° W)"
+    ],
+    [
+     "Total mass",
+     "3,527 kg (orbiter 2,339 kg, lander 978 kg)"
+    ],
+    [
+     "Orbiter ended",
+     "August 7, 1980"
+    ],
+    [
+     "Lander ended",
+     "November 11, 1982"
+    ],
+    [
+     "Mission status",
+     "Completed"
+    ]
+   ],
+   "facts": [
+    {
+     "title": "The first photo was of its own foot",
+     "text": "Minutes after landing, Viking 1 photographed a part of its own footpad. The center of the picture is only about 1.4 m (5 ft) from the camera."
+    },
+    {
+     "title": "It landed away from its target",
+     "text": "Orbiter photos showed the first planned landing site was too rough, so the lander touched down about 28 km (17 mi) away."
+    },
+    {
+     "title": "Seven years to the day after Apollo 11",
+     "text": "Viking 1 landed on July 20, 1976, exactly seven years after Apollo 11 landed on the Moon."
+    },
+    {
+     "title": "Soil unlike Earth or the Moon",
+     "text": "The lander found the soil was rich in sulfur, unlike any known Earth or Moon material."
+    },
+    {
+     "title": "Ended by a command from Earth",
+     "text": "The lander stopped answering after a faulty command was sent from Earth, in November 1982."
+    }
+   ],
+   "importance": [
+    "Viking 1 gave humanity its first long look at the surface of Mars, with photographs, weather records and soil analysis. It also carried out the first experiments designed to search for life on another planet.",
+    "Its orbiter also photographed Mars from above and helped choose the lander's safer landing site."
+   ],
+   "sources": [
+    {
+     "title": "Viking 1",
+     "publisher": "NASA Science",
+     "url": "https://science.nasa.gov/mission/viking-1/",
+     "used": "Dates, masses, instruments, landing site, site change, GCMS result, mission end of lander and orbiter, renaming"
+    },
+    {
+     "title": "First Photograph Taken On Mars Surface (image PIA00381)",
+     "publisher": "NASA Science (NASA/JPL)",
+     "url": "https://science.nasa.gov/photojournal/first-photograph-taken-on-mars-surface/",
+     "used": "First photo, taken minutes after landing; center of the picture is about 1.4 m from the camera"
+    },
+    {
+     "title": "First Photograph Taken On Mars Surface",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/images/first-photograph-taken-on-mars-surface",
+     "used": "Image record: Viking Lander 1, camera 2"
+    },
+    {
+     "title": "The Viking Biology Results (Harold P. Klein)",
+     "publisher": "NASA Technical Reports Server (NASA Ames Research Center)",
+     "url": "https://ntrs.nasa.gov/citations/19890016985",
+     "used": "Three biology experiments, 5,000 pictures with no biological objects, GCMS found no organics"
+    },
+    {
+     "title": "The Viking biological experiments on Mars",
+     "publisher": "NASA Technical Reports Server",
+     "url": "https://ntrs.nasa.gov/citations/19780055837",
+     "used": "Gas Exchange, Labeled Release, Pyrolytic Release summary"
+    },
+    {
+     "title": "The Viking Biological Investigation: Preliminary Results (Science, 1976)",
+     "publisher": "Caltech Library / Science (AAAS)",
+     "url": "https://authors.library.caltech.edu/records/ywjh2-wjq41",
+     "used": "1976 preliminary results: no decision on life"
+    },
+    {
+     "title": "Mars Phoenix Lander Finishes Successful Work on Red Planet",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/news/mars-phoenix-lander-finishes-successful-work-on-red-planet/",
+     "used": "Phoenix's perchlorate discovery (2008)"
+    }
+   ],
+   "closing": "Viking 1 had a twin, Viking 2. We plan to add its story to ASTRONEX later.",
+   "made_by": "Claude"
   },
   {
    "id": "phoenix",
@@ -885,19 +1195,19 @@ window.EXHIBITS_DATA = {
    "short": "Phoenix",
    "hall": "mars",
    "agency": "NASA / University of Arizona",
-   "years": "2008",
+   "years": "2007–2008",
    "status": "LOST TO POLAR DARKNESS",
    "last_contact": "Nov 2, 2008",
    "location": "Vastitas Borealis, Mars",
    "creators": "University of Arizona, NASA JPL, Lockheed Martin Space",
    "summary": "Phoenix dug into the Martian arctic soil and confirmed water ice just below the surface. It stopped working as the polar winter closed in.",
-   "fact": "Phoenix scooped up and tested water ice on Mars, and its lidar detected snow falling from clouds.",
+   "fact": "A camera on a NASA orbiter photographed Phoenix hanging from its parachute, the first time one spacecraft imaged another landing on a planet.",
    "model": "models/phoenix.glb",
    "markers": [
     {
      "planet": "mars",
-     "lat": 68.22,
-     "lon": -125.75,
+     "lat": 74.91,
+     "lon": 60.51,
      "label": "Vastitas Borealis"
     }
    ],
@@ -910,58 +1220,217 @@ window.EXHIBITS_DATA = {
       "distance": "about 374.5 million km (Mars)"
      }
     ],
-    "basis": "Last signal Nov 2, 2008 (NASA/JPL). Earth–Mars distance computed from a planetary ephemeris."
+    "basis": "Last signal Nov 2, 2008 (NASA JPL). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
-    "Phoenix landed in the far north of Mars on May 25, 2008, in a region called Vastitas Borealis. Unlike earlier landers, it did not come down on airbags. It slowed itself with rockets and touched down on three legs.",
-    "Its robotic arm dug into the soil and uncovered bright material just below the surface. The material disappeared over a few days, which showed that it was water ice. This was the first time a spacecraft had touched and tested water ice on Mars.",
-    "The lander also analyzed the soil and detected snow falling from clouds with its laser instrument. It was designed to work for about three months and worked for about five.",
-    "As the northern summer ended, the Sun sank lower, and Phoenix could not get enough power. It last contacted Earth on November 2, 2008, and was covered by the dark winter. It has not been heard from since."
+    "Phoenix landed in the far north of Mars on May 25, 2008. Its job was to dig into the arctic soil and find out whether the ice just below the surface could once have supported life. It did not find life.",
+    "It slowed down with a parachute and rockets, and landed on three legs. Its robotic arm dug into the ground and uncovered ice.",
+    "It was designed to work for three months. It worked for more than five, until the Sun sank too low for its solar panels. Its last signal arrived on November 2, 2008."
    ],
    "details": [
     {
-     "title": "Facts at a glance",
+     "title": "Why the Martian Arctic?",
+     "text": [
+      "Water ice near the poles is the easiest water on Mars to reach. NASA wanted to know whether the ice and soil there could have supported microbes, and what the climate of the arctic is like. Phoenix was built to study whether the environment was habitable, not to look for living things directly."
+     ]
+    },
+    {
+     "title": "The instruments and what they did",
      "list": [
-      "Led by: the University of Arizona, with NASA JPL and Lockheed Martin Space",
-      "Landing: May 25, 2008, Vastitas Borealis",
-      "Last contact: November 2, 2008",
-      "Power: solar panels"
+      "Robotic arm: it could dig about 0.5 m (20 in) down. A camera on the arm took close-ups of soil and ice before and after samples went into the scoop.",
+      "Wet chemistry laboratory (part of the MECA instrument): it mixed soil with water to measure acidity and dissolved salts.",
+      "Weather station with a lidar (a laser that looks up): it tracked dust, clouds and snow overhead.",
+      "Cameras: together they returned more than 25,000 images."
      ]
     },
     {
-     "title": "A mission led by a university",
+     "title": "What Phoenix found",
      "text": [
-      "Phoenix was the first Mars mission led by a public university, with the project run by scientists at the University of Arizona."
+      "These results are confirmed in NASA's end-of-mission summary:"
+     ],
+     "list": [
+      "Water ice just below the surface, in at least two kinds of deposits.",
+      "Soil that is mildly alkaline, unlike what earlier missions had found.",
+      "Perchlorate, a salt that affects the properties of ice and soil.",
+      "Calcium carbonate, a marker of past liquid water.",
+      "Snow falling from clouds. The laser saw snow about 4 km (2.5 mi) above the lander; the snow vaporized before reaching the ground.",
+      "Small amounts of salts that could serve as nutrients for life."
+     ],
+     "after": "Phoenix did not discover life on Mars, and nothing it measured proves that life ever existed there."
+    },
+    {
+     "title": "The photograph of Phoenix on its parachute",
+     "text": [
+      "On May 25, 2008, NASA's Mars Reconnaissance Orbiter was already pointed at Phoenix's expected path to record its radio signals. Its HiRISE camera also took a very slanted (oblique) picture from about 310 km above the surface, and Phoenix hanging from its parachute was in it.",
+      "The parachute had opened only 46 seconds earlier at an altitude of about 12.6 km, and Phoenix was 2 minutes and 52 seconds from landing. The parachute was about 10 m wide; the lander appears as a bright dot below it. It was the first time one spacecraft had photographed another one during its descent onto a planet.",
+      "Looks can deceive: in the picture Phoenix seems to fall into a large crater, but it landed about 20 km away from it. The crater only appears behind the lander because of the camera angle."
+     ],
+     "links": [
+      {
+       "label": "See the picture: Phoenix Makes a Grand Entrance (PIA10698)",
+       "url": "https://www.jpl.nasa.gov/images/pia10698-phoenix-makes-a-grand-entrance/"
+      },
+      {
+       "label": "How the picture was taken (PIA10696)",
+       "url": "https://www.jpl.nasa.gov/images/pia10696-how-to-take-a-picture-of-a-spacecraft-landing"
+      }
      ]
     },
     {
-     "title": "Why the poles?",
+     "title": "The end of the mission",
      "text": [
-      "Scientists wanted to know whether ice could preserve traces of past life, and whether Mars could be a place where humans might find water in the future."
-     ]
-    },
-    {
-     "title": "This model",
-     "text": [
-      "The 3D model of Phoenix is still in development. The shape you see is a temporary placeholder."
+      "As northern summer turned to autumn, the days got shorter, the sky got dustier and cloudier, and it got colder. Phoenix's solar panels no longer made enough power to charge its batteries. Its last signal came on November 2, 2008, and NASA declared the mission over on November 10, 2008."
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/phoenix-1.jpg",
-     "alt": "Phoenix — view 1",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Phoenix"
+     "alt": "Artist's concept of the Phoenix lander on Mars",
+     "credit": "NASA / JPL / UA / Lockheed Martin",
+     "page": "https://science.nasa.gov/photojournal/phoenix-lander-on-mars-artists-concept/"
     },
     {
      "src": "img/exhibits/phoenix-2.jpg",
-     "alt": "Phoenix — view 2",
-     "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=Phoenix"
+     "alt": "Martian arctic soil at the Phoenix landing site",
+     "credit": "NASA / JPL-Caltech / University of Arizona",
+     "page": "https://science.nasa.gov/mission/phoenix"
     }
-   ]
+   ],
+   "specs": [
+    [
+     "Type",
+     "Robotic Mars lander"
+    ],
+    [
+     "Country",
+     "United States"
+    ],
+    [
+     "Organization",
+     "University of Arizona, with NASA JPL and Lockheed Martin Space"
+    ],
+    [
+     "Program",
+     "NASA Mars Scout (first mission of the program)"
+    ],
+    [
+     "Launch",
+     "August 4, 2007"
+    ],
+    [
+     "Landing",
+     "May 25, 2008 (23:53 UTC)"
+    ],
+    [
+     "Landing site",
+     "Vastitas Borealis, the far-northern plains of Mars"
+    ],
+    [
+     "Power",
+     "Solar panels"
+    ],
+    [
+     "Planned lifetime",
+     "About 3 months"
+    ],
+    [
+     "Actual lifetime",
+     "More than 5 months (science on 149 of 152 Martian days)"
+    ],
+    [
+     "Last signal",
+     "November 2, 2008 (mission declared over November 10, 2008)"
+    ],
+    [
+     "Mission status",
+     "Completed"
+    ]
+   ],
+   "facts": [
+    {
+     "title": "Landing on legs, not airbags",
+     "text": "Phoenix slowed itself with a parachute and rockets and touched down on three legs."
+    },
+    {
+     "title": "Snow that never landed",
+     "text": "The lander's laser saw snow falling from clouds about 4 km up, but it vaporized before it reached the ground."
+    },
+    {
+     "title": "Two months of bonus time",
+     "text": "Phoenix was planned to work for about three months, and it worked for more than five."
+    },
+    {
+     "title": "A university-led mission",
+     "text": "The science instruments and operations were the responsibility of the University of Arizona."
+    },
+    {
+     "title": "The landing, photographed from orbit",
+     "text": "A camera on NASA's Mars Reconnaissance Orbiter photographed Phoenix hanging from its parachute during descent."
+    }
+   ],
+   "importance": [
+    "Phoenix was the first mission to touch and test water ice on Mars from the surface, and it found chemistry (salts, calcium carbonate) that tells scientists about the planet's watery past. Its discovery of perchlorate is also relevant to how scientists interpret older soil tests, including Viking's.",
+    "It also showed that a spacecraft can be photographed during its landing by another spacecraft in orbit, which helps engineers study how landings work."
+   ],
+   "sources": [
+    {
+     "title": "Phoenix",
+     "publisher": "NASA Science",
+     "url": "https://science.nasa.gov/mission/phoenix",
+     "used": "Mission overview"
+    },
+    {
+     "title": "Phoenix Launch: Mission to the Martian Polar North (press kit, August 2007)",
+     "publisher": "NASA",
+     "url": "https://www.nasa.gov/pdf/181835main_phoenix-launch-presskit.pdf",
+     "used": "Arm reach, MECA wet chemistry laboratory, arm camera"
+    },
+    {
+     "title": "Mars Phoenix Lander Finishes Successful Work on Red Planet",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/news/mars-phoenix-lander-finishes-successful-work-on-red-planet/",
+     "used": "Results, why it stopped, 25,000 images, end-of-mission dates"
+    },
+    {
+     "title": "NASA Mars Lander Sees Falling Snow, Soil Data Suggest Liquid Past (release 08-246)",
+     "publisher": "NASA (NSSDC archive)",
+     "url": "https://nssdc.gsfc.nasa.gov/planetary/text/phoenix_pr_20080929.txt",
+     "used": "Snow detected by the lidar, soil evidence of liquid water"
+    },
+    {
+     "title": "Phoenix Lander on Mars (Artist's Concept) (image PIA09344)",
+     "publisher": "NASA Science (NASA/JPL/UA/Lockheed Martin)",
+     "url": "https://science.nasa.gov/photojournal/phoenix-lander-on-mars-artists-concept/",
+     "used": "Lander illustration, lidar, landing date, end of communications"
+    },
+    {
+     "title": "PIA10698: Phoenix Makes a Grand Entrance",
+     "publisher": "NASA Jet Propulsion Laboratory (HiRISE, University of Arizona)",
+     "url": "https://www.jpl.nasa.gov/images/pia10698-phoenix-makes-a-grand-entrance/",
+     "used": "Parachute photo: timing, altitude, camera angle"
+    },
+    {
+     "title": "How to Take a Picture of a Spacecraft Landing (PIA10696)",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/images/pia10696-how-to-take-a-picture-of-a-spacecraft-landing",
+     "used": "How MRO took the picture"
+    },
+    {
+     "title": "Phoenix Makes a Grand Entrance (PIA10698 image page)",
+     "publisher": "NASA Science",
+     "url": "https://science.nasa.gov/?p=951703",
+     "used": "First time a spacecraft imaged another spacecraft's final descent"
+    },
+    {
+     "title": "Phoenix Descent with Color and the Heat Shield in Free-Fall",
+     "publisher": "HiRISE, University of Arizona",
+     "url": "https://www.uahirise.org/phoenix-descent-color.php",
+     "used": "The crater in the background is about 20 km behind the lander"
+    }
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "insight",
@@ -971,17 +1440,17 @@ window.EXHIBITS_DATA = {
    "agency": "NASA / JPL",
    "years": "2018–2022",
    "status": "OUT OF POWER",
-   "last_contact": "Dec 2022",
+   "last_contact": "Dec 15, 2022",
    "location": "Elysium Planitia, Mars",
    "creators": "NASA JPL, Lockheed Martin Space",
    "summary": "InSight listened to the inside of Mars with a seismometer. When dust covered its solar panels, it ran out of power.",
-   "fact": "It recorded more than 1,300 marsquakes.",
+   "fact": "InSight was the first mission dedicated to studying the deep interior of Mars, and it listened to more than 1,300 marsquakes.",
    "model": "models/insight.glb",
    "markers": [
     {
      "planet": "mars",
-     "lat": 4.5,
-     "lon": 135.62,
+     "lat": 1.9,
+     "lon": -38.57,
      "label": "Elysium Planitia"
     }
    ],
@@ -994,58 +1463,199 @@ window.EXHIBITS_DATA = {
       "distance": "about 84.4 million km (Mars)"
      }
     ],
-    "basis": "Last communication Dec 15, 2022 (NASA). Earth–Mars distance computed from a planetary ephemeris."
+    "basis": "Last communication Dec 15, 2022 (NASA JPL). Earth–Mars distance computed from a planetary ephemeris."
    },
    "story": [
-    "InSight landed on Mars on November 26, 2018, in Elysium Planitia, a flat plain near the equator. Its goal was to listen to the planet's interior, much as doctors listen to a heartbeat.",
-    "Its seismometer was set on the ground by a robotic arm, and it recorded more than 1,300 marsquakes. From the way the waves travelled, scientists learned about the thickness of the crust and the size of the core of Mars.",
-    "A second instrument, a heat probe, was meant to dig into the soil, but the soil was not what the engineers expected, and the probe could not go in as planned.",
-    "Over time dust settled on InSight's solar panels, and the power dropped. In December 2022 the lander missed two scheduled contacts, and NASA declared the mission over. It remains on the plain where it landed."
+    "InSight landed on Mars on November 26, 2018, on the flat plain of Elysium Planitia. Its goal was to study the inside of Mars: how thick its crust is, what its mantle is like and how big its core is.",
+    "It did this with a seismometer, an instrument that feels ground shaking, which it set on the ground with a robotic arm. It recorded 1,319 marsquakes. A second instrument, a digging heat probe called the mole, did not reach its planned depth.",
+    "Over time dust covered its solar panels and its power ran low. After two missed contacts in December 2022, NASA ended the mission."
    ],
    "details": [
     {
-     "title": "Facts at a glance",
+     "title": "Why study the inside of Mars?",
+     "text": [
+      "Mars and Earth are both rocky planets, so measuring the inside of Mars helps scientists understand how rocky planets, including Earth, formed. InSight's name stands for Interior Exploration using Seismic Investigations, Geodesy and Heat Transport, which are the three techniques it used."
+     ]
+    },
+    {
+     "title": "Marsquakes: how InSight listened",
+     "text": [
+      "A marsquake is a shaking of the ground on Mars, like an earthquake. When a quake happens, seismic waves travel through the planet, and the way they bend and bounce reveals what the inside is made of. InSight's seismometer, SEIS, was provided by France's space agency CNES.",
+      "InSight and its partners detected 1,319 marsquakes. Many came from a region called Cerberus Fossae, about 1,500 km from the lander. Wind noise hid quakes in winter, so most were found during calm evenings. Some waves also came from meteoroid impacts: the two largest craters found are over 100 m wide."
+     ]
+    },
+    {
+     "title": "What scientists learned about the inside of Mars",
      "list": [
-      "Agency: NASA Jet Propulsion Laboratory (JPL), with Lockheed Martin Space",
-      "Landing: November 26, 2018, Elysium Planitia",
-      "Last contact: December 2022",
-      "Main instrument: a seismometer, called SEIS"
+      "Crust: its average thickness is 24 to 72 km, somewhat thinner than earlier estimates.",
+      "Core: it is about 3,600 to 3,700 km across, at the upper end of earlier estimates. Mars is just under 6,800 km across.",
+      "Mars is seismically active, and the data also revealed local weather and magnetic remnants in the crust."
+     ],
+     "after": "Scientists are still studying InSight's data, and new papers keep appearing."
+    },
+    {
+     "title": "The mole that could not dig",
+     "text": [
+      "The heat probe, called the mole, was a self-hammering spike made by Germany's DLR. It was meant to dig down to about 5 m (16 ft) and measure heat flowing out of Mars. It could not reach that depth. The soil was clumpy and did not give the mole enough friction to push against, so it could not hammer deeper.",
+      "Engineers tried many new ideas with the robotic arm, pinning the mole and pressing on it with the scoop. The mole's probe ended up buried about 40 cm (16 in) deep. After trying since February 2019, the team gave up in January 2021. The planned heat-flow measurement was not fully achieved, but the mole still returned data on the soil's physical and thermal properties."
      ]
     },
     {
-     "title": "What it learned",
+     "title": "Two tiny helpers: MarCO",
      "text": [
-      "InSight found that Mars is seismically active, measured the depth of its layers, and detected the shaking caused by meteoroid impacts."
+      "Two small satellites called MarCO-A and MarCO-B launched with InSight. They were the first interplanetary CubeSats. They flew past Mars during InSight's landing and relayed its radio signals to Earth in near real time. MarCO-B also took a picture of Mars from about 7,600 km away."
      ]
     },
     {
-     "title": "The dust problem",
+     "title": "The dust problem and the end",
      "text": [
-      "Mars has fine dust and no rain, so the dust slowly builds up on solar panels. Engineers tried different tricks to clean them, but eventually the power ran out."
-     ]
-    },
-    {
-     "title": "This model",
-     "text": [
-      "The 3D model of InSight is still in development. The shape you see is a temporary placeholder."
+      "Dust slowly covered the solar panels and cut the lander's power. Engineers found they could scoop up soil with the arm and sprinkle it onto the panels on windy days so the falling grains swept some dust away. Even so, the seismometer was the last instrument left running.",
+      "InSight took its final selfie on April 24, 2022 (sol 1,211). After two missed contacts, NASA ended the mission, and the last communication had been on December 15, 2022. The lander is believed to be out of power, in what engineers call \"dead bus\"."
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/insight-1.jpg",
-     "alt": "InSight — view 1",
+     "alt": "InSight's final selfie: the lander covered in Martian dust, April 24, 2022",
      "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=InSight"
+     "page": "https://www.jpl.nasa.gov/images/pia25287-insights-final-selfie/"
     },
     {
      "src": "img/exhibits/insight-2.jpg",
-     "alt": "InSight — view 2",
+     "alt": "InSight's robotic arm above its solar panel",
      "credit": "NASA / JPL-Caltech",
-     "page": "https://images.nasa.gov/search?q=InSight"
+     "page": "https://www.jpl.nasa.gov/news/nasa-retires-insight-mars-lander-mission-after-years-of-science"
     }
-   ]
+   ],
+   "specs": [
+    [
+     "Type",
+     "Robotic Mars lander (geophysics)"
+    ],
+    [
+     "Country",
+     "United States, with France, Germany and other partners"
+    ],
+    [
+     "Organization",
+     "NASA / Jet Propulsion Laboratory (JPL)"
+    ],
+    [
+     "Launch",
+     "May 5, 2018"
+    ],
+    [
+     "Landing",
+     "November 26, 2018"
+    ],
+    [
+     "Landing site",
+     "Elysium Planitia, Mars"
+    ],
+    [
+     "Mass",
+     "About 358 kg (790 lb)"
+    ],
+    [
+     "Size",
+     "Solar panels span 6.0 m (19 ft 8 in); robotic arm 1.8 m (5 ft 11 in)"
+    ],
+    [
+     "Main instruments",
+     "SEIS seismometer, HP3 heat probe (the mole), RISE radio experiment, wind and temperature sensors"
+    ],
+    [
+     "Planned lifetime",
+     "About one Mars year and 40 Mars days (nearly two Earth years)"
+    ],
+    [
+     "Last communication",
+     "December 15, 2022"
+    ],
+    [
+     "Mission status",
+     "Completed"
+    ]
+   ],
+   "facts": [
+    {
+     "title": "First dedicated to Mars's deep interior",
+     "text": "InSight was the first Mars mission dedicated to studying the planet's deep interior."
+    },
+    {
+     "title": "First seismometer set on Mars",
+     "text": "It was the first to place a seismometer directly on the Martian surface, and the first to use a robotic arm to grasp instruments on another planet."
+    },
+    {
+     "title": "A West Coast launch",
+     "text": "InSight was the first interplanetary launch from the U.S. West Coast, from Vandenberg."
+    },
+    {
+     "title": "Twice as long as planned",
+     "text": "The mission lasted 1,446 sols, more than twice its planned duration."
+    },
+    {
+     "title": "MarCO, the first deep-space CubeSats",
+     "text": "The two MarCO CubeSats were the first CubeSats sent to deep space."
+    }
+   ],
+   "importance": [
+    "InSight gave the first direct look at the inside of another rocky planet since the Apollo-era seismometers on the Moon. Its measurements of Mars's crust, mantle and core help scientists test ideas about how rocky planets, including Earth, formed and changed.",
+    "It also taught engineers about digging into soil and working with dust on solar-powered missions, lessons for future landers."
+   ],
+   "sources": [
+    {
+     "title": "NASA Retires InSight Mars Lander Mission After Years of Science",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/news/nasa-retires-insight-mars-lander-mission-after-years-of-science",
+     "used": "End of mission, 1,319 marsquakes, mole, dust, instruments"
+    },
+    {
+     "title": "InSight Mission Summary (launch press kit facts)",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/news/press_kits/insight/launch/facts",
+     "used": "Mission firsts, dimensions, mass, solar panels, mission length"
+    },
+    {
+     "title": "InSight mission ends",
+     "publisher": "German Aerospace Center (DLR)",
+     "url": "https://www.dlr.de/en/latest/news/2022/04/insight-mission-ends",
+     "used": "Crust and core size, Cerberus Fossae, impacts, 1,446 sols, end dates"
+    },
+    {
+     "title": "NASA InSight's 'Mole' Ends Its Journey on Mars",
+     "publisher": "NASA",
+     "url": "https://www.nasa.gov/centers-and-facilities/jpl/nasa-insights-mole-ends-its-journey-on-mars",
+     "used": "Mole story and end of digging"
+    },
+    {
+     "title": "Common Questions about InSight's 'Mole'",
+     "publisher": "NASA Science",
+     "url": "https://science.nasa.gov/?p=358369",
+     "used": "Why the mole lacked friction"
+    },
+    {
+     "title": "InSight's Final Selfie (image PIA25287)",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/images/pia25287-insights-final-selfie/",
+     "used": "Final selfie, April 24, 2022 (sol 1,211)"
+    },
+    {
+     "title": "Mars Cube One (MarCO)",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/missions/mars-cube-one-marco",
+     "used": "MarCO as the first interplanetary CubeSats"
+    },
+    {
+     "title": "NASA Hears MarCO CubeSats Loud and Clear from Mars",
+     "publisher": "NASA Jet Propulsion Laboratory",
+     "url": "https://www.jpl.nasa.gov/news/nasa-hears-marco-cubesats-loud-and-clear-from-mars/",
+     "used": "MarCO relay during landing; MarCO-B picture of Mars"
+    }
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "pioneer",
@@ -1109,7 +1719,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/pioneer-1.jpg",
@@ -1123,7 +1733,8 @@ window.EXHIBITS_DATA = {
      "credit": "NASA / JPL-Caltech",
      "page": "https://images.nasa.gov/search?q=Pioneer%2010"
     }
-   ]
+   ],
+   "made_by": "Claude"
   },
   {
    "id": "dawn",
@@ -1187,7 +1798,7 @@ window.EXHIBITS_DATA = {
      ]
     }
    ],
-   "placeholder": true,
+   "placeholder": false,
    "images": [
     {
      "src": "img/exhibits/dawn-1.jpg",
@@ -1201,7 +1812,8 @@ window.EXHIBITS_DATA = {
      "credit": "NASA / JPL-Caltech",
      "page": "https://images.nasa.gov/search?q=Dawn"
     }
-   ]
+   ],
+   "made_by": "Claude"
   }
  ]
 };
